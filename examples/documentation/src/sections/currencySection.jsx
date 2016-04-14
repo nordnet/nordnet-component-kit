@@ -2,7 +2,7 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { Row, Col } from 'react-bem-grid';
 import Section from '../components/section/section';
-import { Currency } from 'nordnet-formatter';
+import { Currency } from 'nordnet-component-kit';
 
 class CurrencySection extends PureComponent {
   render() {

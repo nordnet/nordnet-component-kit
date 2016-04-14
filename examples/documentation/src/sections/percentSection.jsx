@@ -2,7 +2,7 @@ import React from 'react';
 import PureComponent from 'react-pure-render/component';
 import { Row, Col } from 'react-bem-grid';
 import Section from '../components/section/section';
-import { Percent } from 'nordnet-formatter';
+import { Percent } from 'nordnet-component-kit';
 
 class PercentSection extends PureComponent {
   render() {

@@ -1,29 +1,8 @@
 import React from 'react';
 import PureComponent from 'react-pure-render/component';
-import { IntlProvider } from 'react-intl';
 import { Row, Col } from 'react-bem-grid';
 import Section from '../components/section/section';
-import { DateTime } from 'nordnet-formatter';
-
-const locales = [
-  'sv-SE',
-  'nb-NO',
-  'da-dK',
-  'fi-FI',
-];
-
-function renderIntlDate(component) {
-  return locales.map(
-    locale => (
-      <div key={ locale }>
-        <b>{ locale }: </b>
-        <IntlProvider locale={ locale }>
-          { component }
-        </IntlProvider>
-      </div>
-    )
-  );
-}
+import { DateTime } from 'nordnet-component-kit';
 
 class DateTimeSection extends PureComponent {
   render() {
