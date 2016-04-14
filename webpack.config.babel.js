@@ -1,14 +1,14 @@
 import webpack from 'webpack';
 
-module.exports = {
-  name: 'nordnet-formatter',
+const config = {
+  name: 'nordnet-component-kit',
   entry: {
-    'nordnet-formatter': './src/index.js',
+    'nordnet-component-kit': './src/index.js',
   },
   output: {
     library: 'NordnetFormatter',
-    libraryTarget: 'commonjs2',
-    path: './dist',
+    libraryTarget: 'umd',
+    path: './lib',
     filename: '[name].js',
   },
   resolve: {
@@ -52,8 +52,21 @@ module.exports = {
   ],
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
   ],
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+    })
+  );
+}
+
+export default config;

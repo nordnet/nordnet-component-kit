@@ -1,7 +1,7 @@
 {
-  "name": "nordnet-formatter-documentation",
+  "name": "nordnet-component-kit-documentation",
   "version": "0.0.1",
-  "description": "Documentation for nordnet-formatter",
+  "description": "Documentation for nordnet-component-kit",
   "config": {
     "dist": "./dist",
     "dev_server": {
@@ -15,8 +15,8 @@
   },
   "main": "dist/index.html",
   "scripts": {
-    "env:prod": "npm config set nordnet-formatter-documentation:node_env=production",
-    "env:dev": "npm config set nordnet-formatter-documentation:node_env=development",
+    "env:prod": "npm config set nordnet-component-kit-documentation:node_env=production",
+    "env:dev": "npm config set nordnet-component-kit-documentation:node_env=development",
     "prestart": "npm run env:dev",
     "start": "npm run start:webpack-dev-server",
     "clean": "rimraf dist",
@@ -32,7 +32,7 @@
   "dependencies": {
     "classnames": "2.2.3",
     "lodash.kebabcase": "4.0.0",
-    "nordnet-formatter": "0.0.1",
+    "nordnet-component-kit": "0.0.1",
     "normalize.css": "4.1.1",
     "react": "15.0.1",
     "react-addons-pure-render-mixin": "15.0.1",

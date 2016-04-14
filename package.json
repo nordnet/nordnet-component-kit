@@ -1,14 +1,14 @@
 {
-  "name": "nordnet-formatter",
+  "name": "nordnet-component-kit",
   "version": "0.0.1",
   "description": "Custom formats used by Nordnet",
-  "main": "dist/nordnet-formatter.js",
+  "main": "lib/nordnet-component-kit.js",
   "directories": {
     "example": "examples",
     "test": "test"
   },
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf lib",
     "test": "mocha",
     "lint": "eslint --ext=.jsx --ext=.js src test",
     "build": "npm-run-all clean webpack",

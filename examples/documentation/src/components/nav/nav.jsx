@@ -23,7 +23,7 @@ class Nav extends PureComponent {
         <Grid>
           <Row>
             <Col xs={ 4 }>
-              <div>Nordnet</div>
+              <div className="nav__logo">Nordnet</div>
             </Col>
             <Col xs={ 8 }>
               <ul className="nav__items">
