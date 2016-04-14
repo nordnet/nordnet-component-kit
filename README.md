@@ -1,4 +1,4 @@
-# Nordnet Formatter
+# Nordnet Component Kit
 
 ## Installation
 TODO
