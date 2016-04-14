@@ -3,7 +3,6 @@ import PureComponent from 'react-pure-render/component';
 import { PrismCode } from 'react-prism';
 import kebabCase from 'lodash.kebabcase';
 import classNames from 'classnames';
-import anchorIcon from '../../assets/anchor-icon.svg';
 
 import './section.scss';
 
@@ -40,7 +39,8 @@ class Section extends PureComponent {
             <a
               className="section__link"
               href={ `#${id}-section` }
-              dangerouslySetInnerHTML={{ __html: anchorIcon }}
+              style={{ textDecoration: 'none' }}
+              dangerouslySetInnerHTML={{ __html: '•' }}
             />
           </h1>
           <p className="section__description">
