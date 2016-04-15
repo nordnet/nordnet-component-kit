@@ -62,12 +62,8 @@ Number.propTypes = {
 };
 
 Number.defaultProps = {
-  className: '',
-  valueClass: '',
   valueDecimals: 2,
-  prefixClass: '',
   prefixSeparator: '',
-  suffixClass: '',
   suffixSeparator: '',
 };
 

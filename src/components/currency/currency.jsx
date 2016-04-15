@@ -20,9 +20,7 @@ const Currency = ({
 );
 
 Currency.propTypes = {
-  className: React.PropTypes.string,
   value: React.PropTypes.number.isRequired,
-  valueClass: React.PropTypes.string,
   currency: React.PropTypes.string,
   suffix: React.PropTypes.string,
   suffixClass: React.PropTypes.string,
