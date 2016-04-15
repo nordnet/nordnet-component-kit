@@ -1,7 +1,7 @@
 # Nordnet Component Kit
 
 ## Installation
-TODO once this is in sinopia this is true, until then - not so much!
+TODO once this is in sinopia/github this is true, until then - not so much!
 
 ```
 npm install --save nordnet-component-kit
@@ -95,3 +95,7 @@ The `<Development />` component takes the following props:
 - `value`: **required**
 - `decimals`
 - `type`: *default: 'number'*, either `number`, `percentage` or `currency`
+
+
+## License
+TODO - only needed if published on github?
