@@ -27,6 +27,9 @@ class App extends PureComponent {
               { section }
             </span>))}
         </Grid>
+        <footer style={{ height: '100vh' }}>
+          <span style={{ fontSize: '10px', position: 'static' }}>Small hack to be able to scroll past end ™</span>
+        </footer>
       </div>
     );
   }
