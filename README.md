@@ -3,7 +3,7 @@
 ## Installation
 TODO once this is in sinopia/github this is true, until then - not so much!
 
-```
+```bash
 npm install --save nordnet-component-kit
 ```
 
@@ -46,10 +46,10 @@ The `<Number />` component takes the following props:
 - `value`
 - `valueClass`
 - `valueDecimals`: *default: 2*
-- `prefix`: either `string` or `node`
+- `prefix`: type is either `string` or `node`
 - `prefixClass`:
 - `prefixSeparator`: *default: ''*
-- `suffix`: either `string` or `node`
+- `suffix`: type is either `string` or `node`
 - `suffixClass`
 - `suffixSeparator`: *default: ''*
 
@@ -66,7 +66,7 @@ The `<Currency />` component takes the following props:
 - `suffix`: can be used interchangeably with `currency`.
 - `suffixClass`
 - `suffixSeparator`: *default: ' '*
-- `suffixSize`: *default: 'normal'*, can take either `normal` or `small`
+- `suffixSize`: *default: 'normal'*, either `normal` or `small`
 - `decimals`: *default: 2*
 
 #### Percent
@@ -96,6 +96,24 @@ The `<Development />` component takes the following props:
 - `decimals`
 - `type`: *default: 'number'*, either `number`, `percentage` or `currency`
 
+### DateTime
+If the iso flag is not specified this component act as a wrapper for `FormattedDate` or `FormattedRelative`. It passes on props to these underlying components and therefore all props that are valid for them are also valid here.
+
+**In use:**
+```javascript
+<DateTime value={ new Date() } />
+// 4/15/2016
+<DateTime value={ new Date() } iso minute="numeric" />
+// 2016-04-15 13:55
+<DateTime value={ (new Date() - 24 * 60 * 60 * 1000) } format="numeric" type="relative" />
+// 1 day ago
+```
+
+The `<DateTime />` component takes the following props:
+- `value`: **required**, type is either `number` or `Date`
+- `format`: *default: 'numeric'*, either `numeric` or `human`
+- `type`: *default: 'date'*, either `date` or `relative`
+- `iso`: *default: false*
 
 ## License
 TODO - only needed if published on github?

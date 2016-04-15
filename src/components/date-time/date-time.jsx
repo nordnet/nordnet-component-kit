@@ -22,9 +22,9 @@ const DateTime = ({
 
   return (
     <Component
-      value={ value }
-      { ...formats[type][format] }
       { ...rest }
+      { ...formats[type][format] }
+      value={ value }
     />
   );
 };
