@@ -46,10 +46,10 @@ The `<Number />` component takes the following props:
 - `value`
 - `valueClass`
 - `valueDecimals`: *default: 2*
-- `prefix`: either *string* or *node*
+- `prefix`: either `string` or `node`
 - `prefixClass`:
 - `prefixSeparator`: *default: ''*
-- `suffix`: either *string* or *node*
+- `suffix`: either `string` or `node`
 - `suffixClass`
 - `suffixSeparator`: *default: ''*
 
@@ -57,6 +57,7 @@ The `<Number />` component takes the following props:
 **In use:**
 ```javascript
 <Currency value={ 34.4442 } decimals={ 2 } currency="DKK" />
+// 34.44 DKK
 ```
 
 The `<Currency />` component takes the following props:
@@ -65,5 +66,32 @@ The `<Currency />` component takes the following props:
 - `suffix`: can be used interchangeably with `currency`.
 - `suffixClass`
 - `suffixSeparator`: *default: ' '*
-- `suffixSize`: *default: 'normal'*, can take either 'normal' or 'small'
+- `suffixSize`: *default: 'normal'*, can take either `normal` or `small`
 - `decimals`: *default: 2*
+
+#### Percent
+**In use:**
+```javascript
+<Percent value={ 90.44 } decimals={ 2 } suffixSeparator=" " />
+// 90.44 %
+```
+
+The `<Percent />` component takes the following props:
+- `value`: **required**
+- `suffixSeparator`: *default: ''*
+- `decimals`: *default: 2*
+
+#### Development
+**In use:**
+```javascript
+<Development value={ -112.2334 } decimals={ 2 } />
+// ▼ 112.23
+<Development value={ 2.2333 } type="percentage" />
+// ▲ 2.23%
+```
+
+The `<Development />` component takes the following props:
+- `className`
+- `value`: **required**
+- `decimals`
+- `type`: *default: 'number'*, either `number`, `percentage` or `currency`

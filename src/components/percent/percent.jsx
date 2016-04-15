@@ -19,7 +19,6 @@ Percent.propTypes = {
 
 Percent.defaultProps = {
   suffixSeparator: '',
-  suffixSize: 'normal',
   decimals: 2,
 };
 
