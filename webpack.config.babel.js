@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 
-const config = {
+export default {
   name: 'nordnet-component-kit',
   entry: {
     'nordnet-component-kit': './src/index.js',
@@ -48,25 +48,22 @@ const config = {
         commonjs: 'react-dom',
         amd: 'react-dom',
       },
+    }, {
+      'react-intl': {
+        root: 'ReactIntl',
+        commonjs2: 'react-intl',
+        commonjs: 'react-intl',
+        amd: 'react-intl',
+      },
     },
   ],
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
     }),
   ],
 };
-
-if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-    })
-  );
-}
-
-export default config;
