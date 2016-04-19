@@ -48,10 +48,10 @@ The `<Number />` component takes the following props:
 - `valueDecimals`: *default: 2*
 - `prefix`: type is either `string` or `node`
 - `prefixClass`:
-- `prefixSeparator`: *default: ''*
+- `prefixSeparator`: *default: '' (empty string)*
 - `suffix`: type is either `string` or `node`
 - `suffixClass`
-- `suffixSeparator`: *default: ''*
+- `suffixSeparator`: *default: '' (empty string)*
 
 #### Currency
 **In use:**
@@ -65,7 +65,7 @@ The `<Currency />` component takes the following props:
 - `currency`: syntactic sugar for `suffix`
 - `suffix`: can be used interchangeably with `currency`.
 - `suffixClass`
-- `suffixSeparator`: *default: ' '*
+- `suffixSeparator`: *default: ' ' (space)*
 - `suffixSize`: *default: 'normal'*, either `normal` or `small`
 - `decimals`: *default: 2*
 
@@ -78,7 +78,7 @@ The `<Currency />` component takes the following props:
 
 The `<Percent />` component takes the following props:
 - `value`: **required**
-- `suffixSeparator`: *default: ''*
+- `suffixSeparator`: *default: '' (empty string)*
 - `decimals`: *default: 2*
 
 #### Development
