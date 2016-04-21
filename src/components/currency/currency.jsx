@@ -3,28 +3,38 @@ import classNames from 'classnames';
 import Number from '../number/number';
 import './currency.scss';
 
-const Currency = ({
+/**
+  This is the `<Currency /> component`
+*/
+export default function Currency({
   currency,
   decimals,
-  suffix,
-  suffixClass,
   suffixSize,
   ...rest,
-}) => (
-  <Number
-    { ...rest }
-    valueDecimals={ decimals }
-    suffix={ currency || suffix }
-    suffixClass={ classNames(`currency__suffix--${suffixSize}`, suffixClass) }
-  />
-);
+}) {
+  return (
+    <Number
+      { ...rest }
+      valueDecimals={ decimals }
+      suffix={ currency || rest.suffix }
+      suffixClass={ classNames(`currency__suffix--${suffixSize}`, rest.suffixClass) }
+    />
+  );
+}
 
 Currency.propTypes = {
   value: React.PropTypes.number.isRequired,
+  /**
+    Syntactic sugar for `suffix` (either one can be used)
+  */
   currency: React.PropTypes.string,
-  suffix: React.PropTypes.string,
-  suffixClass: React.PropTypes.string,
+  /**
+    Default is a space (`' '`)
+  */
   suffixSeparator: React.PropTypes.string,
+  /**
+    Possible values are `'normal'` or `'small'`
+  */
   suffixSize: React.PropTypes.string,
   decimals: React.PropTypes.number,
 };
@@ -34,5 +44,3 @@ Currency.defaultProps = {
   suffixSize: 'normal',
   decimals: 2,
 };
-
-export default Currency;

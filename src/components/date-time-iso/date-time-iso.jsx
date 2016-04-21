@@ -1,13 +1,16 @@
 import React from 'react';
 import isoDate from './iso-date';
 
-const DateTimeIso = ({
+/**
+  This component is not intended for public use
+*/
+export default function DateTimeIso({
   value,
   hour,
   minute,
   second,
   ...rest,
-}) => {
+}) {
   const iso = isoDate(value);
   let dateString;
 
@@ -16,7 +19,7 @@ const DateTimeIso = ({
   } else if (minute) {
     dateString = `${iso.get('date')} ${iso.get('HH')}:${iso.get('MM')}`;
   } else if (hour) {
-    dateString = `${iso.get('date')} ${iso.get('HH')}:${iso.get('MM')}:${iso.get('SS')}`;
+    dateString = `${iso.get('date')} ${iso.get('HH')}`;
   }
 
   return (
@@ -24,7 +27,7 @@ const DateTimeIso = ({
       { dateString }
     </span>
   );
-};
+}
 
 DateTimeIso.propTypes = {
   value: React.PropTypes.oneOfType([
@@ -48,5 +51,3 @@ DateTimeIso.propTypes = {
 DateTimeIso.defaultProps = {
   type: 'date',
 };
-
-export default DateTimeIso;

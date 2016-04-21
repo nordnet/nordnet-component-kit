@@ -3,13 +3,13 @@ import { FormattedDate, FormattedRelative } from 'react-intl';
 import DateTimeIso from '../date-time-iso/date-time-iso';
 import formats from './date-time-formats';
 
-const DateTime = ({
+function DateTime({
   value,
   format,
   type,
   iso,
   ...rest,
-}) => {
+}) {
   if (iso) {
     return <DateTimeIso value={value} { ...rest } />;
   }
@@ -27,15 +27,27 @@ const DateTime = ({
       value={ value }
     />
   );
-};
+}
 
 DateTime.propTypes = {
+  /**
+    Possible values are `'numeric'` or `'human'`
+  */
   format: React.PropTypes.string,
+  /**
+    Only applicable for dates, indicates that the date should follow [ISO 8601](https://sv.wikipedia.org/wiki/ISO_8601)
+  */
   iso: React.PropTypes.bool,
+  /**
+    A timestamp.
+  */
   value: React.PropTypes.oneOfType([
     React.PropTypes.number,
     React.PropTypes.instanceOf(Date),
   ]).isRequired,
+  /**
+    Possible values are `'date'` or `'relative'`
+  */
   type: React.PropTypes.string,
 };
 

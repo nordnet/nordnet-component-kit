@@ -1,11 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Addon = ({
+/**
+  This component is not intended for public use
+*/
+export default function Addon({
   className,
   children,
   ...rest,
-}) => {
+}) {
   const classes = classNames('addon', className);
 
   return (
@@ -13,11 +16,9 @@ const Addon = ({
       { children }
     </span>
   );
-};
+}
 
 Addon.propTypes = {
   className: React.PropTypes.string,
   children: React.PropTypes.node.isRequired,
 };
-
-export default Addon;

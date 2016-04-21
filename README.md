@@ -18,7 +18,8 @@ import { Percent, Currency } from 'nordnet-component-kit';
 ```
 
 ## Documentation
-For examples and full documentation see [examples/documentation](examples/documentation)
+For examples and full documentation see [TODO link to ghpages?](TODO link to ghpages?)
+
 To run the documentation locally, to this:
 ```bash
 # Go to the documentation directory
@@ -41,18 +42,6 @@ All of the components in this section use an underlying component `<Number />`. 
 **In use:**
 This component is *not* exported to public and is only here because of the above text.
 
-The `<Number />` component takes the following props:
-- `className`
-- `value`
-- `valueClass`
-- `valueDecimals`: *default: 2*
-- `prefix`: type is either `string` or `node`
-- `prefixClass`:
-- `prefixSeparator`: *default: '' (empty string)*
-- `suffix`: type is either `string` or `node`
-- `suffixClass`
-- `suffixSeparator`: *default: '' (empty string)*
-
 #### Currency
 **In use:**
 ```javascript
@@ -60,26 +49,12 @@ The `<Number />` component takes the following props:
 // 34.44 DKK
 ```
 
-The `<Currency />` component takes the following props:
-- `value`: **required**
-- `currency`: syntactic sugar for `suffix`
-- `suffix`: can be used interchangeably with `currency`.
-- `suffixClass`
-- `suffixSeparator`: *default: ' ' (space)*
-- `suffixSize`: *default: 'normal'*, either `normal` or `small`
-- `decimals`: *default: 2*
-
 #### Percent
 **In use:**
 ```javascript
 <Percent value={ 90.44 } decimals={ 2 } suffixSeparator=" " />
 // 90.44 %
 ```
-
-The `<Percent />` component takes the following props:
-- `value`: **required**
-- `suffixSeparator`: *default: '' (empty string)*
-- `decimals`: *default: 2*
 
 #### Development
 **In use:**
@@ -89,12 +64,6 @@ The `<Percent />` component takes the following props:
 <Development value={ 2.2333 } type="percentage" />
 // ▲ 2.23%
 ```
-
-The `<Development />` component takes the following props:
-- `className`
-- `value`: **required**
-- `decimals`
-- `type`: *default: 'number'*, either `number`, `percentage` or `currency`
 
 ### DateTime
 If the iso flag is not specified this component act as a wrapper for `FormattedDate` or `FormattedRelative`. It passes on props to these underlying components and therefore all props that are valid for them are also valid here.
@@ -108,12 +77,6 @@ If the iso flag is not specified this component act as a wrapper for `FormattedD
 <DateTime value={ (new Date() - 24 * 60 * 60 * 1000) } format="numeric" type="relative" />
 // 1 day ago
 ```
-
-The `<DateTime />` component takes the following props:
-- `value`: **required**, type is either `number` or `Date`
-- `format`: *default: 'numeric'*, either `numeric` or `human`
-- `type`: *default: 'date'*, either `date` or `relative`
-- `iso`: *default: false*
 
 ## License
 TODO - only needed if published on github?

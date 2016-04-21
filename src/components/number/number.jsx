@@ -20,7 +20,10 @@ function renderAddon(addon, addonClasses, addonSeparator, position) {
   );
 }
 
-const Number = ({
+/**
+  This component is not intended for public use
+*/
+export default function Number({
   className,
   value,
   valueClass,
@@ -32,7 +35,7 @@ const Number = ({
   suffixClass,
   suffixSeparator,
   ...rest,
-}) => {
+}) {
   const classes = classNames('number', className);
   return (
     <span { ...rest } className={ classes }>
@@ -46,7 +49,7 @@ const Number = ({
       { renderAddon(suffix, suffixClass, suffixSeparator, 'right') }
     </span>
   );
-};
+}
 
 Number.propTypes = {
   className: React.PropTypes.string,
@@ -66,5 +69,3 @@ Number.defaultProps = {
   prefixSeparator: '',
   suffixSeparator: '',
 };
-
-export default Number;
