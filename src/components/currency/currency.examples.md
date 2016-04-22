@@ -8,7 +8,7 @@ Example with suffix instead of currency, with decimals and small suffixSize:
 
 Example with big suffixSize:
 
-	<Currency value={ 9.2333 } currency={ "EUR" } decimals={ 4 } suffixSize="big" />
+	<Currency value={ 9.2333 } currency={ "EUR" } decimals={ 4 } suffixSize="normal" />
 
 Example with suffixSeparator:
 
