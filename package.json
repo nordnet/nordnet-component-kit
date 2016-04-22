@@ -64,7 +64,7 @@
     "npm-run-all": "1.7.0",
     "postcss-loader": "0.8.2",
     "react-addons-test-utils": "15.0.1",
-    "react-styleguidist": "2.2.0",
+    "react-styleguidist": "2.2.1",
     "rimraf": "2.5.2",
     "sass-loader": "3.2.0",
     "sinon": "1.17.3",
