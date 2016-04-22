@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import Number from '../number/number';
 import Currency from '../currency/currency';
 import Percent from '../percent/percent';
@@ -60,7 +59,6 @@ export default function Development({
   return (
     <Component
       { ...rest }
-      className={ classNames('development', `development--is-${direction}`, rest.className) }
       value={ Math.abs(value) }
       valueDecimals={ decimals }
       prefix={ renderArrow(direction) }
