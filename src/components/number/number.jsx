@@ -8,8 +8,10 @@ function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) 
     return null;
   }
 
+  const classes = classNames(`addon--${position}`, addonClasses);
+
   return (
-    <Addon className={ classNames(`addon--${position}`, addonClasses) } style={ addonStyle }>
+    <Addon className={ classes } style={ addonStyle }>
       <span>
         { position === 'right' ? addonSeparator : null }
         { addon }
@@ -41,7 +43,7 @@ export default function Number({
 }) {
   const classes = classNames('number', className);
   const styles = Object.assign({}, {
-    fontWeight: '400',
+    fontWeight: 400,
     whiteSpace: 'nowrap',
   }, style);
 
