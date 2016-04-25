@@ -11,7 +11,7 @@ function DateTime({
   ...rest,
 }) {
   if (iso) {
-    return <DateTimeIso value={value} { ...rest } />;
+    return <DateTimeIso value={ value } { ...rest } />;
   }
 
   const components = {

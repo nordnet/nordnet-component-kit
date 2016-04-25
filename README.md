@@ -1,8 +1,6 @@
 # Nordnet Component Kit
 
 ## Installation
-TODO once this is in sinopia/github this is true, until then - not so much!
-
 ```bash
 npm install --save nordnet-component-kit
 ```
@@ -79,4 +77,6 @@ If the iso flag is not specified this component act as a wrapper for `FormattedD
 ```
 
 ## License
-TODO - only needed if published on github?
+This open source project released by Nordnet is licensed under the MIT license.
+
+MIT [license](/LICENSE)

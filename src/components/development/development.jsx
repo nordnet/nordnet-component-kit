@@ -28,7 +28,7 @@ function renderSRMinus(direction) {
   return (
     <span
       className="sr-only"
-      dangerouslySetInnerHTML={{ __html: '&minus;' }}
+      dangerouslySetInnerHTML={ { __html: '&minus;' } }
     />
   );
 }
