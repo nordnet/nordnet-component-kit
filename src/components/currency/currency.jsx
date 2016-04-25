@@ -1,23 +1,30 @@
 import React from 'react';
-import classNames from 'classnames';
 import Number from '../number/number';
-import './currency.scss';
+import variables from '../../variables';
 
 /**
   This is the `<Currency /> component`
 */
 export default function Currency({
+  value,
   currency,
   decimals,
   suffixSize,
   ...rest,
 }) {
+  const styles = Object.assign({},
+    suffixSize === 'small' ? {
+      fontSize: variables.relativeSizeSm,
+      fontWeight: 600,
+    } : {}, rest.style);
+
   return (
     <Number
       { ...rest }
+      value={ value }
       valueDecimals={ decimals }
       suffix={ currency || rest.suffix }
-      suffixClass={ classNames(`currency__suffix--${suffixSize}`, rest.suffixClass) }
+      suffixStyle={ styles }
     />
   );
 }

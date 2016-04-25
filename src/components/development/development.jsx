@@ -2,7 +2,25 @@ import React from 'react';
 import Number from '../number/number';
 import Currency from '../currency/currency';
 import Percent from '../percent/percent';
-import './development.scss';
+import { relativeSizeSm } from '../../variables';
+
+const styleDevelopmentArrow = {
+  position: 'relative',
+  verticalAlign: 'baseline',
+  marginRight: '.5rem',
+  fontSize: `${relativeSizeSm}`,
+};
+
+const styleSROnly = {
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  padding: '0',
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0,0,0,0)',
+  border: '0',
+};
 
 function renderArrow(direction) {
   const arrows = {
@@ -27,7 +45,7 @@ function renderSRMinus(direction) {
   }
   return (
     <span
-      className="sr-only"
+      style={ styleSROnly }
       dangerouslySetInnerHTML={ { __html: '&minus;' } }
     />
   );
@@ -62,7 +80,7 @@ export default function Development({
       value={ Math.abs(value) }
       valueDecimals={ decimals }
       prefix={ renderArrow(direction) }
-      prefixClass="development__arrow"
+      prefixStyle={ styleDevelopmentArrow }
     />
   );
 }
