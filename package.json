@@ -4,7 +4,6 @@
   "description": "Custom components used by Nordnet",
   "main": "lib/nordnet-component-kit.js",
   "directories": {
-    "example": "examples",
     "test": "test"
   },
   "scripts": {
