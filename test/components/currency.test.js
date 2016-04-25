@@ -21,8 +21,8 @@ describe('<Currency />', () => {
       expect(component.prop('valueDecimals')).to.equal(2);
     });
 
-    it('should add the suffixClass currency__suffix--normal', () => {
-      expect(component.prop('suffixClass')).to.equal('currency__suffix--normal');
+    it('should not set any suffixStyle', () => {
+      expect(component.prop('suffixStyle')).to.be.empty();
     });
 
     it('should pass value through to its child', () => {
@@ -66,14 +66,14 @@ describe('<Currency />', () => {
     expect(component.prop('suffix')).to.equal('ANY');
   });
 
-  it('should set suffixClass to currency__suffix--small if suffixSize is small', () => {
+  it('should set font-size of suffix to 75%', () => {
     const component = shallow(
       <Currency
         value={ 0 }
         suffix="ANY"
         suffixSize="small"
       />);
-    expect(component.prop('suffixClass')).to.equal('currency__suffix--small');
+    expect(component.prop('suffixStyle').fontSize).to.equal('75%');
   });
 
   it('should pass suffixSeparator through to its child', () => {

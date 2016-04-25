@@ -20,8 +20,8 @@ describe('<Development />', () => {
       expect(component.prop('valueDecimals')).to.equal(2);
     });
 
-    it('should add the prefixClass development__arrow', () => {
-      expect(component.prop('prefixClass')).to.equal('development__arrow');
+    it('should add a prefixStyle', () => {
+      expect(component.prop('prefixStyle')).to.not.be.empty();
     });
 
     it('should pass value through to its child', () => {
@@ -50,5 +50,5 @@ describe('<Development />', () => {
     expect(component.prop('prefix').props.children[0].props.children).to.equal('▶');
   });
 
-  // A11y tests
+  // TODO: A11y tests
 });
