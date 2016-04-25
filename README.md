@@ -1,5 +1,9 @@
 # Nordnet Component Kit
 
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][depstat-image]][depstat-url]
+
 ## Installation
 ```bash
 npm install --save nordnet-component-kit
@@ -18,16 +22,14 @@ import { Percent, Currency } from 'nordnet-component-kit';
 ## Documentation
 For examples and full documentation see [TODO link to ghpages?](TODO link to ghpages?)
 
+# TODO: Fix the above link
+
 To run the documentation locally, to this:
 ```bash
-# Go to the documentation directory
-cd examples/documentation
-# Link your local nordnet-component-kit
-npm link nordnet-component-kit ../..
-# Install dependancies
-npm install
-# Run the documentation
-npm start
+# With Hot Module Reloading
+npm run styleguide-server
+# A static version (will end up in styleguide/styleguide)
+npm run styleguide-build
 ```
 
 ## Components
@@ -80,3 +82,12 @@ If the iso flag is not specified this component act as a wrapper for `FormattedD
 This open source project released by Nordnet is licensed under the MIT license.
 
 MIT [license](/LICENSE)
+
+[npm-url]: https://npmjs.org/package/nordnet-component-kit
+[npm-image]: https://img.shields.io/npm/v/nordnet-component-kit.svg
+
+[travis-url]: https://travis-ci.org/nordnet/nordnet-component-kit
+[travis-image]: https://travis-ci.org/nordnet/nordnet-component-kit.svg?branch=master
+
+[depstat-url]: https://david-dm.org/nordnet/nordnet-component-kit
+[depstat-image]: https://david-dm.org/nordnet/nordnet-component-kit.svg
