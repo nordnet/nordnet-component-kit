@@ -25,9 +25,9 @@ For examples and full documentation see [here](https://nordnet.github.io/nordnet
 To run the documentation locally, to this:
 ```bash
 # With Hot Module Reloading
-npm run styleguide-server
+npm run docs:watch
 # A static version (will end up in docs/)
-npm run styleguide-build
+npm run docs
 ```
 
 ## Components

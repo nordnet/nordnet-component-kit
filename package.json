@@ -7,25 +7,45 @@
     "test": "test"
   },
   "scripts": {
-    "clean": "rimraf lib",
+    "clean:docs": "rimraf docs",
+    "clean:lib": "rimraf lib",
+    "clean:node_modules": "rimraf node_modules",
+    "env:dev": "NODE_ENV=development ",
+    "env:prod": "NODE_ENV=production",
+    "prebuild": "npm run clean:lib",
+    "build": "npm-run-all env:prod webpack",
+    "build:watch": "npm run webpack -- --watch",
+    "webpack": "webpack --progress --config webpack/config.babel.js",
     "test": "mocha",
     "test:tdd": "npm run test -- --watch",
-    "lint": "eslint --ext=.jsx --ext=.js src test",
-    "build": "NODE_ENV=production npm-run-all clean webpack",
-    "prebuild:watch": "npm run clean",
-    "build:watch": "NODE_ENV=development npm run webpack -- --watch",
-    "webpack": "webpack --progress --config webpack/config.babel.js",
-    "prepush": "npm-run-all lint test",
-    "styleguide-server": "npm run styleguide -- server",
-    "styleguide-build": "npm run styleguide -- build",
-    "styleguide": "styleguidist --config styleguide/config.js"
+    "lint": "eslint src test",
+    "predocs": "npm run clean:docs",
+    "docs": "npm run styleguide -- build",
+    "docs:watch": "npm run styleguide -- server",
+    "docs:publish": "git subtree push --prefix docs origin gh-pages",
+    "styleguide": "styleguidist --config styleguide/config.js",
+    "validate": "npm-run-all lint test",
+    "prepush": "npm-run-all validate",
+    "prepublish": "npm-run-all validate build",
+    "postpublish": "npm-run-all docs docs:publish && git push --follow-tags --no-verify"
   },
   "keywords": [
     "nordnet",
+    "component",
+    "kit",
+    "format",
     "react",
-    "formatter",
     "intl"
   ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/nordnet-component-kit.js"
+  ],
+  "devEngines": {
+    "node": "4.x || 5.x",
+    "npm": "2.x || 3.x"
+  },
   "author": "Andreas Broström <andreas.brostrom@nordnet.se>",
   "license": "MIT",
   "peerDependencies": {
