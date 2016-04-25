@@ -6,20 +6,6 @@ var DEBUG = process.env.npm_package_config_node_env === 'development';
 var jsxLoader;
 var sassLoader;
 var cssLoader;
-
-var fileLoader = 'file-loader?name=[path][name].[ext]';
-
-var htmlLoader = [
-  'file-loader?name=[path][name].[ext]',
-  'template-html-loader?' + [
-    'raw=true',
-    'engine=lodash',
-    'version=' + pkg.version,
-    'title=' + pkg.name,
-    'debug=' + DEBUG
-  ].join('&')
-].join('!');
-
 var jsonLoader = ['json-loader'];
 
 var sassParams = [
@@ -69,11 +55,8 @@ var loaders = [
   },
   {
     test: /\.css$/,
+    exclude: /node_modules/,
     loader: cssLoader
-  },
-  {
-    test: /\.jpe?g$|\.gif$|\.png$|\.ico|\.svg$/,
-    loader: fileLoader
   },
   {
     test: /\.json$/,
@@ -81,11 +64,8 @@ var loaders = [
     loaders: jsonLoader
   },
   {
-    test: /\.html$/,
-    loader: htmlLoader
-  },
-  {
     test: /\.scss$/,
+    exclude: /node_modules/,
     loader: sassLoader
   }
 ];

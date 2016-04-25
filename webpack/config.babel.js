@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import loaders from './loaders';
 
 export default {
   name: 'nordnet-component-kit',
@@ -19,19 +20,7 @@ export default {
     ],
   },
   module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-      }, {
-        test: /\.scss$/,
-        loader: 'style!css!sass',
-      }, {
-        test: /\.css$/,
-        loader: 'style!css',
-      },
-    ],
+    loaders,
   },
   externals: [
     {

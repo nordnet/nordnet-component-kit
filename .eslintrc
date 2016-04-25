@@ -2,7 +2,8 @@
   "extends": "eslint-config-nordnet",
   "rules": {
     "new-cap": [2, {"capIsNewExceptions": ["express.Router"]}],
-    "no-param-reassign": [2, { "props": false }]
+    "no-param-reassign": [2, { "props": false }],
+    "react/jsx-curly-spacing": [2, "always"]
   },
   "parserOptions": {
     "ecmaFeatures": {

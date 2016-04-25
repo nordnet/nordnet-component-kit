@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import Number from '../number/number';
 import Currency from '../currency/currency';
 import Percent from '../percent/percent';
@@ -29,7 +28,7 @@ function renderSRMinus(direction) {
   return (
     <span
       className="sr-only"
-      dangerouslySetInnerHTML={{ __html: '&minus;' }}
+      dangerouslySetInnerHTML={ { __html: '&minus;' } }
     />
   );
 }
@@ -43,13 +42,12 @@ function getDirection(value) {
   return 'neutral';
 }
 
-const Development = ({
-  className,
+export default function Development({
   value,
   decimals,
   type,
   ...rest,
-}) => {
+}) {
   const components = {
     currency: Currency,
     percentage: Percent,
@@ -61,24 +59,23 @@ const Development = ({
   return (
     <Component
       { ...rest }
-      className={ classNames('development', `development--is-${direction}`, className) }
       value={ Math.abs(value) }
       valueDecimals={ decimals }
       prefix={ renderArrow(direction) }
       prefixClass="development__arrow"
     />
   );
-};
+}
 
 Development.propTypes = {
-  className: React.PropTypes.string,
   value: React.PropTypes.number.isRequired,
   decimals: React.PropTypes.number,
+  /**
+    Possible values are `'number'`, `'currency'` or `'percentage'`
+  */
   type: React.PropTypes.string,
 };
 
 Development.defaultProps = {
   type: 'number',
 };
-
-export default Development;
