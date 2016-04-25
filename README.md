@@ -20,15 +20,13 @@ import { Percent, Currency } from 'nordnet-component-kit';
 ```
 
 ## Documentation
-For examples and full documentation see [TODO link to ghpages?](TODO link to ghpages?)
-
-# TODO: Fix the above link
+For examples and full documentation see [here](https://nordnet.github.io/nordnet-component-kit)
 
 To run the documentation locally, to this:
 ```bash
 # With Hot Module Reloading
 npm run styleguide-server
-# A static version (will end up in styleguide/styleguide)
+# A static version (will end up in docs/)
 npm run styleguide-build
 ```
 
