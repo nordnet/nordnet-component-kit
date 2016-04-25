@@ -1,0 +1,4 @@
+--require babel-register
+--require test/static-assets-noop.js
+--require test/setup.mocha.js
+--recursive
