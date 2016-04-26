@@ -2,6 +2,7 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 
 ## Installation
@@ -89,3 +90,6 @@ MIT [license](/LICENSE)
 
 [depstat-url]: https://david-dm.org/nordnet/nordnet-component-kit
 [depstat-image]: https://david-dm.org/nordnet/nordnet-component-kit.svg
+
+[coveralls-image]: https://coveralls.io/repos/github/nordnet/nordnet-component-kit/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/nordnet/nordnet-component-kit?branch=master

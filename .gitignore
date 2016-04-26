@@ -2,5 +2,5 @@
 node_modules
 npm-debug.log
 lib
-tmp
 docs
+.nyc_output
