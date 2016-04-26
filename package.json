@@ -69,6 +69,7 @@
     "babel-register": "6.7.2",
     "chai": "3.5.0",
     "chai-enzyme": "0.4.2",
+    "coveralls": "2.11.9",
     "dirty-chai": "1.2.2",
     "enzyme": "2.2.0",
     "eslint": "2.8.0",
