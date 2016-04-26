@@ -50,6 +50,11 @@
     "npm": "2.x || 3.x"
   },
   "author": "Andreas Broström <andreas.brostrom@nordnet.se>",
+  "repository": "nordnet/nordnet-component-kit",
+  "bugs": {
+    "url": "https://github.com/nordnet/nordnet-component-kit/issues"
+  },
+  "homepage": "https://nordnet.github.io/nordnet-component-kit",
   "license": "MIT",
   "peerDependencies": {
     "react": "^15.0.0",
