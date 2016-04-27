@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import DateTimeIso from '../../src/components/date-time-iso/date-time-iso';
 
 describe('<DateTimeIso />', () => {
@@ -8,20 +8,17 @@ describe('<DateTimeIso />', () => {
   const defaultTimestamp = 1461756108561;
 
   it('should show HH if prop hour is supplied', () => {
-    component = mount(<DateTimeIso value={ defaultTimestamp } hour="numeric" />);
-    const dateTimeText = component.find('span').text();
-    expect(dateTimeText.split(' ')[1].match(/^[0-9][0-9]$/)).to.not.equal(null);
+    component = shallow(<DateTimeIso value={ defaultTimestamp } hour="numeric" />);
+    expect(component.text().split(' ')[1].match(/^[0-9][0-9]$/)).to.not.equal(null);
   });
 
   it('should show HH:MM if prop minute is supplied', () => {
-    component = mount(<DateTimeIso value={ defaultTimestamp } minute="numeric" />);
-    const dateTimeText = component.find('span').text();
-    expect(dateTimeText.split(' ')[1].match(/^[0-9][0-9]:[0-9][0-9]$/)).to.not.equal(null);
+    component = shallow(<DateTimeIso value={ defaultTimestamp } minute="numeric" />);
+    expect(component.text().split(' ')[1].match(/^[0-9][0-9]:[0-9][0-9]$/)).to.not.equal(null);
   });
 
   it('should show HH:MM:SS if prop second is supplied', () => {
-    component = mount(<DateTimeIso value={ defaultTimestamp } second="numeric" />);
-    const dateTimeText = component.find('span').text();
-    expect(dateTimeText.split(' ')[1].match(/^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]$/)).to.not.equal(null);
+    component = shallow(<DateTimeIso value={ defaultTimestamp } second="numeric" />);
+    expect(component.text().split(' ')[1].match(/^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]$/)).to.not.equal(null);
   });
 });

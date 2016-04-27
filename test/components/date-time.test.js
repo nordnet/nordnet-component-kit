@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import DateTime from '../../src/components/date-time/date-time';
 
 describe('<DateTime />', () => {
