@@ -7,8 +7,6 @@ import fi from 'react-intl/locale-data/fi';
 import nb from 'react-intl/locale-data/nb';
 import da from 'react-intl/locale-data/da';
 
-import './wrapper.scss';
-
 addLocaleData([...en, ...sv, ...fi, ...nb, ...da]);
 
 const optionNames = {
@@ -16,7 +14,22 @@ const optionNames = {
   sv: 'Swedish',
   fi: 'Finnish',
   nb: 'Norwegian',
-  da: 'Dannish',
+  da: 'Danish',
+};
+
+const wrapperStyle = {
+  fontFamily: 'monospace',
+  fontSize: '14px',
+  display: 'block',
+  position: 'relative',
+  top: '-15px',
+  left: '-15px',
+  paddingLeft: '15px',
+  paddingTop: '5px',
+  paddingBottom: '5px',
+  width: '200px',
+  background: '#f5f5f5',
+  borderRadius: '2px',
 };
 
 class Wrapper extends React.Component {
@@ -42,19 +55,19 @@ class Wrapper extends React.Component {
   render() {
     return (
       <div>
-        <div className="nordnet-component-kit__wrapper">
+        <div style={ wrapperStyle }>
           <label htmlFor="select-locale">Locale: </label>
           <select name="select-locale" onChange={ this.change } value={ this.state.locale }>
             { this.state.options.map(locale => (
-                <option key={ locale } value={ locale }>
-                  { this.state.optionNames[locale] }
-                </option>
+              <option key={ locale } value={ locale }>
+                { this.state.optionNames[locale] }
+              </option>
               ))
             }
           </select>
         </div>
         <IntlProvider locale={ this.state.locale }>
-          {this.props.children}
+          { this.props.children }
         </IntlProvider>
       </div>
     );
