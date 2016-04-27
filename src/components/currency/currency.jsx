@@ -12,11 +12,11 @@ export default function Currency({
   suffixSize,
   ...rest,
 }) {
-  const styles = Object.assign({},
+  const suffixStyle = Object.assign({},
     suffixSize === 'small' ? {
       fontSize: variables.relativeSizeSm,
       fontWeight: 'bolder',
-    } : {}, rest.style);
+    } : {}, rest.suffixStyle);
 
   return (
     <Number
@@ -24,7 +24,7 @@ export default function Currency({
       value={ value }
       valueDecimals={ decimals }
       suffix={ currency || rest.suffix }
-      suffixStyle={ styles }
+      suffixStyle={ suffixStyle }
     />
   );
 }
