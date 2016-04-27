@@ -25,12 +25,13 @@
     "predocs": "npm run clean:docs",
     "docs": "npm run styleguide -- build",
     "docs:watch": "npm run styleguide -- server",
-    "docs:publish": "git subtree push --prefix docs origin gh-pages",
+    "predocs:publish": "npm run docs",
+    "docs:publish": "GIT_DEPLOY_DIR=docs ./deploy.sh -m 'Update docs'",
     "styleguide": "styleguidist --config styleguide/config.js",
     "validate": "npm-run-all lint test",
     "prepush": "npm-run-all validate",
     "prepublish": "npm-run-all validate build",
-    "postpublish": "npm-run-all docs docs:publish && git push --follow-tags --no-verify"
+    "postpublish": "npm run docs:publish && git push --follow-tags --no-verify"
   },
   "keywords": [
     "nordnet",
