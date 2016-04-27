@@ -67,7 +67,7 @@ describe('<Development />', () => {
       const props = component.prop('prefix').props.children[1].props;
 
       expect(props.dangerouslySetInnerHTML).to.exist();
-      expect(props.style).to.deep.equal(variables.style.screeReaderOnly);
+      expect(props.style).to.deep.equal(variables.style.screenReaderOnly);
     });
   });
 });
