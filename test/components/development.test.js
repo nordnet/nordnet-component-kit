@@ -2,6 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import Development from '../../src/components/development/development';
+import variables from '../../src/variables';
 
 describe('<Development />', () => {
   describe('with default parameter set (value)', () => {
@@ -50,5 +51,23 @@ describe('<Development />', () => {
     expect(component.prop('prefix').props.children[0].props.children).to.equal('▶');
   });
 
-  // TODO: A11y tests
+  // A11y tests
+  describe('a11y specifics', () => {
+    let component;
+
+    beforeEach(() => {
+      component = shallow(<Development value={ -1 } />);
+    });
+
+    it('should set aria-hidden on the unicode arrows', () => {
+      expect(component.prop('prefix').props.children[0].props['aria-hidden']).to.equal('true');
+    });
+
+    it('should only show minus sign to screen readers', () => {
+      const props = component.prop('prefix').props.children[1].props;
+
+      expect(props.dangerouslySetInnerHTML).to.exist();
+      expect(props.style).to.deep.equal(variables.style.screeReaderOnly);
+    });
+  });
 });

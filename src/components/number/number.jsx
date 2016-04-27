@@ -50,13 +50,13 @@ export default function Number({
   return (
     <span { ...rest } className={ classes } style={ styles }>
       { renderAddon(prefix, prefixClass, prefixSeparator, prefixStyle, 'left') }
-      <FormattedNumber
-        className={ valueClass }
-        style={ valueStyle }
-        value={ value }
-        minimumFractionDigits={ valueDecimals }
-        maximumFractionDigits={ valueDecimals }
-      />
+      <span className={ valueClass } style={ valueStyle }>
+        <FormattedNumber
+          value={ value }
+          minimumFractionDigits={ valueDecimals }
+          maximumFractionDigits={ valueDecimals }
+        />
+      </span>
       { renderAddon(suffix, suffixClass, suffixSeparator, suffixStyle, 'right') }
     </span>
   );
