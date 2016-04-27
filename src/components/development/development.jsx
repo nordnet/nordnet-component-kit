@@ -27,7 +27,7 @@ function renderSRMinus(direction) {
   }
   return (
     <span
-      style={ variables.style.screeReaderOnly }
+      style={ variables.style.screenReaderOnly }
       dangerouslySetInnerHTML={ { __html: '&minus;' } }
     />
   );
@@ -62,7 +62,7 @@ export default function Development({
       value={ Math.abs(value) }
       valueDecimals={ decimals }
       prefix={ renderArrow(direction) }
-      prefixStyle={ variables.style.developmentArrow }
+      prefixStyle={ Object.assign({}, variables.style.developmentArrow, rest.prefixStyle) }
     />
   );
 }

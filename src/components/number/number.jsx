@@ -43,7 +43,6 @@ export default function Number({
 }) {
   const classes = classNames('number', className);
   const styles = Object.assign({}, {
-    fontWeight: 400,
     whiteSpace: 'nowrap',
   }, style);
 
