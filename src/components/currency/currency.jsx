@@ -15,7 +15,7 @@ export default function Currency({
   const styles = Object.assign({},
     suffixSize === 'small' ? {
       fontSize: variables.relativeSizeSm,
-      fontWeight: 600,
+      fontWeight: 'bolder',
     } : {}, rest.style);
 
   return (

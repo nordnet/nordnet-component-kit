@@ -3,7 +3,7 @@ const relativeSizeSm = (12 / 16) * 100; // Assumes default font-size of 16 pixel
 export default {
   relativeSizeSm: `${relativeSizeSm}%`,
   style: {
-    screeReaderOnly: {
+    screenReaderOnly: {
       position: 'absolute',
       width: '1px',
       height: '1px',
