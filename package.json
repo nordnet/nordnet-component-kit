@@ -90,7 +90,7 @@
     "lodash.camelcase": "4.1.1",
     "mocha": "2.4.5",
     "npm-run-all": "1.8.0",
-    "nyc": "6.4.1",
+    "nyc": "6.4.2",
     "react": "15.0.2",
     "react-addons-test-utils": "15.0.2",
     "react-dom": "15.0.2",
