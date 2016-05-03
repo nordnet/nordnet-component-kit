@@ -21,7 +21,7 @@
     "coverage": "nyc --extension .jsx npm test",
     "precoveralls": "npm run coverage",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint src test",
+    "lint": "eslint src test webpack styleguide --ext .js,.jsx",
     "predocs": "npm run clean:docs",
     "docs": "npm run styleguide -- build",
     "docs:watch": "npm run styleguide -- server",
