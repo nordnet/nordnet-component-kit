@@ -70,10 +70,7 @@ export default function Development({
 Development.propTypes = {
   value: React.PropTypes.any.isRequired,
   decimals: React.PropTypes.number,
-  /**
-    Possible values are `'number'`, `'currency'` or `'percentage'`
-  */
-  type: React.PropTypes.string,
+  type: React.PropTypes.oneOf(['number', 'currency', 'percentage']),
 };
 
 Development.defaultProps = {

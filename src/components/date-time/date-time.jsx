@@ -33,7 +33,7 @@ DateTime.propTypes = {
   /**
     Possible values are `'numeric'` or `'human'`
   */
-  format: React.PropTypes.string,
+  format: React.PropTypes.oneOf(['numeric', 'human']),
   /**
     Only applicable for dates, indicates that the date should follow [ISO 8601](https://sv.wikipedia.org/wiki/ISO_8601)
   */
@@ -45,10 +45,7 @@ DateTime.propTypes = {
     React.PropTypes.number,
     React.PropTypes.instanceOf(Date),
   ]).isRequired,
-  /**
-    Possible values are `'date'` or `'relative'`
-  */
-  type: React.PropTypes.string,
+  type: React.PropTypes.oneOf(['date', 'relative']),
 };
 
 

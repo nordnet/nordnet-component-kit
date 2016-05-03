@@ -39,10 +39,7 @@ Currency.propTypes = {
     Default is a space (`' '`)
   */
   suffixSeparator: React.PropTypes.string,
-  /**
-    Possible values are `'normal'` or `'small'`
-  */
-  suffixSize: React.PropTypes.string,
+  suffixSize: React.PropTypes.oneOf(['normal', 'small']),
   decimals: React.PropTypes.number,
 };
 

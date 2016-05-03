@@ -47,7 +47,3 @@ DateTimeIso.propTypes = {
     React.PropTypes.string,
   ]),
 };
-
-DateTimeIso.defaultProps = {
-  type: 'date',
-};
