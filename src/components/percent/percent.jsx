@@ -18,7 +18,7 @@ export default function Percent({
 }
 
 Percent.propTypes = {
-  value: React.PropTypes.number.isRequired,
+  value: React.PropTypes.any.isRequired,
   decimals: React.PropTypes.number,
   /**
     Default is an empty string (`''`)

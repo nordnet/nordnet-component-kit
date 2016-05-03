@@ -64,7 +64,7 @@ export default function Number({
 Number.propTypes = {
   className: React.PropTypes.string,
   style: React.PropTypes.object,
-  value: React.PropTypes.number.isRequired,
+  value: React.PropTypes.any.isRequired,
   valueClass: React.PropTypes.string,
   valueDecimals: React.PropTypes.number,
   valueStyle: React.PropTypes.object,

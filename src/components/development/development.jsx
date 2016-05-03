@@ -59,7 +59,7 @@ export default function Development({
   return (
     <Component
       { ...rest }
-      value={ Math.abs(value) }
+      value={ Math.abs(parseFloat(value)) }
       valueDecimals={ decimals }
       prefix={ renderArrow(direction) }
       prefixStyle={ Object.assign({}, variables.style.developmentArrow, rest.prefixStyle) }
@@ -68,7 +68,7 @@ export default function Development({
 }
 
 Development.propTypes = {
-  value: React.PropTypes.number.isRequired,
+  value: React.PropTypes.any.isRequired,
   decimals: React.PropTypes.number,
   /**
     Possible values are `'number'`, `'currency'` or `'percentage'`
