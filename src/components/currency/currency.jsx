@@ -30,7 +30,7 @@ export default function Currency({
 }
 
 Currency.propTypes = {
-  value: React.PropTypes.number.isRequired,
+  value: React.PropTypes.any.isRequired,
   /**
     Syntactic sugar for `suffix` (either one can be used)
   */

@@ -46,6 +46,11 @@ describe('<Development />', () => {
     expect(component.prop('prefix').props.children[0].props.children).to.equal('▼');
   });
 
+  it('should display ▼ as prefix when parseFloat(value) < 0', () => {
+    const component = shallow(<Development value="-1" />);
+    expect(component.prop('prefix').props.children[0].props.children).to.equal('▼');
+  });
+
   it('should display ▶ as prefix when value = 0', () => {
     const component = shallow(<Development value={ 0 } />);
     expect(component.prop('prefix').props.children[0].props.children).to.equal('▶');
