@@ -97,7 +97,7 @@
     "react-intl": "2.1.2",
     "react-styleguidist": "2.2.1",
     "rimraf": "2.5.2",
-    "sinon": "1.17.3",
+    "sinon": "1.17.4",
     "sinon-chai": "2.8.0",
     "webpack": "1.13.0"
   }
