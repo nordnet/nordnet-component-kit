@@ -30,9 +30,6 @@ function DateTime({
 }
 
 DateTime.propTypes = {
-  /**
-    Possible values are `'numeric'` or `'human'`
-  */
   format: React.PropTypes.oneOf(['numeric', 'human']),
   /**
     Only applicable for dates, indicates that the date should follow [ISO 8601](https://sv.wikipedia.org/wiki/ISO_8601)
