@@ -17,3 +17,5 @@ This means that all components in this section can also take these additional pr
 | suffixClass     | string         | The class(es) that should apply to the suffix of the component |
 | suffixSeparator | string         | A separator between the suffix and the value |
 | suffixStyle     | object         | The style(s) that should apply to the suffix part of the component |
+
+**Note:** *A simple wrapper for the `<Number />` component is the `<Value />` component below.*
