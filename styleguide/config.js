@@ -4,6 +4,7 @@ const camelCase = require('lodash.camelcase');
 const srcPath = path.join(__dirname, '../src');
 
 const numberComponentPaths = getComponentPaths([
+  '../src/components/value/value.jsx',
   '../src/components/currency/currency.jsx',
   '../src/components/percent/percent.jsx',
   '../src/components/development/development.jsx',
