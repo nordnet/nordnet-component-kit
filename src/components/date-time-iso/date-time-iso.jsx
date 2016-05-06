@@ -20,6 +20,8 @@ export default function DateTimeIso({
     dateString = `${iso.get('date')} ${iso.get('HH')}:${iso.get('MM')}`;
   } else if (hour) {
     dateString = `${iso.get('date')} ${iso.get('HH')}`;
+  } else {
+    dateString = `${iso.get('date')}`;
   }
 
   return (
