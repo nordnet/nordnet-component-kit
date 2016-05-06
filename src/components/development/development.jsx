@@ -42,6 +42,9 @@ function getDirection(value) {
   return 'neutral';
 }
 
+/**
+  This is the `<Development /> component`
+*/
 export default function Development({
   value,
   decimals,

@@ -1,8 +1,11 @@
 import React from 'react';
-import { FormattedDate, FormattedRelative } from 'react-intl';
+import { FormattedDate, FormattedTime, FormattedRelative } from 'react-intl';
 import DateTimeIso from '../date-time-iso/date-time-iso';
 import formats from './date-time-formats';
 
+/**
+  This is the `<DateTime /> component`
+*/
 function DateTime({
   value,
   format,
@@ -17,6 +20,7 @@ function DateTime({
   const components = {
     date: FormattedDate,
     relative: FormattedRelative,
+    time: FormattedTime,
   };
   const Component = components[type];
 
@@ -42,12 +46,11 @@ DateTime.propTypes = {
     React.PropTypes.number,
     React.PropTypes.instanceOf(Date),
   ]).isRequired,
-  type: React.PropTypes.oneOf(['date', 'relative']),
+  type: React.PropTypes.oneOf(['date', 'time', 'relative']),
 };
 
 
 DateTime.defaultProps = {
-  format: 'numeric',
   iso: false,
   type: 'date',
 };

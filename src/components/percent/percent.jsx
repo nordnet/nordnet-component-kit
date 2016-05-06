@@ -2,7 +2,7 @@ import React from 'react';
 import Number from '../number/number';
 
 /**
-  This is the Percent component
+  This is the `<Percent /> component`
 */
 export default function Percent({
   decimals,

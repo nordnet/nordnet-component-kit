@@ -11,6 +11,17 @@ export default {
       year: 'numeric',
     },
   },
+  time: {
+    numeric: {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+    },
+    human: {
+      hour: 'numeric',
+      minute: 'numeric',
+    },
+  },
   relative: {
     numeric: {
       style: 'numeric',

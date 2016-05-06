@@ -14,6 +14,14 @@ Example showing numeric format for date:
 
 	<DateTime value={ 19234829847289 } format="numeric" type="date" />
 
+Example showing human format for time:
+
+	<DateTime value={ new Date() } format="human" type="time" />
+
+Example showing numeric format for time:
+
+	<DateTime value={ new Date() } format="numeric" type="time" />
+
 Example showing human format for relative:
 
 	<DateTime value={ (new Date() - 24 * 60 * 60 * 1000) } format="human" type="relative" />
