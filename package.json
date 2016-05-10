@@ -78,7 +78,7 @@
     "chai-enzyme": "0.4.2",
     "coveralls": "2.11.9",
     "dirty-chai": "1.2.2",
-    "enzyme": "2.2.0",
+    "enzyme": "2.3.0",
     "eslint": "2.9.0",
     "eslint-config-airbnb": "9.0.1",
     "eslint-config-nordnet": "1.1.1",
