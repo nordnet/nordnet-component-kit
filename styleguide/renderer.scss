@@ -1,0 +1,61 @@
+@import '~nordnet-ui-kit/src/variables';
+
+%border {
+  border-color: $color-border;
+  border-style: solid;
+}
+
+.ReactStyleguidist-Layout__ {
+  &sidebar {
+    @extend %border;
+    background: $color-base;
+
+    a {
+      text-decoration: none;
+      color: $color-primary;
+      font-weight: bold;
+    }
+  }
+
+  &heading {
+    @extend %border;
+    background: $color-background-muted;
+    font-size: 1.4rem;
+    text-align: right;
+
+    .logo {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &footer {
+    color: $color-text;
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    background-color: $color-background-muted;
+    border-top: 0.1rem solid $color-border;
+    border-right: 0.1rem solid $color-border;
+    width: 20.0rem;
+  }
+}
+
+.ReactStyleguidist-TableOfContents__section {
+  padding-left: 1.4rem;
+  font-size: 1.6rem;
+  border-left: .1rem solid $color-text;
+
+  &.ReactStyleguidist-colors__link {
+    font-weight: 600;
+
+    &:link, &:visited {
+      color: $color-text;
+    }
+
+    &:hover {
+      color: $color-primary--focus;
+    }
+  }
+}
