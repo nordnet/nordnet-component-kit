@@ -20,14 +20,14 @@ class Renderer extends React.Component {
           clearInterval(this.looper);
           that.setState({ isLoading: false });
         }
-      }, 500);
+      }, 250);
     }
   }
 
   render() {
     const { title, components, toc, sidebar } = this.props;
     if (this.state.isLoading) {
-      return (<span>Polyfilling your intl needs...</span>);
+      return null;
     }
 
     return (
