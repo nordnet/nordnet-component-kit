@@ -96,7 +96,7 @@
     "node-sass": "3.7.0",
     "nordnet-ui-kit": "0.0.28",
     "npm-run-all": "2.1.2",
-    "nyc": "6.4.4",
+    "nyc": "6.6.1",
     "postcss-loader": "0.9.1",
     "react": "15.1.0",
     "react-addons-test-utils": "15.1.0",
