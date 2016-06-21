@@ -7,7 +7,7 @@ export default {
     'nordnet-component-kit': './src/index.js',
   },
   output: {
-    library: 'NordnetFormatter',
+    library: 'NordnetComponentKit',
     libraryTarget: 'umd',
     path: './lib',
     filename: '[name].js',
