@@ -98,7 +98,7 @@
     "npm-run-all": "2.3.0",
     "nyc": "7.0.0",
     "postcss-loader": "0.9.1",
-    "react": "15.1.0",
+    "react": "15.2.1",
     "react-addons-test-utils": "15.1.0",
     "react-dom": "15.1.0",
     "react-intl": "2.1.3",
