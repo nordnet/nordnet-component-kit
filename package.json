@@ -77,7 +77,7 @@
     "babel-register": "6.11.5",
     "chai": "3.5.0",
     "chai-enzyme": "0.5.0",
-    "coveralls": "2.11.9",
+    "coveralls": "2.11.10",
     "css-loader": "0.23.1",
     "dirty-chai": "1.2.2",
     "enzyme": "2.4.1",
