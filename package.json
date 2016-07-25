@@ -91,7 +91,7 @@
     "husky": "0.11.5",
     "intl": "1.2.4",
     "jsdom": "9.4.1",
-    "lodash.camelcase": "4.1.1",
+    "lodash.camelcase": "4.2.0",
     "mocha": "2.5.3",
     "node-sass": "3.8.0",
     "nordnet-ui-kit": "0.0.30",
