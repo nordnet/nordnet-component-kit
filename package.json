@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "start": "npm run docs:watch",
     "clean:docs": "rimraf docs",
     "clean:lib": "rimraf lib",
     "clean:node_modules": "rimraf node_modules",
