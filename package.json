@@ -93,7 +93,7 @@
     "intl": "1.2.4",
     "jsdom": "9.4.1",
     "lodash.camelcase": "4.2.0",
-    "mocha": "2.5.3",
+    "mocha": "3.0.2",
     "node-sass": "3.8.0",
     "nordnet-ui-kit": "0.0.34",
     "npm-run-all": "2.3.0",
