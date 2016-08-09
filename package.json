@@ -87,7 +87,7 @@
     "eslint-config-nordnet": "1.1.1",
     "eslint-plugin-import": "1.12.0",
     "eslint-plugin-jsx-a11y": "1.2.3",
-    "eslint-plugin-react": "5.2.2",
+    "eslint-plugin-react": "6.0.0",
     "git-directory-deploy": "1.5.0",
     "husky": "0.11.6",
     "intl": "1.2.4",
