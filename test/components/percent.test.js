@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+
 import Percent from '../../src/components/percent/percent';
 
 describe('<Percent />', () => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+
 import Value from '../../src/components/value/value';
 
 describe('<Value />', () => {
