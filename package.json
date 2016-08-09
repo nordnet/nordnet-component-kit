@@ -95,7 +95,7 @@
     "lodash.camelcase": "4.2.0",
     "mocha": "3.0.2",
     "node-sass": "3.8.0",
-    "nordnet-ui-kit": "0.0.34",
+    "nordnet-ui-kit": "0.0.35",
     "npm-run-all": "2.3.0",
     "nyc": "7.1.0",
     "postcss-loader": "0.9.1",
