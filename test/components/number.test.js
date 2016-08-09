@@ -1,9 +1,10 @@
 import React from 'react';
+import { FormattedNumber } from 'react-intl';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+
 import Number from '../../src/components/number/number';
 import Addon from '../../src/components/addon/addon';
-import { FormattedNumber } from 'react-intl';
 
 describe('<Number />', () => {
   describe('with default parameter set (value)', () => {
