@@ -56,6 +56,21 @@ describe('<Development />', () => {
     expect(component.prop('prefix').props.children[0].props.children).to.equal('▶');
   });
 
+  it('should display ▼ as prefix when direction is negative', () => {
+    const component = shallow(<Development value={ 1 } direction="negative" />);
+    expect(component.prop('prefix').props.children[0].props.children).to.equal('▼');
+  });
+
+  it('should display ▲ as prefix when direction is positive', () => {
+    const component = shallow(<Development value={ 1 } direction="positive" />);
+    expect(component.prop('prefix').props.children[0].props.children).to.equal('▲');
+  });
+
+  it('should display ▶ as prefix when direction is neutral', () => {
+    const component = shallow(<Development value={ 1 } direction="neutral" />);
+    expect(component.prop('prefix').props.children[0].props.children).to.equal('▶');
+  });
+
   // A11y tests
   describe('a11y specifics', () => {
     let component;
