@@ -15,6 +15,10 @@
       color: $color-primary;
       font-weight: bold;
     }
+
+    &--hidden {
+      display: none;
+    }
   }
 
   &heading {

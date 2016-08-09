@@ -31,14 +31,18 @@ class Renderer extends React.Component {
     }
 
     return (
-      <div className={ classnames('ReactStyleguidist-Layout__root', { 'ReactStyleguidist-Layout__sidebar': !sidebar }) }>
+      <div className={ classnames('ReactStyleguidist-Layout__root') }>
         <main className="ReactStyleguidist-Layout__wrapper">
           <div className="ReactStyleguidist-Layout__content">
             <div className="ReactStyleguidist-Layout__components">
               { components }
             </div>
           </div>
-          <div className="ReactStyleguidist-Layout__sidebar">
+          <div
+            className={ classnames(
+              'ReactStyleguidist-Layout__sidebar',
+              { 'ReactStyleguidist-Layout__sidebar--hidden': !sidebar }) }
+          >
             <a href="https://github.com/nordnet/nordnet-component-kit">
               <h1 className="ReactStyleguidist-Layout__heading">
                 <Logo />
