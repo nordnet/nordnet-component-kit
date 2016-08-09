@@ -18,3 +18,13 @@ Example with development currency:
       currency="SEK"
       suffixSize="small"
     />
+
+Example with development currency and direction:
+
+    <Development
+      value={ 1.2334 }
+      type="currency"
+      currency="SEK"
+      suffixSize="small"
+      direction="negative"
+    />

@@ -49,6 +49,7 @@ export default function Development({
   value,
   decimals,
   type,
+  direction,
   ...rest,
 }) {
   const components = {
@@ -56,7 +57,6 @@ export default function Development({
     percentage: Percent,
     number: Number,
   };
-  const direction = getDirection(value);
   const Component = components[type] || components.number;
 
   return (
@@ -64,7 +64,7 @@ export default function Development({
       { ...rest }
       value={ Math.abs(parseFloat(value)) }
       valueDecimals={ decimals }
-      prefix={ renderArrow(direction) }
+      prefix={ direction ? renderArrow(direction) : renderArrow(getDirection(value)) }
       prefixStyle={ Object.assign({}, variables.style.developmentArrow, rest.prefixStyle) }
     />
   );
@@ -74,6 +74,7 @@ Development.propTypes = {
   value: React.PropTypes.any.isRequired,
   decimals: React.PropTypes.number,
   type: React.PropTypes.oneOf(['number', 'currency', 'percentage']),
+  direction: React.PropTypes.oneOf(['positive', 'negative', 'neutral']),
 };
 
 Development.defaultProps = {
