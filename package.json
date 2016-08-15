@@ -85,7 +85,7 @@
     "eslint": "3.3.0",
     "eslint-config-airbnb": "10.0.0",
     "eslint-config-nordnet": "1.1.1",
-    "eslint-plugin-import": "1.12.0",
+    "eslint-plugin-import": "1.13.0",
     "eslint-plugin-jsx-a11y": "2.1.0",
     "eslint-plugin-react": "6.0.0",
     "git-directory-deploy": "1.5.1",
