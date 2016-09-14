@@ -1,7 +1,5 @@
-const relativeSizeSm = (12 / 16) * 100; // Assumes default font-size of 16 pixels
-
 export default {
-  relativeSizeSm: `${relativeSizeSm}%`,
+  relativeSizeSm: `${(12 / 16) * 100}%`, // Assumes default font-size of 16 pixels
   style: {
     screenReaderOnly: {
       position: 'absolute',
@@ -13,11 +11,14 @@ export default {
       clip: 'rect(0,0,0,0)',
       border: 0,
     },
-    developmentArrow: {
+    developmentArrowContainer: {
       position: 'relative',
       verticalAlign: 'baseline',
-      marginRight: '.5rem',
-      fontSize: `${relativeSizeSm}%`,
+    },
+    developmentArrow: {
+      marginRight: '.2em',
+      fill: 'currentColor',
+      height: '0.6em',
     },
   },
 };

@@ -29,47 +29,45 @@ describe('<Development />', () => {
     it('should pass value through to its child', () => {
       expect(component.prop('value')).to.equal(defaultValue);
     });
-
-    it('should set prefix to a unicode arrow', () => {
-      const arrows = ['▲', '▼', '▶'];
-      const prefixArrow = component.prop('prefix').props.children[0].props.children;
-      expect(arrows.indexOf(prefixArrow) !== -1).to.equal(true);
-    });
   });
 
-  it('should display ▲ as prefix when value > 0', () => {
+  it('should get class "number--positive" when value > 0', () => {
     const component = shallow(<Development value={ 1 } />);
-    expect(component.prop('prefix').props.children[0].props.children).to.equal('▲');
+    expect(component.find('.number--positive')).to.have.length(1);
   });
 
-  it('should display ▼ as prefix when value < 0', () => {
+  it('should get class "number--negative" when value < 0', () => {
     const component = shallow(<Development value={ -1 } />);
-    expect(component.prop('prefix').props.children[0].props.children).to.equal('▼');
+    expect(component.find('.number--negative')).to.have.length(1);
   });
 
-  it('should display ▼ as prefix when parseFloat(value) < 0', () => {
+  it('should get class "number--negative" parseFloat(value) < 0', () => {
     const component = shallow(<Development value="-1" />);
-    expect(component.prop('prefix').props.children[0].props.children).to.equal('▼');
+    expect(component.find('.number--negative')).to.have.length(1);
   });
 
-  it('should display ▶ as prefix when value = 0', () => {
+  it('should display no prefix when value = 0', () => {
     const component = shallow(<Development value={ 0 } />);
-    expect(component.prop('prefix').props.children[0].props.children).to.equal('▶');
+    component.prop('prefix').props.children.map(child => (
+      expect(child).to.equal(null)
+    ));
   });
 
-  it('should display ▼ as prefix when direction is negative', () => {
+  it('should get class "number--negative" when direction is negative', () => {
     const component = shallow(<Development value={ 1 } direction="negative" />);
-    expect(component.prop('prefix').props.children[0].props.children).to.equal('▼');
+    expect(component.find('.number--negative')).to.have.length(1);
   });
 
-  it('should display ▲ as prefix when direction is positive', () => {
+  it('should get class "number--positive" when direction is positive', () => {
     const component = shallow(<Development value={ 1 } direction="positive" />);
-    expect(component.prop('prefix').props.children[0].props.children).to.equal('▲');
+    expect(component.find('.number--positive')).to.have.length(1);
   });
 
-  it('should display ▶ as prefix when direction is neutral', () => {
+  it('should display no prefix when direction is neutral', () => {
     const component = shallow(<Development value={ 1 } direction="neutral" />);
-    expect(component.prop('prefix').props.children[0].props.children).to.equal('▶');
+    component.prop('prefix').props.children.map(child => (
+      expect(child).to.equal(null)
+    ));
   });
 
   // A11y tests
