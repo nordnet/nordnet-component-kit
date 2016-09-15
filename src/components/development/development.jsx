@@ -1,30 +1,38 @@
 import React from 'react';
-import Number from '../number/number';
-import Currency from '../currency/currency';
-import Percent from '../percent/percent';
+import classNames from 'classnames';
+import NumberComponent from '../number/number';
+import CurrencyComponent from '../currency/currency';
+import PercentComponent from '../percent/percent';
 import variables from '../../variables';
 
-function renderArrow(direction) {
-  const arrows = {
-    positive: '▲',
-    negative: '▼',
-    neutral: '▶',
-  };
+const path = {
+  positive: 'M0,16 L16,16 L8,0',
+  negative: 'M0,0 L16,0 L8,16',
+};
 
+function renderSVGArrow(direction = 'neutral') {
+  return (
+    <svg
+      aria-hidden="true"
+      role="presentation"
+      viewBox="0 0 16 16"
+      style={ variables.style.developmentArrow }
+    >
+      <path d={ path[direction] } />
+    </svg>
+  );
+}
+
+function renderArrow(direction) {
   return (
     <span>
-      <span aria-hidden="true">
-        { arrows[direction] }
-      </span>
-        { renderSRMinus(direction) }
+      { direction !== 'neutral' ? renderSVGArrow(direction) : null }
+      { direction === 'negative' ? renderSRMinus() : null }
     </span>
   );
 }
 
-function renderSRMinus(direction) {
-  if (direction !== 'negative') {
-    return null;
-  }
+function renderSRMinus() {
   return (
     <span
       style={ variables.style.screenReaderOnly }
@@ -50,27 +58,32 @@ export default function Development({
   decimals,
   type,
   direction,
+  className,
   ...rest,
 }) {
   const components = {
-    currency: Currency,
-    percentage: Percent,
-    number: Number,
+    currency: CurrencyComponent,
+    percentage: PercentComponent,
+    number: NumberComponent,
   };
+  const arrowDirection = direction || getDirection(value);
   const Component = components[type] || components.number;
+  const classes = classNames(`number--${arrowDirection}`, className);
 
   return (
     <Component
       { ...rest }
+      className={ classes }
       value={ Math.abs(parseFloat(value)) }
       valueDecimals={ decimals }
-      prefix={ direction ? renderArrow(direction) : renderArrow(getDirection(value)) }
-      prefixStyle={ Object.assign({}, variables.style.developmentArrow, rest.prefixStyle) }
+      prefix={ renderArrow(arrowDirection) }
+      prefixStyle={ Object.assign({}, variables.style.developmentArrowContainer, rest.prefixStyle) }
     />
   );
 }
 
 Development.propTypes = {
+  className: React.PropTypes.string,
   value: React.PropTypes.any.isRequired,
   decimals: React.PropTypes.number,
   type: React.PropTypes.oneOf(['number', 'currency', 'percentage']),

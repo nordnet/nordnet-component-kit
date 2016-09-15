@@ -1,30 +1,49 @@
-Basic example:
+Basic examples:
 
-    <Development value={ 9.2333 } decimals={ 4 } />
+    <div>
+      <span style={{marginRight: '2rem'}} title="Positive with 4 decimals">
+        <Development value={ 9.2 } decimals={ 4 } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Negative with 2 decimals">
+        <Development value={ -9.2333 } decimals={ 2 } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Neutral with 3 decimals">
+        <Development value={ 0 } decimals={ 3 } />
+      </span>
+    </div>
 
-Basic example with negative development:
+Example with other types:
 
-    <Development value={ -112.2334 } decimals={ 2 } />
+    <div>
+      <span style={{marginRight: '2rem'}} title="Type percentage">
+        <Development value={ 2.2333 } type="percentage" />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Type currency">
+        <Development
+          value={ -1.2334 }
+          type="currency"
+          currency="SEK"
+          suffixSize="small"
+        />
+      </span>
+    </div>
 
-Example with development percent:
+Advanced examples:
 
-    <Development value={ 2.2333 } type="percentage" />
-
-Example with development currency:
-
-    <Development
-      value={ -1.2334 }
-      type="currency"
-      currency="SEK"
-      suffixSize="small"
-    />
-
-Example with development currency and direction:
-
-    <Development
-      value={ 1.2334 }
-      type="currency"
-      currency="SEK"
-      suffixSize="small"
-      direction="negative"
-    />
+    <div>
+      <span style={{marginRight: '2rem'}} title="Overwrite direction">
+        <Development value={ 9.2 } direction="negative" />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Neutral with 3 decimals">
+        <Development value={ 0 } decimals={ 3 } />
+      </span>
+      <span style={{marginRight: '2rem', color: '#00BD76'}} title="Positive with color, style with class 'number--positive'">
+        <Development value={ 34.566544 } direction="positive" />
+      </span>
+      <span style={{marginRight: '2rem', color: '#EF472F'}} title="Negative with color, style with class 'number--negative'">
+        <Development value={ 8443.345334 } direction="negative" />
+      </span>
+      <span style={{marginRight: '2rem', color: '#C8C8C8'}} title="Neutral with color, style with class 'number--neutral'">
+        <Development value={ 42.3444 } direction="neutral"/>
+      </span>
+    </div>
