@@ -61,7 +61,7 @@
   "peerDependencies": {
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
-    "react-intl": "^2.0.0"
+    "react-intl": "^2.1.5"
   },
   "dependencies": {
     "classnames": "2.2.5"
