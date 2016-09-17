@@ -11,9 +11,9 @@ export default function Value({
 }) {
   return (
     <Number
-      { ...rest }
-      valueDecimals={ decimals }
-      value={ value }
+      {...rest}
+      valueDecimals={decimals}
+      value={value}
     />
   );
 }

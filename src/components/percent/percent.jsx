@@ -5,14 +5,18 @@ import Number from '../number/number';
   This is the `<Percent /> component`
 */
 export default function Percent({
+  value,
   decimals,
+  suffixSeparator,
   ...rest,
 }) {
   return (
     <Number
-      { ...rest }
-      valueDecimals={ decimals }
+      {...rest}
+      value={value}
+      valueDecimals={decimals}
       suffix="%"
+      suffixSeparator={suffixSeparator}
     />
   );
 }

@@ -10,6 +10,7 @@ export default function Currency({
   currency,
   decimals,
   suffixSize,
+  suffixSeparator,
   ...rest,
 }) {
   const suffixStyle = Object.assign({},
@@ -20,11 +21,12 @@ export default function Currency({
 
   return (
     <Number
-      { ...rest }
-      value={ value }
-      valueDecimals={ decimals }
-      suffix={ currency || rest.suffix }
-      suffixStyle={ suffixStyle }
+      {...rest}
+      value={value}
+      valueDecimals={decimals}
+      suffix={currency || rest.suffix}
+      suffixStyle={suffixStyle}
+      suffixSeparator={suffixSeparator}
     />
   );
 }

@@ -12,7 +12,7 @@ export default function Addon({
   const classes = classNames('addon', className);
 
   return (
-    <span { ...rest } className={ classes }>
+    <span {...rest} className={classes}>
       { children }
     </span>
   );

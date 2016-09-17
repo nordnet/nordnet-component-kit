@@ -13,7 +13,7 @@ describe('<Development />', () => {
     beforeEach(() => {
       component = shallow(
         <Development
-          value={ defaultValue }
+          value={defaultValue}
         />
       );
     });
@@ -32,12 +32,12 @@ describe('<Development />', () => {
   });
 
   it('should get class "number--positive" when value > 0', () => {
-    const component = shallow(<Development value={ 1 } />);
+    const component = shallow(<Development value={1} />);
     expect(component.find('.number--positive')).to.have.length(1);
   });
 
   it('should get class "number--negative" when value < 0', () => {
-    const component = shallow(<Development value={ -1 } />);
+    const component = shallow(<Development value={-1} />);
     expect(component.find('.number--negative')).to.have.length(1);
   });
 
@@ -47,24 +47,24 @@ describe('<Development />', () => {
   });
 
   it('should display no prefix when value = 0', () => {
-    const component = shallow(<Development value={ 0 } />);
+    const component = shallow(<Development value={0} />);
     component.prop('prefix').props.children.map(child => (
       expect(child).to.equal(null)
     ));
   });
 
   it('should get class "number--negative" when direction is negative', () => {
-    const component = shallow(<Development value={ 1 } direction="negative" />);
+    const component = shallow(<Development value={1} direction="negative" />);
     expect(component.find('.number--negative')).to.have.length(1);
   });
 
   it('should get class "number--positive" when direction is positive', () => {
-    const component = shallow(<Development value={ 1 } direction="positive" />);
+    const component = shallow(<Development value={1} direction="positive" />);
     expect(component.find('.number--positive')).to.have.length(1);
   });
 
   it('should display no prefix when direction is neutral', () => {
-    const component = shallow(<Development value={ 1 } direction="neutral" />);
+    const component = shallow(<Development value={1} direction="neutral" />);
     component.prop('prefix').props.children.map(child => (
       expect(child).to.equal(null)
     ));
@@ -75,7 +75,7 @@ describe('<Development />', () => {
     let component;
 
     beforeEach(() => {
-      component = shallow(<Development value={ -1 } />);
+      component = shallow(<Development value={-1} />);
     });
 
     it('should set aria-hidden on the unicode arrows', () => {

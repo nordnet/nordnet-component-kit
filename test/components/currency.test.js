@@ -13,8 +13,8 @@ describe('<Currency />', () => {
     beforeEach(() => {
       component = shallow(
         <Currency
-          value={ defaultValue }
-          currency={ defaultCurrency }
+          value={defaultValue}
+          currency={defaultCurrency}
         />);
     });
 
@@ -42,7 +42,7 @@ describe('<Currency />', () => {
   it('should use currency as "suffix" if it is defined', () => {
     const component = shallow(
       <Currency
-        value={ 0 }
+        value={0}
         currency="ANY"
       />);
     expect(component.prop('suffix')).to.equal('ANY');
@@ -51,7 +51,7 @@ describe('<Currency />', () => {
   it('should use suffix as "suffix" if it is defined', () => {
     const component = shallow(
       <Currency
-        value={ 0 }
+        value={0}
         suffix="ANY"
       />);
     expect(component.prop('suffix')).to.equal('ANY');
@@ -60,7 +60,7 @@ describe('<Currency />', () => {
   it('currency should take precedence before suffix if both are defined', () => {
     const component = shallow(
       <Currency
-        value={ 0 }
+        value={0}
         currency="ANY"
         suffix="OTHER"
       />);
@@ -70,7 +70,7 @@ describe('<Currency />', () => {
   it('should set font-size of suffix to 75%', () => {
     const component = shallow(
       <Currency
-        value={ 0 }
+        value={0}
         suffix="ANY"
         suffixSize="small"
       />);
@@ -80,7 +80,7 @@ describe('<Currency />', () => {
   it('should pass suffixSeparator through to its child', () => {
     const component = shallow(
       <Currency
-        value={ 0 }
+        value={0}
         suffix="ANY"
         suffixSeparator="-_-"
       />);

@@ -12,7 +12,7 @@ describe('<Percent />', () => {
     beforeEach(() => {
       component = shallow(
         <Percent
-          value={ defaultValue }
+          value={defaultValue}
         />);
     });
 
@@ -36,7 +36,7 @@ describe('<Percent />', () => {
   it('should not be possible to override suffix ("%")', () => {
     const component = shallow(
       <Percent
-        value={ 0 }
+        value={0}
         suffix="ANY"
       />);
     expect(component.prop('suffix')).to.equal('%');
@@ -45,7 +45,7 @@ describe('<Percent />', () => {
   it('should pass suffixSeparator through to its child', () => {
     const component = shallow(
       <Percent
-        value={ 0 }
+        value={0}
         suffix="ANY"
         suffixSeparator="-_-"
       />);

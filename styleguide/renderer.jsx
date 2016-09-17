@@ -31,7 +31,7 @@ class Renderer extends React.Component {
     }
 
     return (
-      <div className={ classnames('ReactStyleguidist-Layout__root') }>
+      <div className={classnames('ReactStyleguidist-Layout__root')}>
         <main className="ReactStyleguidist-Layout__wrapper">
           <div className="ReactStyleguidist-Layout__content">
             <div className="ReactStyleguidist-Layout__components">
@@ -39,9 +39,9 @@ class Renderer extends React.Component {
             </div>
           </div>
           <div
-            className={ classnames(
+            className={classnames(
               'ReactStyleguidist-Layout__sidebar',
-              { 'ReactStyleguidist-Layout__sidebar--hidden': !sidebar }) }
+              { 'ReactStyleguidist-Layout__sidebar--hidden': !sidebar })}
           >
             <a href="https://github.com/nordnet/nordnet-component-kit">
               <h1 className="ReactStyleguidist-Layout__heading">
@@ -51,7 +51,7 @@ class Renderer extends React.Component {
             </a>
             { toc }
             <footer className="ReactStyleguidist-Layout__footer">
-              Made with <Icon type="heart" stroke={ variables.colorPrimary } />
+              Made with <Icon type="heart" stroke={variables.colorPrimary} />
             </footer>
           </div>
         </main>
