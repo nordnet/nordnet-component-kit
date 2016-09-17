@@ -11,7 +11,7 @@ function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) 
   const classes = classNames(`addon--${position}`, addonClasses);
 
   return (
-    <Addon className={ classes } style={ addonStyle }>
+    <Addon className={classes} style={addonStyle}>
       <span>
         { position === 'right' ? addonSeparator : null }
         { addon }
@@ -47,13 +47,13 @@ export default function Number({
   }, style);
 
   return (
-    <span { ...rest } className={ classes } style={ styles }>
+    <span {...rest} className={classes} style={styles}>
       { renderAddon(prefix, prefixClass, prefixSeparator, prefixStyle, 'left') }
-      <span className={ valueClass } style={ valueStyle }>
+      <span className={valueClass} style={valueStyle}>
         <FormattedNumber
-          value={ value }
-          minimumFractionDigits={ valueDecimals }
-          maximumFractionDigits={ valueDecimals }
+          value={value}
+          minimumFractionDigits={valueDecimals}
+          maximumFractionDigits={valueDecimals}
         />
       </span>
       { renderAddon(suffix, suffixClass, suffixSeparator, suffixStyle, 'right') }

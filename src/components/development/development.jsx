@@ -16,9 +16,9 @@ function renderSVGArrow(direction = 'neutral') {
       aria-hidden="true"
       role="presentation"
       viewBox="0 0 16 16"
-      style={ variables.style.developmentArrow }
+      style={variables.style.developmentArrow}
     >
-      <path d={ path[direction] } />
+      <path d={path[direction]} />
     </svg>
   );
 }
@@ -35,8 +35,8 @@ function renderArrow(direction) {
 function renderSRMinus() {
   return (
     <span
-      style={ variables.style.screenReaderOnly }
-      dangerouslySetInnerHTML={ { __html: '&minus;' } }
+      style={variables.style.screenReaderOnly}
+      dangerouslySetInnerHTML={{ __html: '&minus;' }}
     />
   );
 }
@@ -72,12 +72,12 @@ export default function Development({
 
   return (
     <Component
-      { ...rest }
-      className={ classes }
-      value={ Math.abs(parseFloat(value)) }
-      valueDecimals={ decimals }
-      prefix={ renderArrow(arrowDirection) }
-      prefixStyle={ Object.assign({}, variables.style.developmentArrowContainer, rest.prefixStyle) }
+      {...rest}
+      className={classes}
+      value={Math.abs(parseFloat(value))}
+      valueDecimals={decimals}
+      prefix={renderArrow(arrowDirection)}
+      prefixStyle={Object.assign({}, variables.style.developmentArrowContainer, rest.prefixStyle)}
     />
   );
 }

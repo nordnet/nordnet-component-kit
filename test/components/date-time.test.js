@@ -11,7 +11,7 @@ describe('<DateTime />', () => {
   describe('with type="date"', () => {
     describe('and format="numeric"', () => {
       beforeEach(() => {
-        component = shallow(<DateTime value={ defaultTimestamp } format="numeric" type="date" />);
+        component = shallow(<DateTime value={defaultTimestamp} format="numeric" type="date" />);
       });
 
       it('should wrap a FormattedDate', () => {
@@ -27,14 +27,14 @@ describe('<DateTime />', () => {
 
     describe('and format="human"', () => {
       it('should set month="long" when format="human"', () => {
-        component = shallow(<DateTime value={ defaultTimestamp } format="human" type="date" />);
+        component = shallow(<DateTime value={defaultTimestamp} format="human" type="date" />);
         expect(component.prop('month')).to.equal('long');
       });
     });
 
     describe('and iso set', () => {
       it('should wrap a DateTimeIso', () => {
-        component = shallow(<DateTime value={ defaultTimestamp } type="date" iso />);
+        component = shallow(<DateTime value={defaultTimestamp} type="date" iso />);
         expect(component.type().name).to.equal('DateTimeIso');
       });
     });
@@ -43,7 +43,7 @@ describe('<DateTime />', () => {
   describe('with type="relative"', () => {
     describe('and format="numeric"', () => {
       beforeEach(() => {
-        component = shallow(<DateTime value={ defaultTimestamp } format="numeric" type="relative" />);
+        component = shallow(<DateTime value={defaultTimestamp} format="numeric" type="relative" />);
       });
 
       it('should wrap a FormattedRelative', () => {
@@ -57,7 +57,7 @@ describe('<DateTime />', () => {
 
     describe('and format="human"', () => {
       it('should set style to "best fit" by if format="human"', () => {
-        component = shallow(<DateTime value={ defaultTimestamp } type="relative" format="human" />);
+        component = shallow(<DateTime value={defaultTimestamp} type="relative" format="human" />);
         expect(component.prop('style')).to.equal('best fit');
       });
     });
@@ -66,7 +66,7 @@ describe('<DateTime />', () => {
   describe('with type="time"', () => {
     describe('and format="numeric"', () => {
       beforeEach(() => {
-        component = shallow(<DateTime value={ defaultTimestamp } format="numeric" type="time" />);
+        component = shallow(<DateTime value={defaultTimestamp} format="numeric" type="time" />);
       });
 
       it('should wrap a FormattedTime', () => {
@@ -82,7 +82,7 @@ describe('<DateTime />', () => {
 
     describe('and format="human"', () => {
       it('should set hour and minute to "numeric" when format="human"', () => {
-        component = shallow(<DateTime value={ defaultTimestamp } format="human" type="time" />);
+        component = shallow(<DateTime value={defaultTimestamp} format="human" type="time" />);
         expect(component.prop('hour')).to.equal('numeric');
         expect(component.prop('minute')).to.equal('numeric');
       });

@@ -10,7 +10,7 @@ describe('<Value />', () => {
     const defaultValue = 2.5432;
 
     beforeEach(() => {
-      component = shallow(<Value value={ defaultValue } />);
+      component = shallow(<Value value={defaultValue} />);
     });
 
     it('should default to 2 for valueDecimals', () => {

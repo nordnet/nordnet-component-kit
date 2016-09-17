@@ -25,7 +25,7 @@ export default function DateTimeIso({
   }
 
   return (
-    <span { ...rest }>
+    <span {...rest}>
       { dateString }
     </span>
   );

@@ -46,17 +46,17 @@ class Wrapper extends React.Component {
   render() {
     return (
       <div>
-        <div style={ wrapperStyle }>
+        <div style={wrapperStyle}>
           <Input
             type="select"
             label="Locale"
             placeholder="Pick a locale"
-            onChange={ this.change }
-            value={ this.state.locale }
-            options={ this.state.options }
+            onChange={this.change}
+            value={this.state.locale}
+            options={this.state.options}
           />
         </div>
-        <IntlProvider locale={ this.state.locale }>
+        <IntlProvider locale={this.state.locale}>
           { this.props.children }
         </IntlProvider>
       </div>
