@@ -45,7 +45,7 @@ class Renderer extends React.Component {
           >
             <a href="https://github.com/nordnet/nordnet-component-kit">
               <h1 className="ReactStyleguidist-Layout__heading">
-                <Logo />
+                <Logo className="ReactStyleguidist-Layout__logo" />
                 { title.replace('Nordnet ', '').toLowerCase() }
               </h1>
             </a>
