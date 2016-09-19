@@ -26,6 +26,7 @@ function capitalize(string) {
 
 module.exports = {
   title: 'Nordnet Component Kit',
+  serverHost: '0.0.0.0',
   styleguideDir: `${path.join(__dirname, '../docs')}`,
   sections: [
     { name: 'Number Components', components: () => numberComponentPaths, content: `${path.resolve(__dirname)}/number.section.md` },
