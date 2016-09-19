@@ -79,7 +79,7 @@
     "chai": "3.5.0",
     "chai-enzyme": "0.5.1",
     "cheerio": "0.20.0",
-    "coveralls": "2.11.13",
+    "coveralls": "2.11.14",
     "css-loader": "0.25.0",
     "dirty-chai": "1.2.2",
     "enzyme": "2.4.1",
