@@ -25,7 +25,6 @@ Examples with ticks:
       </span>
     </div>
 
-
 Example of a more specific use case:
 
     <Value
