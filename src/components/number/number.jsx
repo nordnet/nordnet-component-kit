@@ -94,11 +94,9 @@ Number.propTypes = {
   suffixSeparator: React.PropTypes.string,
   suffixStyle: React.PropTypes.object,
   ticks: React.PropTypes.arrayOf(React.PropTypes.shape({
-    /* eslint-disable react/no-unused-prop-types */
     decimals: React.PropTypes.number,
     to_price: React.PropTypes.number,
     from_price: React.PropTypes.number,
-    /* eslint-enable react/no-unused-prop-types */
   })),
 };
 
