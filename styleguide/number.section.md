@@ -7,6 +7,7 @@ This means that all components in this section can also take these additional pr
 | Name            | Type           | Description |
 | :-------------- | :------------- | :---------- |
 | className       | string         | The class(es) that should apply to the whole component |
+| decimals        | number         | The number of decimals you want to display. For finer control, see `ticks` |
 | valueClass      | string         | The class(es) that should apply to the value part of the component |
 | valueStyle      | object         | The style(s) that should apply to the value part of the component |
 | prefix          | node           | Anything that should go before the component. A node is either a string or a DOM node |
@@ -17,5 +18,6 @@ This means that all components in this section can also take these additional pr
 | suffixClass     | string         | The class(es) that should apply to the suffix of the component |
 | suffixSeparator | string         | A separator between the suffix and the value |
 | suffixStyle     | object         | The style(s) that should apply to the suffix part of the component |
+| ticks           | array          | An array of tick sizes. This will overwrite the decimals prop. A tick size object contains must contain the following three properties: `decimals`, `from_price`, `to_price`. This will tell the component how many decimals to display when `value >= from_price && value <= to_price` |
 
 **Note:** *A simple wrapper for the `<Number />` component is the `<Value />` component below.*

@@ -12,6 +12,19 @@ Basic examples:
       </span>
     </div>
 
+Examples with ticks:
+
+    const ticks = [{from_price: 0, to_price: 10, decimals: 4}, {from_price: 11, to_price: 100, decimals: 3}];
+
+    <div>
+      <span style={{marginRight: '2rem'}} title="Amount of decimals decided via ticks">
+        <Development value={ 4.123456789 } ticks={ ticks } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Amount of decimals decided via ticks">
+        <Development value={ 14.123456789 } ticks={ ticks } />
+      </span>
+    </div>
+
 Example with other types:
 
     <div>

@@ -1,14 +1,29 @@
-Simple example:
+Simple examples:
 
-    <Value value={ 2.4444 } />
+    <div>
+      <span style={{marginRight: '2rem'}} title="Only value supplied">
+        <Value value={ 2.4444 } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Custom amount of decimals">
+        <Value value={ 2.4444 } decimals={ 3 } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="With prefix and prefixSeparator">
+        <Value prefix="Value:" prefixSeparator=" " value={ 2.4444 } />
+      </span>
+    </div>
 
-Example with custom decimals:
+Examples with ticks:
 
-    <Value value={ 2.4444 } decimals={ 3 } />
+    const ticks = [{from_price: 0, to_price: 10, decimals: 4}, {from_price: 11, to_price: 100, decimals: 3}];
 
-Example with prefix & prefixSeparator:
-
-    <Value prefix="Value:" prefixSeparator=" " value={ 2.4444 } />
+    <div>
+      <span style={{marginRight: '2rem'}} title="Amount of decimals decided via ticks">
+        <Value value={ 4.123456789 } ticks={ ticks } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Amount of decimals decided via ticks">
+        <Value value={ 14.123456789 } ticks={ ticks } />
+      </span>
+    </div>
 
 Example of a more specific use case:
 

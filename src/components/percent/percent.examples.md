@@ -1,15 +1,16 @@
-Simple example:
+Basic examples:
 
-	<Percent value={ 2.4444 } />
-
-Example with decimals:
-
-	<Percent value={ 2.4444 } decimals={ 3 } />
-
-Example with suffixSeparator:
-
-	<Percent value={ 2.4444 } decimals={ 2 } suffixSeparator=" " />
-
-Another example with suffixSeparator:
-
-	<Percent value={ 1134.2334 } decimals={ 2 } suffixSeparator="_" />
+    <div>
+      <span style={{marginRight: '2rem'}} title="Only value supplied">
+        <Percent value={ 2.4444 } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Custom amount of decimals">
+        <Percent value={ 2.4444 } decimals={ 3 } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="With suffixSeparator">
+        <Percent value={ 2.4444 } decimals={ 2 } suffixSeparator=" " />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Another with suffixSeparator">
+        <Percent value={ 1134.2334 } decimals={ 2 } suffixSeparator="____" />
+      </span>
+    </div>

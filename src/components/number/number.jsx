@@ -22,6 +22,20 @@ function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) 
 }
 
 /**
+  Returns the amount of decimals to display when `value >= from_price and value <= to_price`
+  Defaults to `decimals` if no matching tick is found
+*/
+function getDecimals(value, decimals, ticks) {
+  if (!ticks || !value) {
+    return decimals;
+  }
+
+  const tick = ticks.find(t => value >= t.from_price && value <= t.to_price);
+
+  return tick && tick.decimals ? tick.decimals : decimals;
+}
+
+/**
   This component is not intended for public use
 */
 export default function Number({
@@ -39,6 +53,7 @@ export default function Number({
   suffixClass,
   suffixSeparator,
   suffixStyle,
+  ticks,
   ...rest,
 }) {
   const classes = classNames('number', className);
@@ -46,14 +61,16 @@ export default function Number({
     whiteSpace: 'nowrap',
   }, style);
 
+  const decimals = getDecimals(value, valueDecimals, ticks);
+
   return (
     <span {...rest} className={classes} style={styles}>
       { renderAddon(prefix, prefixClass, prefixSeparator, prefixStyle, 'left') }
       <span className={valueClass} style={valueStyle}>
         <FormattedNumber
           value={value}
-          minimumFractionDigits={valueDecimals}
-          maximumFractionDigits={valueDecimals}
+          minimumFractionDigits={decimals}
+          maximumFractionDigits={decimals}
         />
       </span>
       { renderAddon(suffix, suffixClass, suffixSeparator, suffixStyle, 'right') }
@@ -76,6 +93,11 @@ Number.propTypes = {
   suffixClass: React.PropTypes.string,
   suffixSeparator: React.PropTypes.string,
   suffixStyle: React.PropTypes.object,
+  ticks: React.PropTypes.arrayOf(React.PropTypes.shape({
+    decimals: React.PropTypes.number,
+    to_price: React.PropTypes.number,
+    from_price: React.PropTypes.number,
+  })),
 };
 
 Number.defaultProps = {
