@@ -102,7 +102,7 @@
     "postcss-loader": "0.13.0",
     "react": "15.3.2",
     "react-addons-test-utils": "15.3.2",
-    "react-dom": "15.3.1",
+    "react-dom": "15.3.2",
     "react-intl": "2.1.5",
     "react-styleguidist": "3.1.1",
     "rimraf": "2.5.4",
