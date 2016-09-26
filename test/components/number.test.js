@@ -31,7 +31,7 @@ describe('<Number />', () => {
   describe('ticks', () => {
     const ticks = [
       {
-        decimals: 2,
+        decimals: 1,
         tick: 0.5,
         to_price: 999.5,
         from_price: 500,
@@ -62,25 +62,30 @@ describe('<Number />', () => {
       expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(decimals);
     });
 
-    it('should display 4 decimals when value <= 0.4999', () => {
+    it('should display 4 decimals when value < 0.5', () => {
       const component = shallow(<Number value={0.2} ticks={ticks} />);
       expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(4);
     });
 
-    it('should display 3 decimals when value >= 0.4999 and value <= 4.998', () => {
-      const component = shallow(<Number value={1} ticks={ticks} />);
+    it('should display 3 decimals when value >= 1 and value < 2', () => {
+      const component = shallow(<Number value={1.22} ticks={ticks} />);
       expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(3);
     });
 
-    it('should display 2 decimals when value >= 500 and value <= 999.5', () => {
+    it('should display 1 decimals when value >= 500 and value < 1000', () => {
       const component = shallow(<Number value={888} ticks={ticks} />);
-      expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(2);
+      expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(1);
     });
 
     it('should default to valueDecimals when there is no matching tick', () => {
       const decimals = 1;
       const component = shallow(<Number value={444} ticks={ticks} valueDecimals={decimals} />);
       expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(decimals);
+    });
+
+    it('should find correct tick when value > to_price and value < to_price + tick', () => {
+      const component = shallow(<Number value={999.7} ticks={ticks} />);
+      expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(1);
     });
   });
 

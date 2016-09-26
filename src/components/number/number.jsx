@@ -30,9 +30,9 @@ function getDecimals(value, decimals, ticks) {
     return decimals;
   }
 
-  const tick = ticks.find(t => value >= t.from_price && value <= t.to_price);
+  const tick = ticks.find(t => value >= t.from_price && value < (t.to_price + t.tick));
 
-  return tick && tick.decimals ? tick.decimals : decimals;
+  return tick && typeof tick.decimals !== 'undefined' ? tick.decimals : decimals;
 }
 
 /**
@@ -97,6 +97,7 @@ Number.propTypes = {
     decimals: React.PropTypes.number,
     to_price: React.PropTypes.number,
     from_price: React.PropTypes.number,
+    tick: React.PropTypes.number,
   })),
 };
 
