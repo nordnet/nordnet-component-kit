@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import Currency from '../../src/components/currency/currency';
+import Number from '../../src/components/number/number';
 
 describe('<Currency />', () => {
   describe('with default parameters set (value & currency/suffix)', () => {
@@ -85,5 +86,27 @@ describe('<Currency />', () => {
         suffixSeparator="-_-"
       />);
     expect(component.prop('suffixSeparator')).to.equal('-_-');
+  });
+
+  it('should pass max decimals to Number', () => {
+    const maxDecimals = 3;
+    const component = shallow(
+      <Currency
+        value={0}
+        maxDecimals={maxDecimals}
+      />);
+    const passedMaxDecimals = component.find(Number).prop('valueMaxDecimals');
+    expect(passedMaxDecimals).to.equal(maxDecimals);
+  });
+
+  it('should pass min decimals to Number', () => {
+    const minDecimals = 3;
+    const component = shallow(
+      <Currency
+        value={0}
+        minDecimals={minDecimals}
+      />);
+    const passedMinDecimals = component.find(Number).prop('valueMinDecimals');
+    expect(passedMinDecimals).to.equal(minDecimals);
   });
 });

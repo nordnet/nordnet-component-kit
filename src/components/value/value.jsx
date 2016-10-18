@@ -7,13 +7,17 @@ import Number from '../number/number';
 export default function Value({
   value,
   decimals,
+  maxDecimals,
+  minDecimals,
   ...rest,
 }) {
   return (
     <Number
       {...rest}
-      valueDecimals={decimals}
       value={value}
+      valueDecimals={decimals}
+      valueMaxDecimals={maxDecimals}
+      valueMinDecimals={minDecimals}
     />
   );
 }
@@ -21,6 +25,8 @@ export default function Value({
 Value.propTypes = {
   value: React.PropTypes.any.isRequired,
   decimals: React.PropTypes.number,
+  maxDecimals: React.PropTypes.number,
+  minDecimals: React.PropTypes.number,
 };
 
 Value.defaultProps = {

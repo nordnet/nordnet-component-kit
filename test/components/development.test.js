@@ -2,7 +2,10 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
+import Currency from '../../src/components/currency/currency';
 import Development from '../../src/components/development/development';
+import Number from '../../src/components/number/number';
+import Percent from '../../src/components/percent/percent';
 import variables from '../../src/variables';
 
 describe('<Development />', () => {
@@ -68,6 +71,56 @@ describe('<Development />', () => {
     component.prop('prefix').props.children.map(child => (
       expect(child).to.equal(null)
     ));
+  });
+
+  describe('Max and min decimals', () => {
+    it('should pass max and min decimals to component when type is Number', () => {
+      const maxDecimals = 3;
+      const minDecimals = 1;
+      const component = shallow(
+        <Development
+          value={0}
+          type="number"
+          maxDecimals={maxDecimals}
+          minDecimals={minDecimals}
+        />);
+      const passedMaxDecimals = component.find(Number).prop('valueMaxDecimals');
+      const passedMinDecimals = component.find(Number).prop('valueMinDecimals');
+      expect(passedMaxDecimals).to.equal(maxDecimals);
+      expect(passedMinDecimals).to.equal(minDecimals);
+    });
+
+    it('should pass max and min decimals to component when type is percentage', () => {
+      const maxDecimals = 3;
+      const minDecimals = 1;
+      const component = shallow(
+        <Development
+          value={0}
+          type="percentage"
+          maxDecimals={maxDecimals}
+          minDecimals={minDecimals}
+        />);
+      const passedMaxDecimals = component.find(Percent).prop('valueMaxDecimals');
+      const passedMinDecimals = component.find(Percent).prop('valueMinDecimals');
+      expect(passedMaxDecimals).to.equal(maxDecimals);
+      expect(passedMinDecimals).to.equal(minDecimals);
+    });
+
+    it('should pass max and min decimals to component when type is currency', () => {
+      const maxDecimals = 3;
+      const minDecimals = 1;
+      const component = shallow(
+        <Development
+          value={0}
+          type="currency"
+          maxDecimals={maxDecimals}
+          minDecimals={minDecimals}
+        />);
+      const passedMaxDecimals = component.find(Currency).prop('valueMaxDecimals');
+      const passedMinDecimals = component.find(Currency).prop('valueMinDecimals');
+      expect(passedMaxDecimals).to.equal(maxDecimals);
+      expect(passedMinDecimals).to.equal(minDecimals);
+    });
   });
 
   // A11y tests

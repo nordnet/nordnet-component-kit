@@ -2,6 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
+import Number from '../../src/components/number/number';
 import Percent from '../../src/components/percent/percent';
 
 describe('<Percent />', () => {
@@ -50,5 +51,20 @@ describe('<Percent />', () => {
         suffixSeparator="-_-"
       />);
     expect(component.prop('suffixSeparator')).to.equal('-_-');
+  });
+
+  it('should pass max and min decimals to Number', () => {
+    const maxDecimals = 3;
+    const minDecimals = 1;
+    const component = shallow(
+      <Percent
+        value={0}
+        maxDecimals={maxDecimals}
+        minDecimals={minDecimals}
+      />);
+    const passedMaxDecimals = component.find(Number).prop('valueMaxDecimals');
+    const passedMinDecimals = component.find(Number).prop('valueMinDecimals');
+    expect(passedMaxDecimals).to.equal(maxDecimals);
+    expect(passedMinDecimals).to.equal(minDecimals);
   });
 });

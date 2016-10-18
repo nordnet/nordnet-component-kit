@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
 import classNames from 'classnames';
+import isFinite from 'lodash.isfinite';
 import Addon from '../addon/addon';
 
 function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) {
@@ -23,16 +24,24 @@ function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) 
 
 /**
   Returns the amount of decimals to display when `value >= from_price and value <= to_price`
-  Defaults to `decimals` if no matching tick is found
 */
-function getDecimals(value, decimals, ticks) {
+function getTickDecimals(value, ticks) {
   if (!ticks || !value) {
-    return decimals;
+    return undefined;
   }
 
   const tick = ticks.find(t => value >= t.from_price && value < (t.to_price + t.tick));
 
-  return tick && typeof tick.decimals !== 'undefined' ? tick.decimals : decimals;
+  return tick ? tick.decimals : undefined;
+}
+
+function getFractionDigits(...args) {
+  return args.reduce((prev, curr) => {
+    if (isFinite(prev)) {
+      return prev;
+    }
+    return curr;
+  });
 }
 
 /**
@@ -44,6 +53,8 @@ export default function Number({
   value,
   valueClass,
   valueDecimals,
+  valueMaxDecimals,
+  valueMinDecimals,
   valueStyle,
   prefix,
   prefixClass,
@@ -61,7 +72,9 @@ export default function Number({
     whiteSpace: 'nowrap',
   }, style);
 
-  const decimals = getDecimals(value, valueDecimals, ticks);
+  const tickDecimals = getTickDecimals(value, ticks);
+  const minimumFractionDigits = getFractionDigits(tickDecimals, valueMinDecimals, valueDecimals);
+  const maximumFractionDigits = getFractionDigits(tickDecimals, valueMaxDecimals, valueDecimals);
 
   return (
     <span {...rest} className={classes} style={styles}>
@@ -69,8 +82,8 @@ export default function Number({
       <span className={valueClass} style={valueStyle}>
         <FormattedNumber
           value={value}
-          minimumFractionDigits={decimals}
-          maximumFractionDigits={decimals}
+          maximumFractionDigits={maximumFractionDigits}
+          minimumFractionDigits={minimumFractionDigits}
         />
       </span>
       { renderAddon(suffix, suffixClass, suffixSeparator, suffixStyle, 'right') }
@@ -84,6 +97,8 @@ Number.propTypes = {
   value: React.PropTypes.any.isRequired,
   valueClass: React.PropTypes.string,
   valueDecimals: React.PropTypes.number,
+  valueMaxDecimals: React.PropTypes.number,
+  valueMinDecimals: React.PropTypes.number,
   valueStyle: React.PropTypes.object,
   prefix: React.PropTypes.node,
   prefixClass: React.PropTypes.string,

@@ -9,6 +9,8 @@ export default function Currency({
   value,
   currency,
   decimals,
+  maxDecimals,
+  minDecimals,
   suffixSize,
   suffixSeparator,
   ...rest,
@@ -24,6 +26,8 @@ export default function Currency({
       {...rest}
       value={value}
       valueDecimals={decimals}
+      valueMaxDecimals={maxDecimals}
+      valueMinDecimals={minDecimals}
       suffix={currency || rest.suffix}
       suffixStyle={suffixStyle}
       suffixSeparator={suffixSeparator}
@@ -43,6 +47,8 @@ Currency.propTypes = {
   suffixSeparator: React.PropTypes.string,
   suffixSize: React.PropTypes.oneOf(['normal', 'small']),
   decimals: React.PropTypes.number,
+  maxDecimals: React.PropTypes.number,
+  minDecimals: React.PropTypes.number,
 };
 
 Currency.defaultProps = {

@@ -59,6 +59,8 @@ export default function Development({
   type,
   direction,
   className,
+  maxDecimals,
+  minDecimals,
   ...rest,
 }) {
   const components = {
@@ -76,6 +78,8 @@ export default function Development({
       className={classes}
       value={Math.abs(parseFloat(value))}
       valueDecimals={decimals}
+      valueMaxDecimals={maxDecimals}
+      valueMinDecimals={minDecimals}
       prefix={renderArrow(arrowDirection)}
       prefixStyle={Object.assign({}, variables.style.developmentArrowContainer, rest.prefixStyle)}
     />
@@ -88,6 +92,8 @@ Development.propTypes = {
   decimals: React.PropTypes.number,
   type: React.PropTypes.oneOf(['number', 'currency', 'percentage']),
   direction: React.PropTypes.oneOf(['positive', 'negative', 'neutral']),
+  maxDecimals: React.PropTypes.number,
+  minDecimals: React.PropTypes.number,
 };
 
 Development.defaultProps = {
