@@ -72,8 +72,9 @@ export default function Number({
     whiteSpace: 'nowrap',
   }, style);
 
-  const minimumFractionDigits = getFractionDigits(getTickDecimals(value, ticks), valueMinDecimals, valueDecimals);
-  const maximumFractionDigits = getFractionDigits(getTickDecimals(value, ticks), valueMaxDecimals, valueDecimals);
+  const tickDecimals = getTickDecimals(value, ticks);
+  const minimumFractionDigits = getFractionDigits(tickDecimals, valueMinDecimals, valueDecimals);
+  const maximumFractionDigits = getFractionDigits(tickDecimals, valueMaxDecimals, valueDecimals);
 
   return (
     <span {...rest} className={classes} style={styles}>
