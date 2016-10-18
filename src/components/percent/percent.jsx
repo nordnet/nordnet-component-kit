@@ -7,6 +7,8 @@ import Number from '../number/number';
 export default function Percent({
   value,
   decimals,
+  minDecimals,
+  maxDecimals,
   suffixSeparator,
   ...rest,
 }) {
@@ -15,6 +17,8 @@ export default function Percent({
       {...rest}
       value={value}
       valueDecimals={decimals}
+      valueMaxDecimals={maxDecimals}
+      valueMinDecimals={minDecimals}
       suffix="%"
       suffixSeparator={suffixSeparator}
     />
@@ -28,6 +32,8 @@ Percent.propTypes = {
     Default is an empty string (`''`)
   */
   suffixSeparator: React.PropTypes.string,
+  maxDecimals: React.PropTypes.number,
+  minDecimals: React.PropTypes.number,
 };
 
 Percent.defaultProps = {
