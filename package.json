@@ -18,7 +18,7 @@
     "build:watch": "npm run webpack -- --watch",
     "webpack": "webpack --progress --config webpack/config.babel.js",
     "test": "mocha --opts test/mocha.opts",
-    "test:tdd": "watch-run -i -p 'test/**/*.test.js, src/**/*' npm run test",
+    "test:tdd": "npm run test -- --watch --watch-extensions js,jsx",
     "coverage": "nyc --extension .jsx npm test",
     "precoveralls": "npm run coverage",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
@@ -110,7 +110,6 @@
     "sinon": "1.17.6",
     "sinon-chai": "2.8.0",
     "style-loader": "0.13.1",
-    "watch-run": "1.2.4",
     "webpack": "1.13.2"
   }
 }
