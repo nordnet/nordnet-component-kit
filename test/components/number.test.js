@@ -87,6 +87,43 @@ describe('<Number />', () => {
       const component = shallow(<Number value={999.7} ticks={ticks} />);
       expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(1);
     });
+
+    it('should respect maximum number of decimals when no ticks given', () => {
+      const valueMaxDecimals = 3;
+      const valueDecimals = 4;
+      const component = shallow(<Number value={99.12345} valueDecimals={valueDecimals} valueMaxDecimals={valueMaxDecimals} />);
+      expect(component.find('FormattedNumber').prop('maximumFractionDigits')).to.equal(valueMaxDecimals);
+    });
+
+    it('should respect minimum number of decimals when no ticks given', () => {
+      const valueMinDecimals = 4;
+      const valueDecimals = 3;
+      const component = shallow(<Number value={99.12345} valueDecimals={valueDecimals} valueMinDecimals={valueMinDecimals} />);
+      expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(valueMinDecimals);
+    });
+
+    it('should respect ticks when max and min num of decimals given', () => {
+      const tick = ticks[3];
+      const valueMaxDecimals = tick.decimals + 1;
+      const valueMinDecimals = tick.decimals - 1;
+      const value = tick.from_price + tick.tick;
+      const component = shallow(<Number
+        value={value}
+        valueMinDecimals={valueMinDecimals}
+        valueMaxDecimals={valueMaxDecimals}
+        ticks={[tick]}
+      />);
+      expect(component.find('FormattedNumber').prop('maximumFractionDigits')).to.equal(tick.decimals);
+      expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(tick.decimals);
+    });
+
+    it('should default to decimals when no ticks nor max num decimals', () => {
+      const decimals = 3;
+      const value = 3.1415;
+      const component = shallow(<Number value={value} ticks={[]} valueDecimals={decimals} />);
+      expect(component.find('FormattedNumber').prop('maximumFractionDigits')).to.equal(decimals);
+      expect(component.find('FormattedNumber').prop('minimumFractionDigits')).to.equal(decimals);
+    });
   });
 
   it('should add white-space: "nowrap" to Number', () => {
