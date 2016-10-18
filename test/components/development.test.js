@@ -80,7 +80,7 @@ describe('<Development />', () => {
       const component = shallow(
         <Development
           value={0}
-          type='number'
+          type="number"
           maxDecimals={maxDecimals}
           minDecimals={minDecimals}
         />);
@@ -96,7 +96,7 @@ describe('<Development />', () => {
       const component = shallow(
         <Development
           value={0}
-          type='percentage'
+          type="percentage"
           maxDecimals={maxDecimals}
           minDecimals={minDecimals}
         />);
@@ -112,7 +112,7 @@ describe('<Development />', () => {
       const component = shallow(
         <Development
           value={0}
-          type='currency'
+          type="currency"
           maxDecimals={maxDecimals}
           minDecimals={minDecimals}
         />);
@@ -121,7 +121,6 @@ describe('<Development />', () => {
       expect(passedMaxDecimals).to.equal(maxDecimals);
       expect(passedMinDecimals).to.equal(minDecimals);
     });
-
   });
 
   // A11y tests
