@@ -4,8 +4,14 @@ Simple examples:
       <span style={{marginRight: '2rem'}} title="Only value supplied">
         <Value value={ 2.4444 } />
       </span>
-      <span style={{marginRight: '2rem'}} title="Custom amount of decimals">
+      <span style={{marginRight: '2rem'}} title="Custom amount of decimals, set with decimals">
         <Value value={ 2.4444 } decimals={ 3 } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Custom amount of decimals, with min and max decimals">
+        <Value value={ 2.4444 } minDecimals={ 6 } maxDecimals={ 8 } />
+      </span>
+      <span style={{marginRight: '2rem'}} title="Custom amount of decimals, with min and max decimals">
+        <Value value={ 2.4444 } maxDecimals={ 1 } minDecimals={ 0 } />
       </span>
       <span style={{marginRight: '2rem'}} title="With prefix and prefixSeparator">
         <Value prefix="Value:" prefixSeparator=" " value={ 2.4444 } />
