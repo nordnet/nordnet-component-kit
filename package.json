@@ -82,7 +82,7 @@
     "coveralls": "2.11.14",
     "css-loader": "0.25.0",
     "dirty-chai": "1.2.2",
-    "enzyme": "2.4.1",
+    "enzyme": "2.5.1",
     "eslint": "3.7.1",
     "eslint-config-airbnb": "11.1.0",
     "eslint-config-nordnet": "1.1.1",
