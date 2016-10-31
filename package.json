@@ -111,6 +111,6 @@
     "sinon": "1.17.6",
     "sinon-chai": "2.8.0",
     "style-loader": "0.13.1",
-    "webpack": "1.13.2"
+    "webpack": "1.13.3"
   }
 }
