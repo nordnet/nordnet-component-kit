@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedNumber } from 'react-intl';
+import { injectIntl, intlShape } from 'react-intl';
 import classNames from 'classnames';
 import isFinite from 'lodash.isfinite';
 import Addon from '../addon/addon';
@@ -35,7 +35,7 @@ function getTickDecimals(value, ticks) {
   return tick ? tick.decimals : undefined;
 }
 
-function getFractionDigits(...args) {
+export function getFractionDigits(...args) {
   return args.reduce((prev, curr) => {
     if (isFinite(prev)) {
       return prev;
@@ -47,7 +47,7 @@ function getFractionDigits(...args) {
 /**
   This component is not intended for public use
 */
-export default function Number({
+function Number({
   className,
   style,
   value,
@@ -65,6 +65,7 @@ export default function Number({
   suffixSeparator,
   suffixStyle,
   ticks,
+  intl: { formatNumber },
   ...rest,
 }) {
   const classes = classNames('number', className);
@@ -75,16 +76,13 @@ export default function Number({
   const tickDecimals = getTickDecimals(value, ticks);
   const minimumFractionDigits = getFractionDigits(tickDecimals, valueMinDecimals, valueDecimals);
   const maximumFractionDigits = getFractionDigits(tickDecimals, valueMaxDecimals, valueDecimals);
+  const formattedNumber = formatNumber(value, { minimumFractionDigits, maximumFractionDigits });
 
   return (
-    <span {...rest} className={classes} style={styles}>
+    <span {...rest} className={classes} style={styles} title={formattedNumber}>
       { renderAddon(prefix, prefixClass, prefixSeparator, prefixStyle, 'left') }
       <span className={valueClass} style={valueStyle}>
-        <FormattedNumber
-          value={value}
-          maximumFractionDigits={maximumFractionDigits}
-          minimumFractionDigits={minimumFractionDigits}
-        />
+        {formattedNumber}
       </span>
       { renderAddon(suffix, suffixClass, suffixSeparator, suffixStyle, 'right') }
     </span>
@@ -114,6 +112,7 @@ Number.propTypes = {
     from_price: React.PropTypes.number,
     tick: React.PropTypes.number,
   })),
+  intl: intlShape.isRequired,
 };
 
 Number.defaultProps = {
@@ -121,3 +120,5 @@ Number.defaultProps = {
   prefixSeparator: '',
   suffixSeparator: '',
 };
+
+export default injectIntl(Number);

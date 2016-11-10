@@ -21,10 +21,6 @@ describe('<Development />', () => {
       );
     });
 
-    it('should default to 2 for valueDecimals', () => {
-      expect(component.prop('valueDecimals')).to.equal(2);
-    });
-
     it('should add a prefixStyle', () => {
       expect(component.prop('prefixStyle')).to.not.be.empty();
     });
