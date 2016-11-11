@@ -18,6 +18,7 @@ describe('<Number />', () => {
       component = shallow(
         <Number.WrappedComponent
           value={defaultValue}
+          valueClass="test"
           intl={intl}
         />);
     });
@@ -31,11 +32,11 @@ describe('<Number />', () => {
     });
 
     it('should have value placed in the inner span', () => {
-      expect(component.find('.number > span').text()).to.equal('2.54');
+      expect(component.find('.test').text()).to.equal('2.54');
     });
 
     it('should have value as title', () => {
-      expect(component.find('span.number').prop('title')).to.equal('2.54');
+      expect(component.find('.number').prop('title')).to.equal('2.54');
     });
   });
 
@@ -69,34 +70,40 @@ describe('<Number />', () => {
 
     it('should default to valueDecimals when no ticks are supplied', () => {
       const decimals = 3;
-      const component = shallow(<Number.WrappedComponent intl={intl} value={1.4444} valueDecimals={decimals} />);
-      expect(component.find('.number > span').text()).to.equal('1.444');
+      const component = shallow(<Number.WrappedComponent intl={intl} valueClass="test" value={1.4444} valueDecimals={decimals} />);
+      expect(component.find('.test').text()).to.equal('1.444');
     });
 
     it('should display 4 decimals when value < 0.5', () => {
-      const component = shallow(<Number.WrappedComponent intl={intl} value={0.2} ticks={ticks} />);
-      expect(component.find('.number > span').text()).to.equal('0.2000');
+      const component = shallow(<Number.WrappedComponent intl={intl} valueClass="test" value={0.2} ticks={ticks} />);
+      expect(component.find('.test').text()).to.equal('0.2000');
     });
 
     it('should display 3 decimals when value >= 1 and value < 2', () => {
-      const component = shallow(<Number.WrappedComponent intl={intl} value={1.22} ticks={ticks} />);
-      expect(component.find('.number > span').text()).to.equal('1.220');
+      const component = shallow(<Number.WrappedComponent intl={intl} valueClass="test" value={1.22} ticks={ticks} />);
+      expect(component.find('.test').text()).to.equal('1.220');
     });
 
     it('should display 1 decimals when value >= 500 and value < 1000', () => {
-      const component = shallow(<Number.WrappedComponent intl={intl} value={888} ticks={ticks} />);
-      expect(component.find('.number > span').text()).to.equal('888.0');
+      const component = shallow(<Number.WrappedComponent intl={intl} valueClass="test" value={888} ticks={ticks} />);
+      expect(component.find('.test').text()).to.equal('888.0');
     });
 
     it('should default to valueDecimals when there is no matching tick', () => {
       const decimals = 1;
-      const component = shallow(<Number.WrappedComponent intl={intl} value={444} ticks={ticks} valueDecimals={decimals} />);
-      expect(component.find('.number > span').text()).to.equal('444.0');
+      const component = shallow(<Number.WrappedComponent
+        intl={intl}
+        valueClass="test"
+        value={444}
+        ticks={ticks}
+        valueDecimals={decimals}
+      />);
+      expect(component.find('.test').text()).to.equal('444.0');
     });
 
     it('should find correct tick when value > to_price and value < to_price + tick', () => {
-      const component = shallow(<Number.WrappedComponent intl={intl} value={999.7} ticks={ticks} />);
-      expect(component.find('.number > span').text()).to.equal('999.7');
+      const component = shallow(<Number.WrappedComponent intl={intl} valueClass="test" value={999.7} ticks={ticks} />);
+      expect(component.find('.test').text()).to.equal('999.7');
     });
 
     it('should respect maximum number of decimals when no ticks given', () => {
@@ -104,11 +111,12 @@ describe('<Number />', () => {
       const valueDecimals = 2;
       const component = shallow(<Number.WrappedComponent
         intl={intl}
+        valueClass="test"
         value={99.12345}
         valueDecimals={valueDecimals}
         valueMaxDecimals={valueMaxDecimals}
       />);
-      expect(component.find('.number > span').text()).to.equal('99.123');
+      expect(component.find('.test').text()).to.equal('99.123');
     });
 
     it('should respect minimum number of decimals when no ticks given', () => {
@@ -116,11 +124,12 @@ describe('<Number />', () => {
       const valueDecimals = 5;
       const component = shallow(<Number.WrappedComponent
         intl={intl}
+        valueClass="test"
         value={99.1}
         valueDecimals={valueDecimals}
         valueMinDecimals={valueMinDecimals}
       />);
-      expect(component.find('.number > span').text()).to.equal('99.1000');
+      expect(component.find('.test').text()).to.equal('99.1000');
     });
 
     it('should respect ticks when max and min num of decimals given', () => {
@@ -130,19 +139,26 @@ describe('<Number />', () => {
       const value = tick.from_price + tick.tick;
       const component = shallow(<Number.WrappedComponent
         intl={intl}
+        valueClass="test"
         value={value}
         valueMinDecimals={valueMinDecimals}
         valueMaxDecimals={valueMaxDecimals}
         ticks={[tick]}
       />);
-      expect(component.find('.number > span').text()).to.equal('0.0001');
+      expect(component.find('.test').text()).to.equal('0.0001');
     });
 
     it('should default to decimals when no ticks nor max num decimals', () => {
       const decimals = 3;
       const value = 3.1415;
-      const component = shallow(<Number.WrappedComponent intl={intl} value={value} ticks={[]} valueDecimals={decimals} />);
-      expect(component.find('.number > span').text()).to.equal('3.142');
+      const component = shallow(<Number.WrappedComponent
+        intl={intl}
+        valueClass="test"
+        value={value}
+        ticks={[]}
+        valueDecimals={decimals}
+      />);
+      expect(component.find('.test').text()).to.equal('3.142');
     });
   });
 

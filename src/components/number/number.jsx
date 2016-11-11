@@ -79,7 +79,7 @@ function Number({
   const formattedNumber = formatNumber(value, { minimumFractionDigits, maximumFractionDigits });
 
   return (
-    <span {...rest} className={classes} style={styles} title={formattedNumber}>
+    <span title={formattedNumber} {...rest} className={classes} style={styles}>
       { renderAddon(prefix, prefixClass, prefixSeparator, prefixStyle, 'left') }
       <span className={valueClass} style={valueStyle}>
         {formattedNumber}
