@@ -39,7 +39,7 @@ module.exports = {
     const fileName = path.basename(componentPath, '.jsx');
     const componentName = capitalize(camelCase(fileName));
 
-    return `import { ${componentName} } from \'nordnet-component-kit\';`;
+    return `import { ${componentName} } from 'nordnet-component-kit';`;
   },
   updateWebpackConfig(webpackConfig) {
     const loaderDirs = {

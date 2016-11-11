@@ -1,6 +1,7 @@
 {
   "extends": "eslint-config-nordnet",
   "rules": {
+    "comma-dangle": 0,
     "no-param-reassign": [2, { "props": false }],
     "react/forbid-prop-types": 0,
     "react/no-unused-prop-types": [ 2, { "skipShapeProps": true }]

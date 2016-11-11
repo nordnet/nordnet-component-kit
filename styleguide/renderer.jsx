@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { Logo, Icon, variables } from 'nordnet-ui-kit';
 import './renderer.scss';
-import './intl.js';
+import './intl';
 
 class Renderer extends React.Component {
   constructor(props) {
