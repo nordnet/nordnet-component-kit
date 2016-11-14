@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.14
+* Added changelog.
+* Fix documentation.
+* Number components - Added hover texts for value [anneback](https://github.com/anneback).
+* Changed travis build target.
+
 ## 0.0.13
 * Watching files in `src` when running TDD [gish](https://github.com/gish).
 * Number components - Added support for min and max decimals [gish](https://github.com/gish).
