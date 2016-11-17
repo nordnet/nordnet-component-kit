@@ -30,7 +30,7 @@ function getTickDecimals(value, ticks) {
     return undefined;
   }
 
-  const tick = ticks.find(t => value >= t.from_price && value < (t.to_price + t.tick));
+  const tick = ticks.find(t => value >= t.from_price && value < (t.to_price + (t.tick || 0)));
 
   return tick ? tick.decimals : undefined;
 }
