@@ -67,6 +67,8 @@ module.exports = {
       },
     };
 
+    webpackConfig.entry = ['babel-polyfill', ...webpackConfig.entry];
+
     webpackConfig.module.loaders.push(loaders.js, loaders.css, loaders.sass);
 
     webpackConfig.postcss = [autoprefixer];

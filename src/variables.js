@@ -19,6 +19,7 @@ export default {
       marginRight: '.2em',
       fill: 'currentColor',
       height: '0.6em',
+      width: '0.6em',
     },
   },
 };
