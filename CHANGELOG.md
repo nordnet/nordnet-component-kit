@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.15
+* Number components - Make tick in the tick size table optional.
+* Development - Add explicit width to the SVG arrow (Fixes issues in IE).
+
 ## 0.0.14
 * Added changelog.
 * Fix documentation.
