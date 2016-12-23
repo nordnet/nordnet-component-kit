@@ -68,7 +68,7 @@
     "lodash.isfinite": "3.3.2"
   },
   "devDependencies": {
-    "autoprefixer": "6.5.3",
+    "autoprefixer": "6.6.0",
     "babel-cli": "6.18.0",
     "babel-core": "6.18.2",
     "babel-loader": "6.2.8",
