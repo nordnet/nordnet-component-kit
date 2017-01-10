@@ -2,17 +2,17 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import FeedStatus from '../../../src/components/feed-status/feed-status';
+import FreshnessIndicator from '../../../src/components/freshness-indicator/freshness-indicator';
 
-const getComponent = (delay = 0, closePrice = false, timestamp = 1, uniqueId) =>
-  shallow(<FeedStatus delay={delay} closePrice={closePrice} timestamp={timestamp} uniqueId={uniqueId} />);
+const getComponent = (delay = 0, isActive = false, timestamp = 1, uniqueId) =>
+  shallow(<FreshnessIndicator delay={delay} isActive={isActive} timestamp={timestamp} uniqueId={uniqueId} />);
 
-describe('<FeedStatus />', () => {
-  it('should have className "feed-status__tooltip__timestamp"', () => {
-    expect(getComponent()).to.have.className('feed-status');
+describe('<FreshnessIndicator />', () => {
+  it('should have className "freshness-indicator__tooltip__timestamp"', () => {
+    expect(getComponent()).to.have.className('freshness-indicator');
   });
 
-  it('should render circleSlash icon if closePrice is true', () => {
+  it('should render circleSlash icon if isActive is true', () => {
     expect(getComponent(0, true).find('Icon')).to.have.prop('type', 'circleSlash');
   });
 

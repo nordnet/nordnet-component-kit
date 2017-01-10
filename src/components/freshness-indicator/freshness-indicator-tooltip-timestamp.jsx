@@ -4,25 +4,25 @@ import DateTime from '../date-time/date-time';
 
 const messages = defineMessages({
   updated: {
-    id: 'COMPONENT_KIT.FEED_STATUS.UPDATED',
+    id: 'COMPONENT_KIT.FRESHNESS_INDICATOR.UPDATED',
     defaultMessage: 'Updated',
     description: 'Label for timestamp value in feed status tooltip',
   },
 });
 
-function FeedStatusTooltipTimestamp({ timestamp }) {
+function FreshnessIndicatorTooltipTimestamp({ timestamp }) {
   if (!Number.isFinite(timestamp)) {
     return (<div />);
   }
   return (
-    <div className="feed-status__tooltip__timestamp">
+    <div className="freshness-indicator__tooltip__timestamp">
       <b><FormattedMessage {...messages.updated} />: <DateTime value={new Date(timestamp)} format="numeric" type="time" /></b>
     </div>
   );
 }
 
-FeedStatusTooltipTimestamp.propTypes = {
+FreshnessIndicatorTooltipTimestamp.propTypes = {
   timestamp: PropTypes.number,
 };
 
-export default FeedStatusTooltipTimestamp;
+export default FreshnessIndicatorTooltipTimestamp;

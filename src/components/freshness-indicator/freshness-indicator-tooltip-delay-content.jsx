@@ -3,32 +3,32 @@ import { FormattedMessage, defineMessages } from 'react-intl';
 
 const messages = defineMessages({
   delay: {
-    id: 'COMPONENT_KIT.FEED_STATUS.DELAY',
+    id: 'COMPONENT_KIT.FRESHNESS_INDICATOR.DELAY',
     defaultMessage: 'Delayed',
     description: 'Label for delay value in feed status tooltip',
   },
   realtime: {
-    id: 'COMPONENT_KIT.FEED_STATUS.NO_DELAY',
+    id: 'COMPONENT_KIT.FRESHNESS_INDICATOR.NO_DELAY',
     defaultMessage: 'Realtime',
     description: 'Text describing that there is no delay in feed status tooltip',
   },
   hours: {
-    id: 'COMPONENT_KIT.FEED_STATUS.HOUR',
+    id: 'COMPONENT_KIT.FRESHNESS_INDICATOR.HOUR',
     defaultMessage: 'h',
     description: 'Suffix for delay hour value in feed tooltip',
   },
   minutes: {
-    id: 'COMPONENT_KIT.FEED_STATUS.MINUTE',
+    id: 'COMPONENT_KIT.FRESHNESS_INDICATOR.MINUTE',
     defaultMessage: 'm',
     description: 'Suffix for delay minute value in feed tooltip',
   },
   seconds: {
-    id: 'COMPONENT_KIT.FEED_STATUS.SECOND',
+    id: 'COMPONENT_KIT.FRESHNESS_INDICATOR.SECOND',
     defaultMessage: 's',
     description: 'Suffix for delay second value in feed tooltip',
   },
-  closePrice: {
-    id: 'COMPONENT_KIT.FEED_STATUS.CLOSE_PRICE',
+  isActive: {
+    id: 'COMPONENT_KIT.FRESHNESS_INDICATOR.IS_ACTIVE',
     defaultMessage: 'Close price',
     description: 'Text describing that we are showing the closing price',
   }
@@ -58,9 +58,9 @@ function getTimeComponent(time, key) {
   );
 }
 
-function FeedStatusTooltipDelayContent({ delay, closePrice }) {
-  if (closePrice) {
-    return (<FormattedMessage {...messages.closePrice} />);
+function FreshnessIndicatorTooltipDelayContent({ delay, isActive }) {
+  if (isActive) {
+    return (<FormattedMessage {...messages.isActive} />);
   }
   if (delay === 0) {
     return (<FormattedMessage {...messages.realtime} />);
@@ -73,14 +73,14 @@ function FeedStatusTooltipDelayContent({ delay, closePrice }) {
   );
 }
 
-FeedStatusTooltipDelayContent.defaultProps = {
+FreshnessIndicatorTooltipDelayContent.defaultProps = {
   delay: 0,
-  closePrice: false,
+  isActive: false,
 };
 
-FeedStatusTooltipDelayContent.propTypes = {
+FreshnessIndicatorTooltipDelayContent.propTypes = {
   delay: PropTypes.number,
-  closePrice: PropTypes.bool,
+  isActive: PropTypes.bool,
 };
 
-export default FeedStatusTooltipDelayContent;
+export default FreshnessIndicatorTooltipDelayContent;
