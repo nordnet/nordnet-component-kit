@@ -109,7 +109,7 @@
     "react-addons-test-utils": "15.4.1",
     "react-dom": "15.4.1",
     "react-intl": "2.1.5",
-    "react-styleguidist": "4.1.0",
+    "react-styleguidist": "4.3.0",
     "rimraf": "2.5.4",
     "sass-loader": "4.0.2",
     "sinon": "1.17.6",
