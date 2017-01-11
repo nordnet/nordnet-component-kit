@@ -71,7 +71,7 @@
     "uuid": "3.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "6.6.0",
+    "autoprefixer": "6.6.1",
     "babel-cli": "6.18.0",
     "babel-core": "6.18.2",
     "babel-loader": "6.2.8",
