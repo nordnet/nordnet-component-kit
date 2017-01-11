@@ -27,14 +27,14 @@ const messages = defineMessages({
     defaultMessage: 's',
     description: 'Suffix for delay second value in feed tooltip',
   },
-  isActive: {
-    id: 'COMPONENT_KIT.FRESHNESS_INDICATOR.IS_ACTIVE',
+  notActive: {
+    id: 'COMPONENT_KIT.FRESHNESS_INDICATOR.NOT_ACTIVE',
     defaultMessage: 'Close price',
     description: 'Text describing that we are showing the closing price',
   }
 });
 
-function delayToHHMMSS(delay) {
+export function delayToHHMMSS(delay) {
   const time = {};
   let currDelay = delay;
   if (currDelay >= 3600) {
@@ -54,13 +54,13 @@ function getTimeComponent(time, key) {
     return null;
   }
   return (
-    <span key={key} >{time[key]} <FormattedMessage {...messages[key]} /> </span>
+    <span key={key}>{time[key]}<FormattedMessage {...messages[key]} /> </span>
   );
 }
 
-function FreshnessIndicatorTooltipDelayContent({ delay, isActive }) {
-  if (isActive) {
-    return (<FormattedMessage {...messages.isActive} />);
+function TooltipDelayContent({ delay, notActive }) {
+  if (notActive) {
+    return (<FormattedMessage {...messages.notActive} />);
   }
   if (delay === 0) {
     return (<FormattedMessage {...messages.realtime} />);
@@ -73,14 +73,14 @@ function FreshnessIndicatorTooltipDelayContent({ delay, isActive }) {
   );
 }
 
-FreshnessIndicatorTooltipDelayContent.defaultProps = {
+TooltipDelayContent.defaultProps = {
   delay: 0,
-  isActive: false,
+  notActive: false,
 };
 
-FreshnessIndicatorTooltipDelayContent.propTypes = {
+TooltipDelayContent.propTypes = {
   delay: PropTypes.number,
-  isActive: PropTypes.bool,
+  notActive: PropTypes.bool,
 };
 
-export default FreshnessIndicatorTooltipDelayContent;
+export default TooltipDelayContent;

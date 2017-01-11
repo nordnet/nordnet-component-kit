@@ -2,12 +2,12 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import FreshnessIndicatorTooltipTimestamp from '../../../src/components/freshness-indicator/freshness-indicator-tooltip-timestamp';
+import TooltipTimestamp from '../../../src/components/freshness-indicator/tooltip-timestamp';
 
 let component;
-describe('<FreshnessIndicatorTooltipTimestamp />', () => {
+describe('<TooltipTimestamp />', () => {
   beforeEach(() => {
-    component = shallow(<FreshnessIndicatorTooltipTimestamp timestamp={1} />);
+    component = shallow(<TooltipTimestamp timestamp={1} />);
   });
 
   it('should have className "freshness-indicator__tooltip__timestamp"', () => {
@@ -23,7 +23,7 @@ describe('<FreshnessIndicatorTooltipTimestamp />', () => {
   });
 
   it('should not render timestamp if there is no timestamp', () => {
-    component = shallow(<FreshnessIndicatorTooltipTimestamp />);
+    component = shallow(<TooltipTimestamp />);
     expect(component.find('.freshness-indicator__tooltip__timestamp')).to.have.length(0);
   });
 });

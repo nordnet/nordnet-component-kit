@@ -3,12 +3,12 @@ import { Icon, variables } from 'nordnet-ui-kit';
 import ReactTooltip from 'react-tooltip';
 import uuid from 'uuid';
 import classNames from 'classnames';
-import FreshnessIndicatorTooltipTimestamp from './freshness-indicator-tooltip-timestamp';
-import FreshnessIndicatorTooltipDelay from './freshness-indicator-tooltip-delay';
+import TooltipTimestamp from './tooltip-timestamp';
+import TooltipDelay from './tooltip-delay';
 
 
-function getIconType(delay, isActive) {
-  if (isActive) {
+export function getIconType(delay, notActive) {
+  if (notActive) {
     return 'circleSlash';
   }
   if (delay === 0) {
@@ -17,8 +17,8 @@ function getIconType(delay, isActive) {
   return 'tickingClock';
 }
 
-function getColor(isActive) {
-  if (isActive) {
+export function getColor(notActive) {
+  if (notActive) {
     return variables.colorDisabled;
   }
   return variables.colorWarning;
@@ -30,18 +30,18 @@ function FreshnessIndicator({
   tooltipClass,
   delay,
   timestamp,
-  isActive,
+  notActive,
   uniqueId,
   tooltipPlacement,
   tooltipStatic,
   tooltipOffset
 }) {
   const id = uniqueId || uuid.v1();
-  const color = getColor(isActive);
+  const color = getColor(notActive);
   return (
     <div className={classNames('freshness-indicator', className)} data-tip data-for={id} style={{ display: 'inline-flex' }}>
       <Icon
-        type={getIconType(delay, isActive)}
+        type={getIconType(delay, notActive)}
         stroke={color}
         fill={color}
       />
@@ -52,8 +52,8 @@ function FreshnessIndicator({
         effect={tooltipStatic ? 'solid' : 'float'}
         offset={tooltipOffset}
       >
-        <FreshnessIndicatorTooltipTimestamp timestamp={timestamp} />
-        <FreshnessIndicatorTooltipDelay delay={delay} isActive={isActive} />
+        <TooltipTimestamp timestamp={timestamp} />
+        <TooltipDelay delay={delay} notActive={notActive} />
       </ReactTooltip>
     </div>
   );
@@ -61,7 +61,7 @@ function FreshnessIndicator({
 
 FreshnessIndicator.defaultProps = {
   delay: 0,
-  isActive: false,
+  notActive: false,
   tooltipPlacement: 'top',
   tooltipStatic: false,
   tooltipOffset: {},
@@ -71,7 +71,7 @@ FreshnessIndicator.propTypes = {
   className: PropTypes.string,
   delay: PropTypes.number,
   timestamp: PropTypes.number,
-  isActive: PropTypes.bool,
+  notActive: PropTypes.bool,
   uniqueId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   tooltipClass: PropTypes.string,
   tooltipPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),

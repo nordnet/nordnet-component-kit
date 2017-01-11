@@ -10,19 +10,19 @@ const messages = defineMessages({
   },
 });
 
-function FreshnessIndicatorTooltipTimestamp({ timestamp }) {
+function TooltipTimestamp({ timestamp }) {
   if (!Number.isFinite(timestamp)) {
-    return (<div />);
+    return null;
   }
   return (
     <div className="freshness-indicator__tooltip__timestamp">
-      <b><FormattedMessage {...messages.updated} />: <DateTime value={new Date(timestamp)} format="numeric" type="time" /></b>
+      <b><FormattedMessage {...messages.updated} />: <DateTime value={timestamp} format="numeric" type="time" /></b>
     </div>
   );
 }
 
-FreshnessIndicatorTooltipTimestamp.propTypes = {
+TooltipTimestamp.propTypes = {
   timestamp: PropTypes.number,
 };
 
-export default FreshnessIndicatorTooltipTimestamp;
+export default TooltipTimestamp;
