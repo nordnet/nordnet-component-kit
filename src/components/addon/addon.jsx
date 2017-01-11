@@ -18,6 +18,10 @@ export default function Addon({
   );
 }
 
+Addon.defaultProps = {
+  className: '',
+};
+
 Addon.propTypes = {
   className: React.PropTypes.string,
   children: React.PropTypes.node.isRequired,

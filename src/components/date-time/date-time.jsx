@@ -33,6 +33,12 @@ function DateTime({
   );
 }
 
+DateTime.defaultProps = {
+  format: 'numeric',
+  iso: false,
+  type: 'date',
+};
+
 DateTime.propTypes = {
   format: React.PropTypes.oneOf(['numeric', 'human']),
   /**
@@ -47,12 +53,6 @@ DateTime.propTypes = {
     React.PropTypes.instanceOf(Date),
   ]).isRequired,
   type: React.PropTypes.oneOf(['date', 'time', 'relative']),
-};
-
-
-DateTime.defaultProps = {
-  iso: false,
-  type: 'date',
 };
 
 export default DateTime;

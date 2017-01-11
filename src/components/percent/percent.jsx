@@ -25,6 +25,13 @@ export default function Percent({
   );
 }
 
+Percent.defaultProps = {
+  maxDecimals: null,
+  minDecimals: null,
+  suffixSeparator: '',
+  decimals: 2,
+};
+
 Percent.propTypes = {
   value: React.PropTypes.any.isRequired,
   decimals: React.PropTypes.number,
@@ -34,9 +41,4 @@ Percent.propTypes = {
   suffixSeparator: React.PropTypes.string,
   maxDecimals: React.PropTypes.number,
   minDecimals: React.PropTypes.number,
-};
-
-Percent.defaultProps = {
-  suffixSeparator: '',
-  decimals: 2,
 };

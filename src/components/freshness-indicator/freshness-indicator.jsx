@@ -64,8 +64,12 @@ function FreshnessIndicator({
 }
 
 FreshnessIndicator.defaultProps = {
+  className: '',
   delay: 0,
+  timestamp: null,
   notActive: false,
+  uniqueId: null,
+  tooltipClass: '',
   tooltipPlacement: 'top',
   tooltipStatic: false,
   tooltipOffset: {},

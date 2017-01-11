@@ -21,6 +21,10 @@ function TooltipTimestamp({ timestamp }) {
   );
 }
 
+TooltipTimestamp.defaultProps = {
+  timestamp: null,
+};
+
 TooltipTimestamp.propTypes = {
   timestamp: PropTypes.number,
 };

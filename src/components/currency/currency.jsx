@@ -35,6 +35,15 @@ export default function Currency({
   );
 }
 
+Currency.defaultProps = {
+  currency: '',
+  suffixSeparator: ' ',
+  suffixSize: 'normal',
+  decimals: 2,
+  maxDecimals: null,
+  minDecimals: null,
+};
+
 Currency.propTypes = {
   value: React.PropTypes.any.isRequired,
   /**
@@ -49,10 +58,4 @@ Currency.propTypes = {
   decimals: React.PropTypes.number,
   maxDecimals: React.PropTypes.number,
   minDecimals: React.PropTypes.number,
-};
-
-Currency.defaultProps = {
-  suffixSeparator: ' ',
-  suffixSize: 'normal',
-  decimals: 2,
 };

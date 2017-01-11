@@ -31,6 +31,12 @@ export default function DateTimeIso({
   );
 }
 
+DateTimeIso.defaultProps = {
+  hour: false,
+  minute: false,
+  second: false,
+};
+
 DateTimeIso.propTypes = {
   value: React.PropTypes.oneOfType([
     React.PropTypes.number,

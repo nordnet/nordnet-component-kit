@@ -22,13 +22,15 @@ export default function Value({
   );
 }
 
+Value.defaultProps = {
+  maxDecimals: null,
+  minDecimals: null,
+  decimals: 2,
+};
+
 Value.propTypes = {
   value: React.PropTypes.any.isRequired,
   decimals: React.PropTypes.number,
   maxDecimals: React.PropTypes.number,
   minDecimals: React.PropTypes.number,
-};
-
-Value.defaultProps = {
-  decimals: 2,
 };

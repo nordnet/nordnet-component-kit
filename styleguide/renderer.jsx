@@ -60,6 +60,10 @@ class Renderer extends React.Component {
   }
 }
 
+Renderer.defaultProps = {
+  sidebar: false,
+};
+
 Renderer.propTypes = {
   title: PropTypes.string.isRequired,
   components: PropTypes.object.isRequired,
