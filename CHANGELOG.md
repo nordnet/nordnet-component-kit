@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.17
+* Added new peerDependency `nordnet-ui-kit` to externals to reduce bundle size.
+
 ## 0.0.16
 * FreshnessIndicator - Added a new component to indicate data freshness. [robineng](https://github.com/robineng)
 * Added more default props to some components.
