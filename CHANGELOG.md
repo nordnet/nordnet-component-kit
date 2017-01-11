@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.16
+* FreshnessIndicator - Added a new component to indicate data freshness. [robineng](https://github.com/robineng)
+* Added more default props to some components.
+
 ## 0.0.15
 * Number components - Make tick in the tick size table optional.
 * Development - Add explicit width to the SVG arrow (Fixes issues in IE).
