@@ -111,7 +111,7 @@
     "react-intl": "2.2.2",
     "react-styleguidist": "4.1.0",
     "rimraf": "2.5.4",
-    "sass-loader": "4.0.2",
+    "sass-loader": "4.1.1",
     "sinon": "1.17.7",
     "sinon-chai": "2.8.0",
     "style-loader": "0.13.1",
