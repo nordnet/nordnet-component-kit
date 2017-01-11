@@ -102,7 +102,7 @@
     "mocha": "3.2.0",
     "node-sass": "3.13.0",
     "nordnet-ui-kit": "0.0.54",
-    "npm-run-all": "3.1.2",
+    "npm-run-all": "4.0.0",
     "nyc": "10.0.0",
     "postcss-loader": "1.2.0",
     "react": "15.4.1",
