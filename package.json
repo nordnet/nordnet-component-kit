@@ -104,7 +104,7 @@
     "nordnet-ui-kit": "0.0.54",
     "npm-run-all": "4.0.0",
     "nyc": "10.0.0",
-    "postcss-loader": "1.2.1",
+    "postcss-loader": "1.2.2",
     "react": "15.4.1",
     "react-addons-test-utils": "15.4.1",
     "react-dom": "15.4.1",
