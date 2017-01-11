@@ -59,13 +59,16 @@
   "homepage": "https://nordnet.github.io/nordnet-component-kit",
   "license": "MIT",
   "peerDependencies": {
+    "nordnet-ui-kit": ">=0.0.54",
     "react": "15.x",
     "react-dom": "15.x",
     "react-intl": "2.x"
   },
   "dependencies": {
     "classnames": "2.2.5",
-    "lodash.isfinite": "3.3.2"
+    "lodash.isfinite": "3.3.2",
+    "react-tooltip": "3.2.2",
+    "uuid": "3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "6.6.0",
@@ -98,7 +101,7 @@
     "lodash.camelcase": "4.3.0",
     "mocha": "3.2.0",
     "node-sass": "3.13.0",
-    "nordnet-ui-kit": "0.0.52",
+    "nordnet-ui-kit": "0.0.54",
     "npm-run-all": "3.1.2",
     "nyc": "10.0.0",
     "postcss-loader": "1.2.0",

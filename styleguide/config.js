@@ -14,6 +14,7 @@ const numberComponentPaths = getComponentPaths([
 
 const otherComponentPaths = getComponentPaths([
   '../src/components/date-time/date-time.jsx',
+  '../src/components/freshness-indicator/freshness-indicator.jsx',
 ]);
 
 function getComponentPaths(components) {
