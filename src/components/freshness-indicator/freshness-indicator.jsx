@@ -19,7 +19,7 @@ export function getIconType(delay, notActive) {
 
 export function getColor(notActive) {
   if (notActive) {
-    return variables.colorDisabled;
+    return variables.colorGray;
   }
   return variables.colorWarning;
 }
@@ -34,7 +34,9 @@ function FreshnessIndicator({
   uniqueId,
   tooltipPlacement,
   tooltipStatic,
-  tooltipOffset
+  tooltipOffset,
+  iconWidth,
+  iconHeight,
 }) {
   const id = uniqueId || uuid.v1();
   const color = getColor(notActive);
@@ -44,6 +46,8 @@ function FreshnessIndicator({
         type={getIconType(delay, notActive)}
         stroke={color}
         fill={color}
+        width={iconWidth}
+        height={iconHeight}
       />
       <ReactTooltip
         class={tooltipClass}
@@ -65,6 +69,8 @@ FreshnessIndicator.defaultProps = {
   tooltipPlacement: 'top',
   tooltipStatic: false,
   tooltipOffset: {},
+  iconWidth: 12,
+  iconHeight: 12,
 };
 
 FreshnessIndicator.propTypes = {
@@ -82,6 +88,8 @@ FreshnessIndicator.propTypes = {
     left: PropTypes.number,
     bottom: PropTypes.number,
   }),
+  iconWidth: PropTypes.number,
+  iconHeight: PropTypes.number,
 };
 
 export default FreshnessIndicator;

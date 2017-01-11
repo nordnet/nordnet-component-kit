@@ -23,7 +23,7 @@ describe('<FreshnessIndicator />', () => {
 
   describe('getColor function', () => {
     it('should return colorDisabled if not active', () => {
-      expect(getColor(true)).to.equal(variables.colorDisabled);
+      expect(getColor(true)).to.equal(variables.colorGray);
     });
 
     it('should return colorWarning if active', () => {
