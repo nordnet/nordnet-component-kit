@@ -22,30 +22,12 @@ export default {
   module: {
     loaders,
   },
-  externals: [
-    {
-      react: {
-        root: 'React',
-        commonjs2: 'react',
-        commonjs: 'react',
-        amd: 'react',
-      },
-    }, {
-      'react-dom': {
-        root: 'ReactDOM',
-        commonjs2: 'react-dom',
-        commonjs: 'react-dom',
-        amd: 'react-dom',
-      },
-    }, {
-      'react-intl': {
-        root: 'ReactIntl',
-        commonjs2: 'react-intl',
-        commonjs: 'react-intl',
-        amd: 'react-intl',
-      },
-    },
-  ],
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'react-intl': 'ReactIntl',
+    'nordnet-ui-kit': 'NordnetUiKit',
+  },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
