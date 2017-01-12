@@ -23,10 +23,30 @@ export default {
     loaders,
   },
   externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    'react-intl': 'ReactIntl',
-    'nordnet-ui-kit': 'NordnetUiKit',
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react',
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom',
+    },
+    'react-intl': {
+      root: 'ReactIntl',
+      commonjs2: 'react-intl',
+      commonjs: 'react-intl',
+      amd: 'react-intl',
+    },
+    'nordnet-ui-kit': {
+      root: 'NordnetUiKit',
+      commonjs2: 'nordnet-ui-kit',
+      commonjs: 'nordnet-ui-kit',
+      amd: 'nordnet-ui-kit',
+    },
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
