@@ -1,9 +1,12 @@
 # Changelog
 
-## 0.0.17
+## 0.0.18
+* Fixed webpack bundle output.
+
+## 0.0.17 - *Depracted, use 0.0.18 instead*
 * Added new peerDependency `nordnet-ui-kit` to externals to reduce bundle size.
 
-## 0.0.16
+## 0.0.16 - *Depracted, use 0.0.18 instead*
 * FreshnessIndicator - Added a new component to indicate data freshness. [robineng](https://github.com/robineng)
 * Added more default props to some components.
 
