@@ -95,7 +95,7 @@
     "eslint-plugin-jsx-a11y": "3.0.2",
     "eslint-plugin-react": "6.9.0",
     "git-directory-deploy": "1.5.1",
-    "husky": "0.11.9",
+    "husky": "0.12.0",
     "intl": "1.2.5",
     "jsdom": "9.9.1",
     "lodash.camelcase": "4.3.0",
