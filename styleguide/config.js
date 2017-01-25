@@ -31,6 +31,7 @@ module.exports = {
   sections: [
     { name: 'Number Components', components: () => numberComponentPaths, content: `${path.resolve(__dirname)}/number.section.md` },
     { name: 'Other Components', components: () => otherComponentPaths },
+    { name: 'Higher Order Components', content: `${path.resolve(__dirname)}/hoc.section.md` },
   ],
   template: `${path.join(uiKitPath, 'documentation/template.html')}`,
   getExampleFilename(componentpath) {
