@@ -1,4 +1,4 @@
-## onClickOutside
+# onClickOutside
 
 HOC that invokes method
 ```javascript
@@ -15,14 +15,16 @@ Example of implementing callback:
 
 Example usage:
 ```jsx
+import { onClickOutside } from 'nordnet-component-kit';
+
 class Example extends React.Component {
   constructor(props) {
     super(props);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
-  handleClickOutside() {
-    // Do stuff
+  handleClickOutside(event) {
+    // Do stuff when click made outside div.my-container
   }
 
   render() {
@@ -35,10 +37,7 @@ class Example extends React.Component {
 }
 
 export default onClickOutside(Example);
-
 ```
-
-
 
     const React = require('react');
     const { onClickOutside } = require('../src');
