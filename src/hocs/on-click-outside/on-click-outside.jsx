@@ -4,7 +4,7 @@ import React, { Component } from 'react';
   Calls handleClickOutside function of wrapped component when a click has been made outside the
   element returned in the topDOMElement callback.
 */
-export default function clickOutside(WrappedComponent) {
+export default function onClickOutside(WrappedComponent) {
   class ClickOutside extends Component {
     constructor(props) {
       super(props);
