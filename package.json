@@ -17,7 +17,7 @@
     "build": "npm-run-all env:prod webpack",
     "build:watch": "npm run webpack -- --watch",
     "webpack": "webpack --progress --config webpack/config.babel.js",
-    "test": "mocha --opts test/mocha.opts",
+    "test": "NODE_ENV=test mocha --opts test/mocha.opts",
     "test:tdd": "npm run test -- --watch --watch-extensions js,jsx",
     "coverage": "nyc --extension .jsx npm test",
     "precoveralls": "npm run coverage",
