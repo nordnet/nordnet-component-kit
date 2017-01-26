@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.19
+* Add new component type HOC.
+* HOCs: Add new onClickOutside component. [robineng](https://github.com/robineng)
+* Documentation: Migrate to react-styleguidist 4.
+
 ## 0.0.18
 * Fixed webpack bundle output.
 
