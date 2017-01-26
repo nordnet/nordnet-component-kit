@@ -1,6 +1,12 @@
 # Changelog
 
-## 0.0.19
+## 0.0.20
+* Number components - Remove dependency on lodash.isfinite.
+* Tooltip - Remove dependency on lodash.isfinite.
+* Remove HMRE since it blew up the bundle.
+* Fix update of styleguidist.
+
+## 0.0.19 - *Depracted, use 0.0.20 instead*
 * Add new component type HOC.
 * HOCs: Add new onClickOutside component. [robineng](https://github.com/robineng)
 * Documentation: Migrate to react-styleguidist 4.
