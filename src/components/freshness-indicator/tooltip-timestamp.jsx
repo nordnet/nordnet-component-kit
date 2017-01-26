@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { FormattedMessage, defineMessages } from 'react-intl';
 import DateTime from '../date-time/date-time';
+import { numberIsFinite } from '../../utils';
 
 const messages = defineMessages({
   updated: {
@@ -11,7 +12,7 @@ const messages = defineMessages({
 });
 
 function TooltipTimestamp({ timestamp }) {
-  if (!Number.isFinite(timestamp)) {
+  if (!numberIsFinite(timestamp)) {
     return null;
   }
   return (

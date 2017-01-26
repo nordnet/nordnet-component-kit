@@ -1,8 +1,8 @@
 import React from 'react';
 import { injectIntl, intlShape } from 'react-intl';
 import classNames from 'classnames';
-import isFinite from 'lodash.isfinite';
 import Addon from '../addon/addon';
+import { numberIsFinite } from '../../utils';
 
 function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) {
   if (!addon) {
@@ -37,7 +37,7 @@ function getTickDecimals(value, ticks) {
 
 export function getFractionDigits(...args) {
   return args.reduce((prev, curr) => {
-    if (isFinite(prev)) {
+    if (numberIsFinite(prev)) {
       return prev;
     }
     return curr;
