@@ -13,6 +13,8 @@ Example of implementing callback:
 </div>
 ```
 
+Note that topDOMElement can't be a React component.
+
 Example usage:
 ```jsx
 import { onClickOutside } from 'nordnet-component-kit';
@@ -24,7 +26,7 @@ class Example extends React.Component {
   }
 
   handleClickOutside(event) {
-    // Do stuff when click made outside div.my-container
+    // Do stuff when click made outside div.#my-container
   }
 
   render() {
