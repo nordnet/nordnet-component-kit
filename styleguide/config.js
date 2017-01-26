@@ -59,12 +59,12 @@ module.exports = {
       },
       sass: {
         test: /\.scss$/,
-        include: [loaderDirs.src, loaderDirs.styleguide, loaderDirs.uiKitDocs],
+        include: [loaderDirs.src, loaderDirs.uiKitDocs],
         loader: 'style!css!postcss!sass',
       },
       css: {
         test: /\.css$/,
-        include: [loaderDirs.src, loaderDirs.styleguide, loaderDirs.uiKitDist],
+        include: [loaderDirs.src, loaderDirs.uiKitDist],
         loader: 'style!css',
       },
     };
@@ -76,7 +76,6 @@ module.exports = {
     webpackConfig.postcss = [autoprefixer];
 
     webpackConfig.resolve.alias['rsg-components/Wrapper'] = path.join(__dirname, 'wrapper.jsx');
-    webpackConfig.resolve.alias['rsg-components/Layout/Renderer'] = path.join(__dirname, 'renderer.jsx');
     webpackConfig.entry.push(
       path.join(uiKitPath, 'documentation/documentation.scss'),
       path.join(uiKitPath, 'dist/input/input.css')
