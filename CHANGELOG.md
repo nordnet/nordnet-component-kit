@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.21
+* onClickOutside - Add support for closing overlay with ESC key. [jesperwiner](https://github.com/jesperwiner)
+
 ## 0.0.20
 * Number components - Remove dependency on lodash.isfinite.
 * Tooltip - Remove dependency on lodash.isfinite.
