@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-// Documentation here: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
 const KEYCODE_ESC = 27;
 
 /**
@@ -12,17 +11,17 @@ export default function onClickOutside(WrappedComponent) {
     constructor(props) {
       super(props);
       this.handleClick = this.handleClick.bind(this);
-      this.handleKeyDown = this.handleKeyDown.bind(this);
+      this.handleKeyUp = this.handleKeyUp.bind(this);
     }
 
     componentDidMount() {
       document.addEventListener('click', this.handleClick);
-      document.addEventListener('keydown', this.handleKeyDown);
+      document.addEventListener('keyup', this.handleKeyUp);
     }
 
     componentWillUnmount() {
       document.removeEventListener('click', this.handleClick);
-      document.removeEventListener('keydown', this.handleKeyDown);
+      document.removeEventListener('keyup', this.handleKeyUp);
     }
 
     handleClick(event = {}) {
@@ -38,9 +37,18 @@ export default function onClickOutside(WrappedComponent) {
       }
     }
 
-    handleKeyDown(e) {
-      if (e.keyCode === KEYCODE_ESC) {
-        this.wrapped.handleClickOutside(event);
+    handleKeyUp(e) {
+      // "key" is the new way, not yet supported in all browsers
+      if (e.key && e.key === 'Escape') {
+        this.wrapped.handleClickOutside(e);
+      } else {
+        // fallback to "which" for other browsers
+        if (!e.which && (e.charCode || e.keyCode)) {
+          e.which = e.charCode ? e.charCode : e.keyCode;
+        }
+        if (e.which === KEYCODE_ESC) {
+          this.wrapped.handleClickOutside(e);
+        }
       }
     }
 

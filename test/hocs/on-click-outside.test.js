@@ -27,11 +27,11 @@ describe('onClickOutside HOC', () => {
     sandbox.restore();
   });
 
-  it('should subscribe to click and keydown event on mount', () => {
+  it('should subscribe to click and keyUp event on mount', () => {
     expect(addEventSpy).to.have.been.calledTwice();
   });
 
-  it('should unsubscribe from click and keydown events on unmount', () => {
+  it('should unsubscribe from click and keyUp events on unmount', () => {
     component.unmount();
     expect(removeEventSpy).to.have.been.callCount(4);
   });
@@ -49,5 +49,21 @@ describe('onClickOutside HOC', () => {
   it('should not call handleClickOutside if click is made inside chosen element', () => {
     document.getElementById('bot').click();
     expect(clickedOutsideSpy).to.not.have.been.called();
+  });
+
+  it('should not call handleClickOutside if keyUp is sent via keyCode', () => {
+    const event = document.createEvent('Event');
+    event.keyCode = 27;
+    event.initEvent('keyup', true, true);
+    document.dispatchEvent(event);
+    expect(clickedOutsideSpy).to.have.been.calledOnce();
+  });
+
+  it('should not call handleClickOutside if keyUp is sent via key', () => {
+    const event = document.createEvent('Event');
+    event.key = 'Escape';
+    event.initEvent('keyup', true, true);
+    document.dispatchEvent(event);
+    expect(clickedOutsideSpy).to.have.been.calledOnce();
   });
 });
