@@ -27,13 +27,13 @@ describe('onClickOutside HOC', () => {
     sandbox.restore();
   });
 
-  it('should subscribe to click event on mount', () => {
-    expect(addEventSpy).to.have.been.calledOnce();
+  it('should subscribe to click and keydown event on mount', () => {
+    expect(addEventSpy).to.have.been.calledTwice();
   });
 
-  it('should unsubscribe from click events on unmount', () => {
+  it('should unsubscribe from click and keydown events on unmount', () => {
     component.unmount();
-    expect(removeEventSpy).to.have.been.calledTwice();
+    expect(removeEventSpy).to.have.been.callCount(4);
   });
 
   it('should call handleClickOutside if click is made outside chosen element', () => {
