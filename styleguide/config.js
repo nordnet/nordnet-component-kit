@@ -78,7 +78,8 @@ module.exports = {
     webpackConfig.resolve.alias['rsg-components/Wrapper'] = path.join(__dirname, 'wrapper.jsx');
     webpackConfig.entry.push(
       path.join(uiKitPath, 'documentation/documentation.scss'),
-      path.join(uiKitPath, 'dist/input/input.css')
+      path.join(uiKitPath, 'dist/input/input.css'),
+      path.join(uiKitPath, 'dist/tooltip/tooltip.css')
     );
 
     return webpackConfig;
