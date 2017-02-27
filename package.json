@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "autoprefixer": "6.7.5",
-    "babel-cli": "6.22.2",
+    "babel-cli": "6.23.0",
     "babel-core": "6.23.1",
     "babel-loader": "6.3.2",
     "babel-plugin-transform-object-rest-spread": "6.22.0",
