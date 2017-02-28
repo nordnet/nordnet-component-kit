@@ -68,7 +68,7 @@
     "classnames": "2.2.5"
   },
   "devDependencies": {
-    "autoprefixer": "6.7.5",
+    "autoprefixer": "6.7.6",
     "babel-cli": "6.23.0",
     "babel-core": "6.23.1",
     "babel-loader": "6.3.2",
