@@ -10,14 +10,22 @@ COMPONENT_KIT.FRESHNESS_INDICATOR.SECOND | s
 COMPONENT_KIT.FRESHNESS_INDICATOR.NOT_ACTIVE | Close price
 COMPONENT_KIT.FRESHNESS_INDICATOR.UPDATED | Updated
 
+**NOTE: This compoment has a dependency on nordnet-ui-kit.css, in order to recieve the correct styling of the toolip you will therefore need to include that in your project.**
+
 Realtime data:
 
-    <FreshnessIndicator delay={0} timestamp={1} />
+    <span>
+      - - - - - - - - <FreshnessIndicator delay={0} timestamp={1} />
+    </span>
 
 Delayed data:
 
-    <FreshnessIndicator delay={60*60 + 60*2 + 3} timestamp={2} />
+    <span>
+      - - - - - - - - <FreshnessIndicator delay={60*60 + 60*2 + 3} timestamp={2} />
+    </span>
 
 No active data update:
 
-    <FreshnessIndicator delay={1} timestamp={3} notActive />
+    <span>
+      - - - - - - - - <FreshnessIndicator delay={1} timestamp={3} notActive />
+    </span>
