@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { variables } from 'nordnet-ui-kit';
+import { variables, Tooltip } from 'nordnet-ui-kit';
 
 import FreshnessIndicator, { getColor, getIconType } from '../../../src/components/freshness-indicator/freshness-indicator';
 
@@ -9,16 +9,12 @@ const getComponent = (delay = 0, notActive = false, timestamp = 1, uniqueId) =>
   shallow(<FreshnessIndicator delay={delay} notActive={notActive} timestamp={timestamp} uniqueId={uniqueId} />);
 
 describe('<FreshnessIndicator />', () => {
-  it('should have className "freshness-indicator__tooltip__timestamp"', () => {
-    expect(getComponent()).to.have.className('freshness-indicator');
+  it('should render a Tooltip component"', () => {
+    expect(getComponent().find(Tooltip)).to.have.length(1);
   });
 
   it('should render an icon', () => {
     expect(getComponent(0, true).find('Icon')).to.have.length(1);
-  });
-
-  it('should use provided id', () => {
-    expect(getComponent(1, false, 1, 'abc').find('ReactTooltip')).to.have.prop('id', 'abc');
   });
 
   describe('getColor function', () => {

@@ -1,5 +1,10 @@
 # Changelog
 
+## Upcoming release
+* FreshnessIndicator - Replace react-tooltip with Tooltip from nordnet-ui-kit.
+
+***Breaking change***: FreshnessIndicator - Acceptable values for the `tooltipPlacement` prop changed (`top` & `bottom` replaced with `above` & `below`) as a reaction to the API of the Tooltip component in the nordnet-ui-kit.
+
 ## 0.0.21
 * onClickOutside - Add support for closing overlay with ESC key. [jesperwiner](https://github.com/jesperwiner)
 
