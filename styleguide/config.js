@@ -1,9 +1,7 @@
 const path = require('path');
 const camelCase = require('lodash.camelcase');
 const autoprefixer = require('autoprefixer');
-
-const srcPath = path.join(__dirname, '../src');
-const uiKitPath = path.join(__dirname, '../node_modules/nordnet-ui-kit');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const numberComponentPaths = getComponentPaths([
   '../src/components/value/value.jsx',
@@ -33,7 +31,6 @@ module.exports = {
     { name: 'Other Components', components: () => otherComponentPaths },
     { name: 'Higher Order Components', content: `${path.resolve(__dirname)}/hoc.section.md` },
   ],
-  template: `${path.join(uiKitPath, 'documentation/template.html')}`,
   getExampleFilename(componentpath) {
     return componentpath.replace(/\.jsx?$/, '.examples.md');
   },
@@ -43,45 +40,54 @@ module.exports = {
 
     return `import { ${componentName} } from 'nordnet-component-kit';`;
   },
-  updateWebpackConfig(webpackConfig) {
-    const loaderDirs = {
-      src: srcPath,
-      styleguide: path.resolve(__dirname),
-      uiKitDocs: path.join(uiKitPath, 'documentation'),
-      uiKitDist: path.join(uiKitPath, 'dist'),
-    };
-
-    const loaders = {
-      js: {
-        test: /\.jsx?$/,
-        include: [loaderDirs.src, loaderDirs.styleguide],
-        loader: 'babel',
-      },
-      sass: {
-        test: /\.scss$/,
-        include: [loaderDirs.src, loaderDirs.uiKitDocs],
-        loader: 'style!css!postcss!sass',
-      },
-      css: {
+  webpackConfigFile: './../webpack.config.babel.js', // the need for starting with ./ is probably a bug in react-styleguidist
+  webpackConfig: {
+    entry: [
+      'babel-polyfill',
+      'nordnet-ui-kit/documentation/documentation.scss',
+      'nordnet-ui-kit/dist/input/input.css',
+      'nordnet-ui-kit/dist/tooltip/tooltip.css',
+    ],
+    module: {
+      rules: [{
         test: /\.css$/,
-        include: [loaderDirs.src, loaderDirs.uiKitDist],
-        loader: 'style!css',
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+            },
+            {
+              loader: 'postcss-loader',
+              query: {
+                ident: 'postcss',
+                plugins: [autoprefixer()],
+              },
+            },
+          ],
+        }),
+      }, {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [{
+            loader: 'css-loader',
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoprefixer()],
+            },
+          }, {
+            loader: 'sass-loader',
+          }],
+        }),
+      }],
+    },
+    resolve: {
+      alias: {
+        'rsg-components/Wrapper': path.join(__dirname, 'wrapper.jsx'),
       },
-    };
-
-    webpackConfig.entry = ['babel-polyfill', ...webpackConfig.entry];
-
-    webpackConfig.module.loaders.push(loaders.js, loaders.css, loaders.sass);
-
-    webpackConfig.postcss = [autoprefixer];
-
-    webpackConfig.resolve.alias['rsg-components/Wrapper'] = path.join(__dirname, 'wrapper.jsx');
-    webpackConfig.entry.push(
-      path.join(uiKitPath, 'documentation/documentation.scss'),
-      path.join(uiKitPath, 'dist/input/input.css'),
-      path.join(uiKitPath, 'dist/tooltip/tooltip.css')
-    );
-
-    return webpackConfig;
+    },
+    plugins: [new ExtractTextPlugin('styleguide.css')]
   },
 };

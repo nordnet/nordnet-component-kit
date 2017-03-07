@@ -1,7 +1,27 @@
-import webpack from 'webpack';
-import loaders from './loaders';
+const webpack = require('webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-export default {
+const plugins = [
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    },
+  }),
+];
+
+if (process.env.ANALYZE === 'true') {
+  plugins.push(new BundleAnalyzerPlugin());
+  plugins.push(new webpack.optimize.UglifyJsPlugin()); // Also minify code to get prod-like stats
+}
+
+const rules = [{
+  test: /\.jsx?$/,
+  exclude: /node_modules/,
+  use: 'babel-loader',
+}];
+
+
+module.exports = {
   name: 'nordnet-component-kit',
   entry: {
     'nordnet-component-kit': './src/index.js',
@@ -14,13 +34,12 @@ export default {
   },
   resolve: {
     extensions: [
-      '',
       '.js',
       '.jsx',
     ],
   },
   module: {
-    loaders,
+    rules,
   },
   externals: {
     react: {
@@ -48,13 +67,5 @@ export default {
       amd: 'nordnet-ui-kit',
     },
   },
-  plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
-    }),
-  ],
+  plugins,
 };
