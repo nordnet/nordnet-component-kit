@@ -1,7 +1,8 @@
 # Changelog
 
-## Upcoming release
+## 0.1.0
 * FreshnessIndicator - Replace react-tooltip with Tooltip from nordnet-ui-kit.
+* Upgrade to webpack 2. [robineng](https://github.com/robineng)
 
 ***Breaking change***: FreshnessIndicator - Acceptable values for the `tooltipPlacement` prop changed (`top` & `bottom` replaced with `above` & `below`) as a reaction to the API of the Tooltip component in the nordnet-ui-kit.
 
