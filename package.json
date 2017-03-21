@@ -99,7 +99,7 @@
     "jsdom": "9.11.0",
     "lodash.camelcase": "4.3.0",
     "mocha": "3.2.0",
-    "node-sass": "4.5.0",
+    "node-sass": "4.5.1",
     "nordnet-ui-kit": "0.1.0",
     "npm-run-all": "4.0.2",
     "nyc": "10.1.2",
