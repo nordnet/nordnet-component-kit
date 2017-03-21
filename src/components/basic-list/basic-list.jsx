@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const BasicList = ({ children, lineColor, lineThickness, lineOpacity, marginTop, marginBottom, style }) => {
+const BasicList = ({ children, lineColor, lineThickness, lineOpacity, marginTop, marginBottom, style, ...rest }) => {
   const styles = Object.assign({}, {
     'background-color': lineColor,
     height: lineThickness,
@@ -13,7 +13,7 @@ const BasicList = ({ children, lineColor, lineThickness, lineOpacity, marginTop,
     <div>
       {children.length > 0 && children.map((child, index) => (
         <div key={child.key}>
-          {index !== 0 ? (<hr style={styles} />) : null}
+          {index !== 0 ? (<hr style={styles} {...rest} />) : null}
           {child}
         </div>
       ))}
