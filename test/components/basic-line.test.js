@@ -2,20 +2,20 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import BasicLine from '../../src/components/basic-list/basic-list';
+import BasicList from '../../src/components/basic-list/basic-list';
 
-describe('<BasicLine />', () => {
+describe('<BasicList />', () => {
   describe('with default parameters set (value & currency/suffix)', () => {
     let component;
 
     beforeEach(() => {
       const musicians = ['peter', 'bjorn', 'john', 'kitti'];
       component = shallow(
-        <BasicLine>
+        <BasicList>
           {musicians.map(musician => (
             <h1 key={musician} style={{ margin: 0 }} >{musician}</h1>
           ))}
-        </BasicLine>);
+        </BasicList>);
     });
 
     it('should render 4 children elements', () => {
