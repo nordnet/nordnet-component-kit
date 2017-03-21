@@ -112,7 +112,7 @@
     "rimraf": "2.6.1",
     "sass-loader": "6.0.2",
     "sinon": "1.17.7",
-    "sinon-chai": "2.8.0",
+    "sinon-chai": "2.9.0",
     "style-loader": "0.13.2",
     "webpack": "2.2.1",
     "webpack-bundle-analyzer": "^2.3.0"
