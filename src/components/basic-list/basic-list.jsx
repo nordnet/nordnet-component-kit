@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react';
 
 const BasicList = ({ children, lineColor, lineThickness, lineOpacity, marginTop, marginBottom, style, ...rest }) => {
   const styles = Object.assign({}, {
-    'background-color': lineColor,
+    backgroundColor: lineColor,
     height: lineThickness,
     opacity: lineOpacity,
-    'margin-top': marginTop,
-    'margin-bottom': marginBottom,
+    marginTop,
+    marginBottom,
     border: '0px',
   }, style);
   return (
@@ -23,23 +23,23 @@ const BasicList = ({ children, lineColor, lineThickness, lineOpacity, marginTop,
 
 BasicList.propTypes = {
   children: PropTypes.arrayOf(PropTypes.shape({
-    key: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+    key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   })).isRequired,
   lineColor: PropTypes.string,
-  lineThickness: PropTypes.number,
+  lineThickness: PropTypes.string,
   lineOpacity: PropTypes.number,
-  marginTop: PropTypes.number,
-  marginBottom: PropTypes.number,
+  marginTop: PropTypes.string,
+  marginBottom: PropTypes.string,
   style: PropTypes.string,
 };
 
 BasicList.defaultProps = {
   children: [],
   lineColor: '#C8C8C8',
-  lineThickness: 1,
+  lineThickness: '1px',
   lineOpacity: 0.3,
-  marginTop: 0,
-  marginBottom: 0,
+  marginTop: '0',
+  marginBottom: '0',
   style: '',
 };
 

@@ -6,5 +6,6 @@ import DateTime from './components/date-time/date-time';
 import FreshnessIndicator from './components/freshness-indicator/freshness-indicator';
 import onClickOutside from './hocs/on-click-outside/on-click-outside';
 import BasicList from './components/basic-list/basic-list';
+import IconListRow from './components/icon-list-row/icon-list-row';
 
-export { Value, Currency, Percent, Development, DateTime, FreshnessIndicator, onClickOutside, BasicList };
+export { Value, Currency, Percent, Development, DateTime, FreshnessIndicator, onClickOutside, BasicList, IconListRow };

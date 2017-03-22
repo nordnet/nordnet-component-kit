@@ -17,6 +17,7 @@ const otherComponentPaths = getComponentPaths([
 
 const listComponentsPath = getComponentPaths([
   '../src/components/basic-list/basic-list.jsx',
+  '../src/components/icon-list-row/icon-list-row.jsx',
 ]);
 
 function getComponentPaths(components) {

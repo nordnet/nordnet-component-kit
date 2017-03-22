@@ -7,6 +7,15 @@
       ))}
     </BasicList>
 
+# Basic example 2
+    const musicians = ['peter', 'bjorn', 'john'];
+
+    <BasicList>
+      <span key={0}>{musicians[0]}</span>
+      <span key={1}>{musicians[1]}</span>
+      <span key={2}>{musicians[2]}</span>
+    </BasicList>
+
 # Styled example
     const musicians = ['peter', 'bjorn', 'john', 'kitti'];
 
