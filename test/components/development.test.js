@@ -6,7 +6,6 @@ import Currency from '../../src/components/currency/currency';
 import Development from '../../src/components/development/development';
 import Number from '../../src/components/number/number';
 import Percent from '../../src/components/percent/percent';
-import variables from '../../src/variables';
 
 describe('<Development />', () => {
   describe('with default parameter set (value)', () => {
@@ -19,10 +18,6 @@ describe('<Development />', () => {
           value={defaultValue}
         />
       );
-    });
-
-    it('should add a prefixStyle', () => {
-      expect(component.prop('prefixStyle')).to.not.be.empty();
     });
 
     it('should pass value through to its child', () => {
@@ -47,9 +42,19 @@ describe('<Development />', () => {
 
   it('should display no prefix when value = 0', () => {
     const component = shallow(<Development value={0} />);
-    component.prop('prefix').props.children.map(child => (
-      expect(child).to.equal(null)
-    ));
+    expect(component.prop('prefix').children).to.equals(undefined);
+  });
+
+  it('should display minus prefix when value is < 0', () => {
+    const expected = { dangerouslySetInnerHTML: { __html: '&minus; ' } };
+    const component = shallow(<Development value={-1} />);
+    expect(component.prop('prefix').props).to.deep.equal(expected);
+  });
+
+  it('should display plus prefix when value is > 0', () => {
+    const expected = { dangerouslySetInnerHTML: { __html: '&plus; ' } };
+    const component = shallow(<Development value={1} />);
+    expect(component.prop('prefix').props).to.deep.equal(expected);
   });
 
   it('should get class "number--negative" when direction is negative', () => {
@@ -64,9 +69,7 @@ describe('<Development />', () => {
 
   it('should display no prefix when direction is neutral', () => {
     const component = shallow(<Development value={1} direction="neutral" />);
-    component.prop('prefix').props.children.map(child => (
-      expect(child).to.equal(null)
-    ));
+    expect(component.prop('prefix').children).to.equal(undefined);
   });
 
   describe('Max and min decimals', () => {
@@ -116,26 +119,6 @@ describe('<Development />', () => {
       const passedMinDecimals = component.find(Currency).prop('valueMinDecimals');
       expect(passedMaxDecimals).to.equal(maxDecimals);
       expect(passedMinDecimals).to.equal(minDecimals);
-    });
-  });
-
-  // A11y tests
-  describe('a11y specifics', () => {
-    let component;
-
-    beforeEach(() => {
-      component = shallow(<Development value={-1} />);
-    });
-
-    it('should set aria-hidden on the unicode arrows', () => {
-      expect(component.prop('prefix').props.children[0].props['aria-hidden']).to.equal('true');
-    });
-
-    it('should only show minus sign to screen readers', () => {
-      const props = component.prop('prefix').props.children[1].props;
-
-      expect(props.dangerouslySetInnerHTML).to.exist();
-      expect(props.style).to.deep.equal(variables.style.screenReaderOnly);
     });
   });
 });
