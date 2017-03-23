@@ -53,6 +53,7 @@ module.exports = {
       'nordnet-ui-kit/documentation/documentation.scss',
       'nordnet-ui-kit/dist/input/input.css',
       'nordnet-ui-kit/dist/tooltip/tooltip.css',
+      'nordnet-ui-kit/dist/text-icon/text-icon.css',
     ],
     module: {
       rules: [{

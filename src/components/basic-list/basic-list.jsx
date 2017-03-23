@@ -9,15 +9,16 @@ const BasicList = ({ children, lineColor, lineThickness, lineOpacity, marginTop,
     marginBottom,
     border: '0px',
   }, style);
+
   return (
-    <div>
+    <ul>
       {children.length > 0 && children.map((child, index) => (
-        <div key={child.key}>
+        <li key={child.key} style={{ listStyle: 'none' }}>
           {index !== 0 ? (<hr style={styles} {...rest} />) : null}
           {child}
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

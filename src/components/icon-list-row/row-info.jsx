@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const RowInfo = ({ children, bottom }) => {
+const RowInfo = ({ leftItem, rightItem, bottom }) => {
   const styles = {
     display: 'flex',
     justifyContent: 'space-between',
@@ -11,18 +11,21 @@ const RowInfo = ({ children, bottom }) => {
 
   return (
     <div style={styles}>
-      {children[0]}
-      {children[1]}
+      {leftItem}
+      {rightItem}
     </div>
   );
 };
 
 RowInfo.propTypes = {
-  children: PropTypes.node.isRequired,
+  leftItem: PropTypes.node,
+  rightItem: PropTypes.node,
   bottom: PropTypes.bool,
 };
 
 RowInfo.defaultProps = {
+  leftItem: null,
+  rightItem: null,
   bottom: false,
 };
 
