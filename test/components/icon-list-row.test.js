@@ -1,34 +1,34 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import IconListRow from '../../src/components/icon-list-row/icon-list-row';
 
 describe('<IconListRow />', () => {
-  describe('with default parameters set (value & currency/suffix)', () => {
-    let component;
-    const children = [
-      (<div>Icon</div>),
-      (<span>span1</span>),
-      (<span>span2</span>),
-      (<span>span3</span>),
-      (<span>span4</span>),
-    ];
+  let component;
+  const icon = (<div>icon</div>);
+  const span1 = (<span>span1</span>);
+  const span2 = (<span>span2</span>);
+  const span3 = (<span>span3</span>);
+  const span4 = (<span>span4</span>);
 
-    beforeEach(() => {
-      component = shallow(
-        <IconListRow>
-          {children.map(child => (
-            child
-          ))}
-        </IconListRow>
-      );
-    });
+  beforeEach(() => {
+    component = mount(
+      <IconListRow
+        iconComponent={icon}
+        topRightComponent={span1}
+        topLeftComponent={span2}
+        bottomRightComponent={span3}
+        bottomLeftComponent={span4}
+      />
+    );
+  });
 
-    it('should render children', () => {
-      children.map(child => (
-        expect(component.contains(child)).to.equal(true)
-      ));
-    });
+  it('should render mounted components', () => {
+    expect(component).to.contain(icon);
+    expect(component).to.contain(span1);
+    expect(component).to.contain(span2);
+    expect(component).to.contain(span3);
+    expect(component).to.contain(span4);
   });
 });

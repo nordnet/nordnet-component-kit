@@ -6,7 +6,7 @@
         textIconText={'ASD'}
         topLeftComponent={(<h1 style={{margin: 0}}>{account.name}</h1>)}
         bottomLeftComponent={(<div>{account.accno}</div>)}
-        topRightComponenet={(
+        topRightComponent={(
           <Currency
             value={account.amount}
             suffix={account.currency}
@@ -33,7 +33,7 @@
           textIconText={account.type}
           topLeftComponent={(<div>{account.name}</div>)}
           bottomLeftComponent={(<div>{account.accno}</div>)}
-          topRightComponenet={(
+          topRightComponent={(
             <Currency
               value={account.amount}
               suffix={account.currency}

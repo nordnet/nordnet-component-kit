@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
-import RowInfo from './row-info';
 import { TextIcon } from 'nordnet-ui-kit';
+import RowInfo from './row-info';
 
 const IconListRow = ({
   iconComponent,
   textIconText,
   topLeftComponent,
   bottomLeftComponent,
-  topRightComponenet,
+  topRightComponent,
   bottomRightComponent,
   minHeight,
   infoPaddingLeft,
@@ -51,7 +51,7 @@ const IconListRow = ({
         <li style={liStyles}>
           <RowInfo
             leftItem={topLeftComponent}
-            rightItem={topRightComponenet}
+            rightItem={topRightComponent}
           />
         </li>
         <li style={liStyles}>
@@ -71,7 +71,7 @@ IconListRow.propTypes = {
   textIconText: PropTypes.node,
   topLeftComponent: PropTypes.node,
   bottomLeftComponent: PropTypes.node,
-  topRightComponenet: PropTypes.node,
+  topRightComponent: PropTypes.node,
   bottomRightComponent: PropTypes.node,
   minHeight: PropTypes.string,
   infoPaddingLeft: PropTypes.string,
@@ -85,7 +85,7 @@ IconListRow.defaultProps = {
   textIconText: null,
   topLeftComponent: null,
   bottomLeftComponent: null,
-  topRightComponenet: null,
+  topRightComponent: null,
   bottomRightComponent: null,
   minHeight: '100%',
   infoPaddingLeft: '0.6rem',
