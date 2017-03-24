@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.1
+* Development - Replace arrows with +/- signs. [gish](https://github.com/gish)
+
 ## 0.1.0
 * FreshnessIndicator - Replace react-tooltip with Tooltip from nordnet-ui-kit.
 * Upgrade to webpack 2. [robineng](https://github.com/robineng)
