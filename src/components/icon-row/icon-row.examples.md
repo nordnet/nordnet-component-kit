@@ -3,7 +3,7 @@
       <IconRow
         minHeight={'9rem'}
         key={account.accno}
-        iconComponent={'string'}
+        textIconText={'ISK'}
         topLeftComponent={(<h1 style={{margin: 0}}>{account.name}</h1>)}
         bottomLeftComponent={(<div>{account.accno}</div>)}
         topRightComponent={(

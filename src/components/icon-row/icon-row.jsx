@@ -78,7 +78,7 @@ IconRow.propTypes = {
 IconRow.defaultProps = {
   tag: 'li',
   iconComponent: null,
-  textIconText: null,
+  textIconText: '',
   topLeftComponent: null,
   bottomLeftComponent: null,
   topRightComponent: null,
