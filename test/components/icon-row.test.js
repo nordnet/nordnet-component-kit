@@ -2,9 +2,9 @@ import React from 'react';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 
-import IconListRow from '../../src/components/icon-list-row/icon-list-row';
+import IconRow from '../../src/components/icon-row/icon-row';
 
-describe('<IconListRow />', () => {
+describe('<IconRow />', () => {
   let component;
   const icon = (<div>icon</div>);
   const span1 = (<span>span1</span>);
@@ -14,7 +14,7 @@ describe('<IconListRow />', () => {
 
   beforeEach(() => {
     component = mount(
-      <IconListRow
+      <IconRow
         iconComponent={icon}
         topRightComponent={span1}
         topLeftComponent={span2}
