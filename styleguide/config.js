@@ -13,11 +13,7 @@ const numberComponentPaths = getComponentPaths([
 const otherComponentPaths = getComponentPaths([
   '../src/components/date-time/date-time.jsx',
   '../src/components/freshness-indicator/freshness-indicator.jsx',
-]);
-
-const listComponentsPath = getComponentPaths([
-  '../src/components/basic-list/basic-list.jsx',
-  '../src/components/icon-list-row/icon-list-row.jsx',
+  '../src/components/icon-row/icon-row.jsx',
 ]);
 
 function getComponentPaths(components) {
@@ -34,7 +30,6 @@ module.exports = {
   sections: [
     { name: 'Number Components', components: () => numberComponentPaths, content: `${path.resolve(__dirname)}/number.section.md` },
     { name: 'Other Components', components: () => otherComponentPaths },
-    { name: 'List Components', components: () => listComponentsPath },
     { name: 'Higher Order Components', content: `${path.resolve(__dirname)}/hoc.section.md` },
   ],
   getExampleFilename(componentpath) {

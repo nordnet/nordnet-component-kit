@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import { TextIcon } from 'nordnet-ui-kit';
 import RowInfo from './row-info';
 
-const IconListRow = ({
+const IconRow = ({
+  tag,
   iconComponent,
   textIconText,
   topLeftComponent,
@@ -14,6 +15,16 @@ const IconListRow = ({
   infoPaddingRight,
   iconMarginLeft,
   iconMarginRight }) => {
+  if (!topLeftComponent && !bottomLeftComponent && !topRightComponent && !bottomRightComponent) {
+    throw new Error(
+      'Component requires at least one of the following: topLeftComponent, topRightComponent, bottomLeftComponent, bottomRightComponent');
+  }
+
+  if (!iconComponent && !textIconText) {
+    throw new Error(
+      'Component requires at least one of the following: iconComponent, textIconText');
+  }
+
   const outerStyles = {
     paddingTop: '1rem',
     paddingBottom: '1rem',
@@ -38,35 +49,29 @@ const IconListRow = ({
     marginLeft: iconMarginLeft,
     marginRight: iconMarginRight,
   };
-  const liStyles = {
-    listStyle: 'none',
-  };
 
   return (
-    <div style={outerStyles}>
+    <tag style={outerStyles}>
       <div style={iconPlacementStyles}>
         { iconComponent || <TextIcon text={textIconText} /> }
       </div>
-      <ul style={rowStyles}>
-        <li style={liStyles}>
-          <RowInfo
-            leftItem={topLeftComponent}
-            rightItem={topRightComponent}
-          />
-        </li>
-        <li style={liStyles}>
-          <RowInfo
-            bottom
-            leftItem={bottomLeftComponent}
-            rightItem={bottomRightComponent}
-          />
-        </li>
-      </ul>
-    </div>
+      <div style={rowStyles}>
+        <RowInfo
+          leftItem={topLeftComponent}
+          rightItem={topRightComponent}
+        />
+        <RowInfo
+          bottom
+          leftItem={bottomLeftComponent}
+          rightItem={bottomRightComponent}
+        />
+      </div>
+    </tag>
   );
 };
 
-IconListRow.propTypes = {
+IconRow.propTypes = {
+  tag: PropTypes.string,
   iconComponent: PropTypes.node,
   textIconText: PropTypes.node,
   topLeftComponent: PropTypes.node,
@@ -80,7 +85,8 @@ IconListRow.propTypes = {
   iconMarginRight: PropTypes.string,
 };
 
-IconListRow.defaultProps = {
+IconRow.defaultProps = {
+  tag: 'li',
   iconComponent: null,
   textIconText: null,
   topLeftComponent: null,
@@ -94,4 +100,4 @@ IconListRow.defaultProps = {
   iconMarginRight: '2rem',
 };
 
-export default IconListRow;
+export default IconRow;
