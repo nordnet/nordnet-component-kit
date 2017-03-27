@@ -15,16 +15,6 @@ const IconRow = ({
   infoPaddingRight,
   iconMarginLeft,
   iconMarginRight }) => {
-  if (!topLeftComponent && !bottomLeftComponent && !topRightComponent && !bottomRightComponent) {
-    throw new Error(
-      'Component requires at least one of the following: topLeftComponent, topRightComponent, bottomLeftComponent, bottomRightComponent');
-  }
-
-  if (!iconComponent && !textIconText) {
-    throw new Error(
-      'Component requires at least one of the following: iconComponent, textIconText');
-  }
-
   const outerStyles = {
     paddingTop: '1rem',
     paddingBottom: '1rem',
@@ -73,7 +63,7 @@ const IconRow = ({
 IconRow.propTypes = {
   tag: PropTypes.string,
   iconComponent: PropTypes.node,
-  textIconText: PropTypes.node,
+  textIconText: PropTypes.string,
   topLeftComponent: PropTypes.node,
   bottomLeftComponent: PropTypes.node,
   topRightComponent: PropTypes.node,

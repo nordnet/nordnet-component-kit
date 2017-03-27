@@ -1,9 +1,9 @@
 # A basic example
     const account = { name: 'Nice account', type: 'ISK', accno: 123123123, amount: 300, currency: 'SEK', change: 0.25 };
-      <IconListRow
+      <IconRow
         minHeight={'9rem'}
         key={account.accno}
-        textIconText={'ASD'}
+        iconComponent={'string'}
         topLeftComponent={(<h1 style={{margin: 0}}>{account.name}</h1>)}
         bottomLeftComponent={(<div>{account.accno}</div>)}
         topRightComponent={(
@@ -26,7 +26,7 @@
 
       <ul>
         {accounts.map((account, index) => (
-          <IconListRow
+          <IconRow
             iconComponent={<img src={`http://placekitten.com/452/450?image=${index + 1}`} style={{maxWidth: '60px', borderRadius: '30px'}}/>}
             minHeight={'7rem'}
             key={account.accno}
