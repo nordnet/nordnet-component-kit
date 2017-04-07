@@ -1,7 +1,10 @@
 # Changelog
 
+## Upcoming release
+* Added IconRow component. [johankitti](https://github.com/johankitti)
+
 ## 0.1.1
-Added IconRow component.
+* Development - Replace arrows with +/- signs. [gish](https://github.com/gish)
 
 ## 0.1.0
 * FreshnessIndicator - Replace react-tooltip with Tooltip from nordnet-ui-kit.
