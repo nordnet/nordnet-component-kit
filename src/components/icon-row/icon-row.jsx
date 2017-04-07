@@ -9,10 +9,9 @@ const IconRow = ({
   topRight,
   bottomRight,
   minHeight,
-  infoPaddingLeft,
-  infoPaddingRight,
-  iconMarginLeft,
-  iconMarginRight }) => {
+  ...divStyles,
+  ...rowStyles,
+  ...iconStyles }) => {
   const outerStyles = {
     paddingTop: '1rem',
     paddingBottom: '1rem',
@@ -20,22 +19,25 @@ const IconRow = ({
     color: '#373640',
     display: 'flex',
     minHeight,
+    ...divStyles,
   };
-  const rowStyles = {
+  const listRowStyles = {
     display: 'flex',
     justifyContent: 'space-between',
     flexDirection: 'column',
     width: '100%',
-    paddingLeft: infoPaddingLeft,
-    paddingRight: infoPaddingRight,
+    paddingLeft: '0.6rem',
+    paddingRight: '0.6rem',
     margin: 0,
+    ...rowStyles,
   };
   const iconPlacementStyles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: iconMarginLeft,
-    marginRight: iconMarginRight,
+    marginLeft: '1rem',
+    marginRight: '2rem',
+    ...iconStyles
   };
 
   return (
@@ -43,7 +45,7 @@ const IconRow = ({
       <div style={iconPlacementStyles}>
         { icon }
       </div>
-      <div style={rowStyles}>
+      <div style={listRowStyles}>
         <RowInfo
           leftItem={topLeft}
           rightItem={topRight}
@@ -60,27 +62,19 @@ const IconRow = ({
 
 IconRow.propTypes = {
   tag: PropTypes.string,
-  icon: PropTypes.node,
+  icon: PropTypes.node, // eslint-disable-line
   topLeft: PropTypes.node, // eslint-disable-line
   bottomLeft: PropTypes.node, // eslint-disable-line
   topRight: PropTypes.node, // eslint-disable-line
   bottomRight: PropTypes.node, // eslint-disable-line
   minHeight: PropTypes.string,
-  infoPaddingLeft: PropTypes.string,
-  infoPaddingRight: PropTypes.string,
-  iconMarginLeft: PropTypes.string,
-  iconMarginRight: PropTypes.string,
+  styles: PropTypes.string,
 };
 
 IconRow.defaultProps = {
   tag: 'li',
-  icon: null,
   textIconText: '',
   minHeight: '100%',
-  infoPaddingLeft: '0.6rem',
-  infoPaddingRight: '0.6rem',
-  iconMarginLeft: '1rem',
-  iconMarginRight: '2rem',
 };
 
 export default IconRow;

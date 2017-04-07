@@ -15,11 +15,11 @@ describe('<IconRow />', () => {
   beforeEach(() => {
     component = mount(
       <IconRow
-        iconComponent={icon}
-        topRightComponent={span1}
-        topLeftComponent={span2}
-        bottomRightComponent={span3}
-        bottomLeftComponent={span4}
+        icon={icon}
+        topRight={span1}
+        topLeft={span2}
+        bottomRight={span3}
+        bottomLeft={span4}
       />
     );
   });
