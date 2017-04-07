@@ -18,8 +18,8 @@ const RowInfo = ({ leftItem, rightItem, alignBaseline }) => {
 };
 
 RowInfo.propTypes = {
-  leftItem: PropTypes.node, // eslint-disable-line
-  rightItem: PropTypes.node, // eslint-disable-line
+  leftItem: PropTypes.node,
+  rightItem: PropTypes.node,
   alignBaseline: PropTypes.bool,
 };
 

@@ -62,11 +62,11 @@ const IconRow = ({
 
 IconRow.propTypes = {
   tag: PropTypes.string,
-  icon: PropTypes.node, // eslint-disable-line
-  topLeft: PropTypes.node, // eslint-disable-line
-  bottomLeft: PropTypes.node, // eslint-disable-line
-  topRight: PropTypes.node, // eslint-disable-line
-  bottomRight: PropTypes.node, // eslint-disable-line
+  icon: PropTypes.node,
+  topLeft: PropTypes.node,
+  bottomLeft: PropTypes.node,
+  topRight: PropTypes.node,
+  bottomRight: PropTypes.node,
   minHeight: PropTypes.string,
   styles: PropTypes.string,
 };
