@@ -61,7 +61,7 @@
   "homepage": "https://nordnet.github.io/nordnet-component-kit",
   "license": "MIT",
   "peerDependencies": {
-    "nordnet-ui-kit": ">=0.0.54",
+    "nordnet-ui-kit": ">=0.1.0",
     "react": "15.x",
     "react-dom": "15.x",
     "react-intl": "2.x"
