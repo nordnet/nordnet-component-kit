@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 
-const RowInfo = ({ leftItem, rightItem, bottom }) => {
+const RowInfo = ({ leftItem, rightItem, alignBaseline }) => {
   const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     paddingTop: '0.25rem',
     paddingBottom: '0.25rem',
-    alignItems: (bottom ? null : 'baseline'),
+    alignItems: (alignBaseline ? null : 'baseline'),
   };
 
   return (
@@ -18,15 +18,13 @@ const RowInfo = ({ leftItem, rightItem, bottom }) => {
 };
 
 RowInfo.propTypes = {
-  leftItem: PropTypes.node,
-  rightItem: PropTypes.node,
-  bottom: PropTypes.bool,
+  leftItem: PropTypes.node, // eslint-disable-line
+  rightItem: PropTypes.node, // eslint-disable-line
+  alignBaseline: PropTypes.bool,
 };
 
 RowInfo.defaultProps = {
-  leftItem: null,
-  rightItem: null,
-  bottom: false,
+  alignBaseline: false,
 };
 
 export default RowInfo;

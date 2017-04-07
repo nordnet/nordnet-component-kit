@@ -1,15 +1,13 @@
 import React, { PropTypes } from 'react';
-import { TextIcon } from 'nordnet-ui-kit';
 import RowInfo from './row-info';
 
 const IconRow = ({
   tag,
-  iconComponent,
-  textIconText,
-  topLeftComponent,
-  bottomLeftComponent,
-  topRightComponent,
-  bottomRightComponent,
+  icon,
+  topLeft,
+  bottomLeft,
+  topRight,
+  bottomRight,
   minHeight,
   infoPaddingLeft,
   infoPaddingRight,
@@ -43,17 +41,17 @@ const IconRow = ({
   return (
     <tag style={outerStyles}>
       <div style={iconPlacementStyles}>
-        { iconComponent || <TextIcon text={textIconText} /> }
+        { icon }
       </div>
       <div style={rowStyles}>
         <RowInfo
-          leftItem={topLeftComponent}
-          rightItem={topRightComponent}
+          leftItem={topLeft}
+          rightItem={topRight}
         />
         <RowInfo
-          bottom
-          leftItem={bottomLeftComponent}
-          rightItem={bottomRightComponent}
+          alignBaseline
+          leftItem={bottomLeft}
+          rightItem={bottomRight}
         />
       </div>
     </tag>
@@ -62,12 +60,11 @@ const IconRow = ({
 
 IconRow.propTypes = {
   tag: PropTypes.string,
-  iconComponent: PropTypes.node,
-  textIconText: PropTypes.string,
-  topLeftComponent: PropTypes.node,
-  bottomLeftComponent: PropTypes.node,
-  topRightComponent: PropTypes.node,
-  bottomRightComponent: PropTypes.node,
+  icon: PropTypes.node,
+  topLeft: PropTypes.node, // eslint-disable-line
+  bottomLeft: PropTypes.node, // eslint-disable-line
+  topRight: PropTypes.node, // eslint-disable-line
+  bottomRight: PropTypes.node, // eslint-disable-line
   minHeight: PropTypes.string,
   infoPaddingLeft: PropTypes.string,
   infoPaddingRight: PropTypes.string,
@@ -77,12 +74,8 @@ IconRow.propTypes = {
 
 IconRow.defaultProps = {
   tag: 'li',
-  iconComponent: null,
+  icon: null,
   textIconText: '',
-  topLeftComponent: null,
-  bottomLeftComponent: null,
-  topRightComponent: null,
-  bottomRightComponent: null,
   minHeight: '100%',
   infoPaddingLeft: '0.6rem',
   infoPaddingRight: '0.6rem',
