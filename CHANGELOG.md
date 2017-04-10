@@ -2,6 +2,7 @@
 
 ## Upcoming release
 * Added IconRow component. [johankitti](https://github.com/johankitti)
+* *Enabled greenkeeper github integration*
 
 ## 0.1.1
 * Development - Replace arrows with +/- signs. [gish](https://github.com/gish)
