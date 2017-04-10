@@ -35,7 +35,7 @@ export default function Development({
   className,
   maxDecimals,
   minDecimals,
-  ...rest,
+  ...rest
 }) {
   const components = {
     currency: CurrencyComponent,

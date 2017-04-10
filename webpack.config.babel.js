@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const plugins = [
@@ -29,7 +30,7 @@ module.exports = {
   output: {
     library: 'NordnetComponentKit',
     libraryTarget: 'umd',
-    path: './lib',
+    path: path.resolve(__dirname, 'lib'),
     filename: '[name].js',
   },
   resolve: {
@@ -65,6 +66,12 @@ module.exports = {
       commonjs2: 'nordnet-ui-kit',
       commonjs: 'nordnet-ui-kit',
       amd: 'nordnet-ui-kit',
+    },
+    'classnames': {
+      root: 'Classnames',
+      commonjs2: 'classnames',
+      commonjs: 'classnames',
+      amd: 'classnames',
     },
   },
   plugins,

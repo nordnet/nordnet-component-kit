@@ -7,7 +7,7 @@ import classNames from 'classnames';
 export default function Addon({
   className,
   children,
-  ...rest,
+  ...rest
 }) {
   const classes = classNames('addon', className);
 

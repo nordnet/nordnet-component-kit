@@ -1,6 +1,12 @@
+import 'babel-polyfill';
 import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import { Input } from 'nordnet-ui-kit';
+
+// Add some nice styles to the documentation
+import 'nordnet-ui-kit/documentation/documentation.scss';
+import 'nordnet-ui-kit/dist/input/input.css';
+import 'nordnet-ui-kit/dist/tooltip/tooltip.css';
 
 import en from 'react-intl/locale-data/en';
 import sv from 'react-intl/locale-data/sv';
