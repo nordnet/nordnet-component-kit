@@ -2,6 +2,7 @@ const path = require('path');
 const camelCase = require('lodash.camelcase');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const config = require('../webpack.config.babel');
 
 const numberComponentPaths = getComponentPaths([
   '../src/components/value/value.jsx',
@@ -25,6 +26,7 @@ function capitalize(string) {
 }
 
 module.exports = {
+  serverPort: 6061, // To not conflict with nordnet-ui-kit
   title: 'Nordnet Component Kit',
   styleguideDir: `${path.join(__dirname, '../docs')}`,
   sections: [
@@ -41,31 +43,21 @@ module.exports = {
 
     return `import { ${componentName} } from 'nordnet-component-kit';`;
   },
-  webpackConfigFile: './../webpack.config.babel.js', // the need for starting with ./ is probably a bug in react-styleguidist
-  webpackConfig: {
-    entry: [
-      'babel-polyfill',
-      'nordnet-ui-kit/documentation/documentation.scss',
-      'nordnet-ui-kit/dist/input/input.css',
-      'nordnet-ui-kit/dist/tooltip/tooltip.css',
-    ],
+  webpackConfig: Object.assign({}, config, {
     module: {
-      rules: [{
+      rules: [...config.module.rules, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
+          use: [{
+            loader: 'css-loader',
+          }, {
+            loader: 'postcss-loader',
+            query: {
+              ident: 'postcss',
+              plugins: [autoprefixer()],
             },
-            {
-              loader: 'postcss-loader',
-              query: {
-                ident: 'postcss',
-                plugins: [autoprefixer()],
-              },
-            },
-          ],
+          }],
         }),
       }, {
         test: /\.scss$/,
@@ -90,5 +82,5 @@ module.exports = {
       },
     },
     plugins: [new ExtractTextPlugin('styleguide.css')]
-  },
+  }),
 };
