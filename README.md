@@ -1,7 +1,6 @@
 # Nordnet Component Kit
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/nordnet/nordnet-component-kit.svg)](https://greenkeeper.io/)
-
+[![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
@@ -36,6 +35,9 @@ npm run docs
 This open source project released by Nordnet is licensed under the MIT license.
 
 MIT [license](/LICENSE)
+
+[greenkeeper-url]: https://greenkeeper.io
+[greenkeeper-image]: https://badges.greenkeeper.io/nordnet/nordnet-component-kit.svg
 
 [npm-url]: https://npmjs.org/package/nordnet-component-kit
 [npm-image]: https://img.shields.io/npm/v/nordnet-component-kit.svg
