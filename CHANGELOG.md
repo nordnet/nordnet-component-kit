@@ -1,6 +1,6 @@
 # Changelog
 
-## Upcoming release
+## 0.2.0
 * Added IconRow component. [johankitti](https://github.com/johankitti)
 * *Enabled greenkeeper github integration.*
 * Now only building on node 6.
