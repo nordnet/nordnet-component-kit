@@ -9,7 +9,7 @@ export default function DateTimeIso({
   hour,
   minute,
   second,
-  ...rest,
+  ...rest
 }) {
   const iso = isoDate(value);
   let dateString;

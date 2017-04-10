@@ -9,7 +9,7 @@ export default function Value({
   decimals,
   maxDecimals,
   minDecimals,
-  ...rest,
+  ...rest
 }) {
   return (
     <Number

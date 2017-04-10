@@ -10,7 +10,7 @@ export default function Percent({
   minDecimals,
   maxDecimals,
   suffixSeparator,
-  ...rest,
+  ...rest
 }) {
   return (
     <Number
