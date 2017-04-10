@@ -67,6 +67,12 @@ module.exports = {
       commonjs: 'nordnet-ui-kit',
       amd: 'nordnet-ui-kit',
     },
+    'classnames': {
+      root: 'Classnames',
+      commonjs2: 'classnames',
+      commonjs: 'classnames',
+      amd: 'classnames',
+    },
   },
   plugins,
 };
