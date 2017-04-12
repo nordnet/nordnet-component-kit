@@ -34,7 +34,7 @@ const IconRow = ({
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: '1rem',
-    marginRight: '2rem',
+    marginRight: '1rem',
   }, iconStyles);
 
   return (
