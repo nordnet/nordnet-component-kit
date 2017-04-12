@@ -9,17 +9,17 @@ const IconRow = ({
   topRight,
   bottomRight,
   minHeight,
-  divStyles,
+  outerStyles,
   rowStyles,
   iconStyles }) => {
-  const outerStyles = Object.assign({
+  const divStyles = Object.assign({
     paddingTop: '1rem',
     paddingBottom: '1rem',
     width: '100%',
     color: '#373640',
     display: 'flex',
     minHeight,
-  }, divStyles);
+  }, outerStyles);
   const listRowStyles = Object.assign({
     display: 'flex',
     justifyContent: 'space-between',
@@ -38,7 +38,7 @@ const IconRow = ({
   }, iconStyles);
 
   return (
-    <tag style={outerStyles}>
+    <tag style={divStyles}>
       <div style={iconPlacementStyles}>
         { icon }
       </div>
@@ -65,7 +65,9 @@ IconRow.propTypes = {
   topRight: PropTypes.node,
   bottomRight: PropTypes.node,
   minHeight: PropTypes.string,
-  styles: PropTypes.string,
+  outerStyles: PropTypes.object,
+  rowStyles: PropTypes.object,
+  iconStyles: PropTypes.object,
 };
 
 IconRow.defaultProps = {
