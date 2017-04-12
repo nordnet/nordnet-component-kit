@@ -2,14 +2,14 @@ import React, { PropTypes } from 'react';
 import RowInfo from './row-info';
 
 const IconRow = ({
-  tag,
+  Tag,
   icon,
   topLeft,
   bottomLeft,
   topRight,
   bottomRight,
   minHeight,
-  outerStyles,
+  style,
   rowStyles,
   iconStyles }) => {
   const divStyles = Object.assign({
@@ -19,7 +19,7 @@ const IconRow = ({
     color: '#373640',
     display: 'flex',
     minHeight,
-  }, outerStyles);
+  }, style);
   const listRowStyles = Object.assign({
     display: 'flex',
     justifyContent: 'space-between',
@@ -38,7 +38,7 @@ const IconRow = ({
   }, iconStyles);
 
   return (
-    <tag style={divStyles}>
+    <Tag style={divStyles}>
       <div style={iconPlacementStyles}>
         { icon }
       </div>
@@ -53,25 +53,25 @@ const IconRow = ({
           rightItem={bottomRight}
         />
       </div>
-    </tag>
+    </Tag>
   );
 };
 
 IconRow.propTypes = {
-  tag: PropTypes.string,
+  Tag: PropTypes.string,
   icon: PropTypes.node,
   topLeft: PropTypes.node,
   bottomLeft: PropTypes.node,
   topRight: PropTypes.node,
   bottomRight: PropTypes.node,
   minHeight: PropTypes.string,
-  outerStyles: PropTypes.object,
+  style: PropTypes.object,
   rowStyles: PropTypes.object,
   iconStyles: PropTypes.object,
 };
 
 IconRow.defaultProps = {
-  tag: 'li',
+  Tag: 'li',
   minHeight: '100%',
 };
 
