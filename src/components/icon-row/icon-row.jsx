@@ -9,19 +9,18 @@ const IconRow = ({
   topRight,
   bottomRight,
   minHeight,
-  ...divStyles,
-  ...rowStyles,
-  ...iconStyles }) => {
-  const outerStyles = {
+  divStyles,
+  rowStyles,
+  iconStyles }) => {
+  const outerStyles = Object.assign({
     paddingTop: '1rem',
     paddingBottom: '1rem',
     width: '100%',
     color: '#373640',
     display: 'flex',
     minHeight,
-    ...divStyles,
-  };
-  const listRowStyles = {
+  }, divStyles);
+  const listRowStyles = Object.assign({
     display: 'flex',
     justifyContent: 'space-between',
     flexDirection: 'column',
@@ -29,16 +28,14 @@ const IconRow = ({
     paddingLeft: '0.6rem',
     paddingRight: '0.6rem',
     margin: 0,
-    ...rowStyles,
-  };
-  const iconPlacementStyles = {
+  }, rowStyles);
+  const iconPlacementStyles = Object.assign({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: '1rem',
     marginRight: '2rem',
-    ...iconStyles
-  };
+  }, iconStyles);
 
   return (
     <tag style={outerStyles}>

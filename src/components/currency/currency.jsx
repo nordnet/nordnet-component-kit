@@ -13,7 +13,7 @@ export default function Currency({
   minDecimals,
   suffixSize,
   suffixSeparator,
-  ...rest,
+  ...rest
 }) {
   const suffixStyle = Object.assign({},
     suffixSize === 'small' ? {

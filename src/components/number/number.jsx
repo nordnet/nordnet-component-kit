@@ -66,7 +66,7 @@ function Number({
   suffixStyle,
   ticks,
   intl: { formatNumber },
-  ...rest,
+  ...rest
 }) {
   const classes = classNames('number', className);
   const styles = Object.assign({}, {

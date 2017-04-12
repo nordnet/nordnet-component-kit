@@ -11,7 +11,7 @@ function DateTime({
   format,
   type,
   iso,
-  ...rest,
+  ...rest
 }) {
   if (iso) {
     return <DateTimeIso value={value} {...rest} />;
