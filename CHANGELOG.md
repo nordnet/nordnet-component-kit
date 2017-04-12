@@ -1,12 +1,15 @@
 # Changelog
 
+## Upcoming release
+* IconRow - Fixed broken custom styling.
+
 ## 0.2.0
 * Added IconRow component. [johankitti](https://github.com/johankitti)
 * *Enabled greenkeeper github integration.*
 * Now only building on node 6.
 * Add carets to versions in package.json.
 * Add `classnames` to externals and peerDependencies.
-* Use yarn 🚀. 
+* Use yarn 🚀.
 
 ## 0.1.1
 * Development - Replace arrows with +/- signs. [gish](https://github.com/gish)
