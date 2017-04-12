@@ -72,7 +72,6 @@ IconRow.propTypes = {
 
 IconRow.defaultProps = {
   tag: 'li',
-  textIconText: '',
   minHeight: '100%',
 };
 
