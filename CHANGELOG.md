@@ -1,6 +1,6 @@
 # Changelog
 
-## Upcoming release
+## 0.2.1
 * IconRow - Fixed broken custom styling.
 
 ## 0.2.0
