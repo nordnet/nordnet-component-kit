@@ -7,4 +7,18 @@ import FreshnessIndicator from './components/freshness-indicator/freshness-indic
 import onClickOutside from './hocs/on-click-outside/on-click-outside';
 import IconRow from './components/icon-row/icon-row';
 
-export { Value, Currency, Percent, Development, DateTime, FreshnessIndicator, onClickOutside, IconRow };
+export {
+  // Number components
+  Currency,
+  Development,
+  Percent,
+  Value,
+
+  // Other components
+  DateTime,
+  FreshnessIndicator,
+  IconRow,
+
+  // HOCs
+  onClickOutside,
+};
