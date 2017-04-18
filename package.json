@@ -61,11 +61,11 @@
   "homepage": "https://nordnet.github.io/nordnet-component-kit",
   "license": "MIT",
   "peerDependencies": {
+    "classnames": "2.x",
     "nordnet-ui-kit": ">=0.0.54",
     "react": "15.x",
     "react-dom": "15.x",
-    "react-intl": "2.x",
-    "classnames": "2.x"
+    "react-intl": "2.x"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
@@ -107,6 +107,7 @@
     "react-dom": "^15.4.2",
     "react-intl": "^2.2.3",
     "react-styleguidist": "^5.0.6",
+    "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
     "sinon": "^2.1.0",
