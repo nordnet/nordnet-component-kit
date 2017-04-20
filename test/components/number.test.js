@@ -3,7 +3,8 @@ import { IntlProvider } from 'react-intl';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import Number, { getFractionDigits } from '../../src/components/number/number';
+import Number from '../../src/components/number/number';
+import { getFractionDigits } from '../../src/utils';
 import Addon from '../../src/components/addon/addon';
 
 const intlProvider = new IntlProvider({ locale: 'en' }, {});

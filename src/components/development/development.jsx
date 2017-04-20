@@ -24,6 +24,21 @@ function getDirection(value) {
   return 'neutral';
 }
 
+function getDecimalProps(type, decimals, maxDecimals, minDecimals) {
+  if (type === 'number') {
+    return {
+      valueDecimals: decimals,
+      valueMaxDecimals: maxDecimals,
+      valueMinDecimals: minDecimals,
+    };
+  }
+  return {
+    decimals,
+    maxDecimals,
+    minDecimals,
+  };
+}
+
 /**
   This is the `<Development /> component`
 */
@@ -46,14 +61,14 @@ export default function Development({
   const Component = components[type] || components.number;
   const classes = classNames(`number--${developmentDirection}`, className);
 
+  const decimalProps = getDecimalProps(type, decimals, maxDecimals, minDecimals);
+
   return (
     <Component
       {...rest}
+      {...decimalProps}
       className={classes}
       value={Math.abs(parseFloat(value))}
-      valueDecimals={decimals}
-      valueMaxDecimals={maxDecimals}
-      valueMinDecimals={minDecimals}
       prefix={renderSign(developmentDirection)}
       prefixStyle={rest.prefixStyle}
     />
