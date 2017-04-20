@@ -29,10 +29,10 @@ function getDirection(value) {
 */
 export default function Development({
   value,
-  decimals,
   type,
   direction,
   className,
+  decimals,
   maxDecimals,
   minDecimals,
   ...rest
@@ -43,17 +43,22 @@ export default function Development({
     number: NumberComponent,
   };
   const developmentDirection = direction || getDirection(value);
+  const isNumber = !type || type === 'number';
   const Component = components[type] || components.number;
   const classes = classNames(`number--${developmentDirection}`, className);
+
+  const decimalProps = {
+    [isNumber ? 'valueDecimals' : 'decimals']: decimals,
+    [isNumber ? 'valueMaxDecimals' : 'maxDecimals']: maxDecimals,
+    [isNumber ? 'valueMinDecimals' : 'minDecimals']: minDecimals,
+  };
 
   return (
     <Component
       {...rest}
+      {...decimalProps}
       className={classes}
       value={Math.abs(parseFloat(value))}
-      valueDecimals={decimals}
-      valueMaxDecimals={maxDecimals}
-      valueMinDecimals={minDecimals}
       prefix={renderSign(developmentDirection)}
       prefixStyle={rest.prefixStyle}
     />
