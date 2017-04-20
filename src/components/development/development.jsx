@@ -7,9 +7,9 @@ import PercentComponent from '../percent/percent';
 function renderSign(direction) {
   switch (direction) {
     case 'positive':
-      return (<span dangerouslySetInnerHTML={{ __html: '&plus; ' }} />);
+      return (<span dangerouslySetInnerHTML={{ __html: '&plus; ' }} />); // eslint-disable-line
     case 'negative':
-      return (<span dangerouslySetInnerHTML={{ __html: '&minus; ' }} />);
+      return (<span dangerouslySetInnerHTML={{ __html: '&minus; ' }} />); // eslint-disable-line
     default:
       return (<span />);
   }
@@ -35,6 +35,10 @@ export default function Development({
   className,
   maxDecimals,
   minDecimals,
+  positiveDirectionColor,
+  neutralDirectionColor,
+  negativeDirectionColor,
+  fontStyle,
   ...rest
 }) {
   const components = {
@@ -46,9 +50,22 @@ export default function Development({
   const Component = components[type] || components.number;
   const classes = classNames(`number--${developmentDirection}`, className);
 
+  const styles = Object.assign({}, fontStyle);
+
+  if (developmentDirection === 'positive' && positiveDirectionColor) {
+    styles.color = positiveDirectionColor;
+  }
+  if (developmentDirection === 'negative' && negativeDirectionColor) {
+    styles.color = negativeDirectionColor;
+  }
+  if (developmentDirection === 'neutral' && neutralDirectionColor) {
+    styles.color = neutralDirectionColor;
+  }
+
   return (
     <Component
       {...rest}
+      style={styles}
       className={classes}
       value={Math.abs(parseFloat(value))}
       valueDecimals={decimals}
@@ -68,6 +85,10 @@ Development.propTypes = {
   direction: React.PropTypes.oneOf(['positive', 'negative', 'neutral']),
   maxDecimals: React.PropTypes.number,
   minDecimals: React.PropTypes.number,
+  positiveDirectionColor: React.PropTypes.string,
+  neutralDirectionColor: React.PropTypes.string,
+  negativeDirectionColor: React.PropTypes.string,
+  fontStyle: React.PropTypes.object,
 };
 
 Development.defaultProps = {

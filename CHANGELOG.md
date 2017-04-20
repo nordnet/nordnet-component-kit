@@ -1,5 +1,8 @@
 # Changelog
 
+## Upcoming release
+* Added optional styling to Development component.
+
 ## 0.2.1
 * IconRow - Fixed broken custom styling.
 

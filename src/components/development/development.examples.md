@@ -60,3 +60,13 @@ Advanced examples:
         <Development value={ 42.3444 } direction="neutral"/>
       </span>
     </div>
+
+Override colors examples:
+    <div>
+      <span style={{marginRight: '2rem'}} title="Overwrite direction color">
+        <Development value={ 9.2 } positiveDirectionColor={'blue'}/>
+      </span>
+      <span style={{marginRight: '2rem'}} title="Overwrite direction color 2">
+        <Development value={ -11.4 } negativeDirectionColor={'#FF00FF'}/>
+      </span>
+    </div>
