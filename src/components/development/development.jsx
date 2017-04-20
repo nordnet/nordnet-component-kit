@@ -25,17 +25,11 @@ function getDirection(value) {
 }
 
 function getDecimalProps(type, decimals, maxDecimals, minDecimals) {
-  if (type === 'number') {
-    return {
-      valueDecimals: decimals,
-      valueMaxDecimals: maxDecimals,
-      valueMinDecimals: minDecimals,
-    };
-  }
+  const isNumber = type === 'number';
   return {
-    decimals,
-    maxDecimals,
-    minDecimals,
+    [isNumber ? 'valueDecimals' : 'decimals']: decimals,
+    [isNumber ? 'valueMaxDecimals' : 'maxDecimals']: maxDecimals,
+    [isNumber ? 'valueMinDecimals' : 'minDecimals']: minDecimals,
   };
 }
 
