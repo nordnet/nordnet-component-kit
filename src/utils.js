@@ -13,10 +13,5 @@ export function getTickDecimals(value, ticks) {
 }
 
 export function getFractionDigits(...args) {
-  return args.reduce((prev, curr) => {
-    if (numberIsFinite(prev)) {
-      return prev;
-    }
-    return curr;
-  });
+  return args.find(numberIsFinite);
 }
