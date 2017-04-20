@@ -50,31 +50,30 @@ export default function Development({
   const Component = components[type] || components.number;
   const classes = classNames(`number--${developmentDirection}`, className);
 
-  const fontStyles = Object.assign({}, fontStyle);
+  const styles = Object.assign({}, fontStyle);
 
   if (developmentDirection === 'positive' && positiveDirectionColor) {
-    fontStyles.color = positiveDirectionColor;
+    styles.color = positiveDirectionColor;
   }
   if (developmentDirection === 'negative' && negativeDirectionColor) {
-    fontStyles.color = negativeDirectionColor;
+    styles.color = negativeDirectionColor;
   }
   if (developmentDirection === 'neutral' && neutralDirectionColor) {
-    fontStyles.color = neutralDirectionColor;
+    styles.color = neutralDirectionColor;
   }
 
   return (
-    <span style={fontStyles}>
-      <Component
-        {...rest}
-        className={classes}
-        value={Math.abs(parseFloat(value))}
-        valueDecimals={decimals}
-        valueMaxDecimals={maxDecimals}
-        valueMinDecimals={minDecimals}
-        prefix={renderSign(developmentDirection)}
-        prefixStyle={rest.prefixStyle}
-      />
-    </span>
+    <Component
+      {...rest}
+      style={styles}
+      className={classes}
+      value={Math.abs(parseFloat(value))}
+      valueDecimals={decimals}
+      valueMaxDecimals={maxDecimals}
+      valueMinDecimals={minDecimals}
+      prefix={renderSign(developmentDirection)}
+      prefixStyle={rest.prefixStyle}
+    />
   );
 }
 
