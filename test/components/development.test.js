@@ -99,8 +99,8 @@ describe('<Development />', () => {
           maxDecimals={maxDecimals}
           minDecimals={minDecimals}
         />);
-      const passedMaxDecimals = component.find(Percent).prop('valueMaxDecimals');
-      const passedMinDecimals = component.find(Percent).prop('valueMinDecimals');
+      const passedMaxDecimals = component.find(Percent).prop('maxDecimals');
+      const passedMinDecimals = component.find(Percent).prop('minDecimals');
       expect(passedMaxDecimals).to.equal(maxDecimals);
       expect(passedMinDecimals).to.equal(minDecimals);
     });
@@ -115,8 +115,8 @@ describe('<Development />', () => {
           maxDecimals={maxDecimals}
           minDecimals={minDecimals}
         />);
-      const passedMaxDecimals = component.find(Currency).prop('valueMaxDecimals');
-      const passedMinDecimals = component.find(Currency).prop('valueMinDecimals');
+      const passedMaxDecimals = component.find(Currency).prop('maxDecimals');
+      const passedMinDecimals = component.find(Currency).prop('minDecimals');
       expect(passedMaxDecimals).to.equal(maxDecimals);
       expect(passedMinDecimals).to.equal(minDecimals);
     });

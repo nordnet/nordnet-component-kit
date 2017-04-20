@@ -2,7 +2,7 @@ import React from 'react';
 import { injectIntl, intlShape } from 'react-intl';
 import classNames from 'classnames';
 import Addon from '../addon/addon';
-import { numberIsFinite } from '../../utils';
+import { getTickDecimals, getFractionDigits } from '../../utils';
 
 function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) {
   if (!addon) {
@@ -20,28 +20,6 @@ function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) 
       </span>
     </Addon>
   );
-}
-
-/**
-  Returns the amount of decimals to display when `value >= from_price and value <= to_price`
-*/
-function getTickDecimals(value, ticks) {
-  if (!ticks || !value) {
-    return undefined;
-  }
-
-  const tick = ticks.find(t => value >= t.from_price && value < (t.to_price + (t.tick || 0)));
-
-  return tick ? tick.decimals : undefined;
-}
-
-export function getFractionDigits(...args) {
-  return args.reduce((prev, curr) => {
-    if (numberIsFinite(prev)) {
-      return prev;
-    }
-    return curr;
-  });
 }
 
 /**

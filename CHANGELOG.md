@@ -1,5 +1,9 @@
 # Changelog
 
+## Upcoming release
+* Development - Fixed broken decimalProps.
+* Utils - Exported utility functions for getTickDecimals, numberIsFinite and getFractionDigits.
+
 ## 0.2.1
 * IconRow - Fixed broken custom styling.
 
