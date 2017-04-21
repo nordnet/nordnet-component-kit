@@ -1,6 +1,6 @@
 # Changelog
 
-# Upcoming release
+## 0.2.3
 * Utils - Exported a utility function for getTickDecimals. Usage:
 
   ```js
