@@ -1,15 +1,17 @@
 # Changelog
 
-## 0.2.2
-* Development - Fixed broken decimalProps.
-* Utils - Exported utility functions for getTickDecimals, numberIsFinite and getFractionDigits. Usage:
+# Upcoming release
+* Utils - Exported a utility function for getTickDecimals. Usage:
 
   ```js
   import { utils } from 'nordnet-component-kit';
 
   //...
-  const decimals = getTickDecimals(value, ticks);
+  const decimals = utils.getTickDecimals(value, ticks);
 ```
+
+## 0.2.2
+* Development - Fixed broken decimalProps.
 
 ## 0.2.1
 * IconRow - Fixed broken custom styling.
