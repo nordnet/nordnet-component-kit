@@ -7,7 +7,11 @@ import FreshnessIndicator from './components/freshness-indicator/freshness-indic
 import onClickOutside from './hocs/on-click-outside/on-click-outside';
 import IconRow from './components/icon-row/icon-row';
 
-import utils from './utils';
+import { getTickDecimals } from './utils';
+
+const utils = {
+  getTickDecimals,
+};
 
 export {
   // Number components
