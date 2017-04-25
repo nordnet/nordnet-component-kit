@@ -33,7 +33,7 @@ const IconRow = ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: '1rem',
+    marginLeft: 0,
     marginRight: '1rem',
   }, iconStyles);
 
