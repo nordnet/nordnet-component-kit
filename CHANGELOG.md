@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.4
+* IconRow - Update styling.
+
 ## 0.2.3
 * Utils - Exported a utility function for getTickDecimals. Usage:
 
