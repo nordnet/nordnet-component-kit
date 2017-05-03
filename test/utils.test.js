@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { numberIsFinite, getTickDecimals, getFractionDigits } from '../src/utils';
+import { numberIsFinite, getTickDecimals, getFractionDigits, getDevelopmentPercentage } from '../src/utils';
 
 describe('utils', () => {
   describe('numberIsFinite', () => {
@@ -112,6 +112,22 @@ describe('utils', () => {
     it('should return second argument when first argument is not a number', () => {
       const args = [null, 2];
       expect(getFractionDigits(...args)).to.equal(args[1]);
+    });
+  });
+
+  describe('getDevelopmentPercentage', () => {
+    it('should be a function', () => {
+      expect(getDevelopmentPercentage).to.be.a('function');
+    });
+    it('should return 0 if one of the arguments is not a number', () => {
+      expect(getDevelopmentPercentage()).to.equal(0);
+      expect(getDevelopmentPercentage(0)).to.equal(0);
+      expect(getDevelopmentPercentage(0, '0')).to.equal(0);
+    });
+    it('should return the percentual development between the parameters', () => {
+      expect(getDevelopmentPercentage(1, 1)).to.equal(0);
+      expect(getDevelopmentPercentage(1, 2)).to.equal(100);
+      expect(getDevelopmentPercentage(2, 1)).to.equal(-50);
     });
   });
 });

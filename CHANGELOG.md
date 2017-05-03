@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.5
+
+* Utils - exported a utiliy function for calculating price development. Usage:
+
+  ```js
+  import { utils } from 'nordnet-component-kit';
+
+  //...
+  const development = utils.getDevelopmentPercentage(50, 40); // 25
+```
+
 ## 0.2.4
 * IconRow - Update styling.
 
