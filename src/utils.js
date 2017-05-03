@@ -15,3 +15,10 @@ export function getTickDecimals(value, ticks) {
 export function getFractionDigits(...args) {
   return args.find(numberIsFinite);
 }
+
+export const getDevelopmentPercentage = (previous, current) => {
+  if (!numberIsFinite(current) || !numberIsFinite(previous)) {
+    return 0;
+  }
+  return ((current / previous) - 1) * 100;
+};

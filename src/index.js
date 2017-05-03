@@ -7,10 +7,11 @@ import FreshnessIndicator from './components/freshness-indicator/freshness-indic
 import onClickOutside from './hocs/on-click-outside/on-click-outside';
 import IconRow from './components/icon-row/icon-row';
 
-import { getTickDecimals } from './utils';
+import { getTickDecimals, getDevelopmentPercentage } from './utils';
 
 const utils = {
   getTickDecimals,
+  getDevelopmentPercentage,
 };
 
 export {
