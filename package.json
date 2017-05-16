@@ -88,7 +88,7 @@
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-nordnet": "^1.1.1",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-jsx-a11y": "^5.0.0",
     "eslint-plugin-react": "^7.0.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "git-directory-deploy": "^1.5.1",
@@ -113,7 +113,7 @@
     "sass-loader": "^6.0.3",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.9.0",
-    "style-loader": "^0.16.1",
+    "style-loader": "^0.17.0",
     "webpack": "^2.3.3",
     "webpack-bundle-analyzer": "^2.3.0"
   }
