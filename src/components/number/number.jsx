@@ -55,12 +55,19 @@ function Number({
   const minimumFractionDigits = getFractionDigits(tickDecimals, valueMinDecimals, valueDecimals);
   const maximumFractionDigits = getFractionDigits(tickDecimals, valueMaxDecimals, valueDecimals);
   const formattedNumber = formatNumber(value, { minimumFractionDigits, maximumFractionDigits });
+  const absFormattedNumber = formatNumber(Math.abs(value), { minimumFractionDigits, maximumFractionDigits });
+  const ariaSign = (value < 0) ? 'minus ' : '';
+  const sign = (value < 0) ? (<span dangerouslySetInnerHTML={{ __html: '&ndash; ' }} />) : null;
 
   return (
     <span title={formattedNumber} {...rest} className={classes} style={styles}>
       { renderAddon(prefix, prefixClass, prefixSeparator, prefixStyle, 'left') }
-      <span className={valueClass} style={valueStyle}>
-        {formattedNumber}
+      <span
+        className={valueClass}
+        style={valueStyle}
+        aria-label={`${ariaSign}${absFormattedNumber}`}
+      >
+        {sign}{absFormattedNumber}
       </span>
       { renderAddon(suffix, suffixClass, suffixSeparator, suffixStyle, 'right') }
     </span>

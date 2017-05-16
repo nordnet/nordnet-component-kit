@@ -2,16 +2,16 @@ Simple examples:
 
     <div>
       <span style={{marginRight: '2rem'}} title="Only value supplied">
-        <Value value={ 2.4444 } />
+        <Value value={ -1.4444 } />
       </span>
       <span style={{marginRight: '2rem'}} title="Custom amount of decimals, set with decimals">
         <Value value={ 2.4444 } decimals={ 3 } />
       </span>
       <span style={{marginRight: '2rem'}} title="Custom amount of decimals, with min and max decimals">
-        <Value value={ 2.4444 } minDecimals={ 6 } maxDecimals={ 8 } />
+        <Value value={ -3.4444 } minDecimals={ 6 } maxDecimals={ 8 } />
       </span>
       <span style={{marginRight: '2rem'}} title="Custom amount of decimals, with min and max decimals">
-        <Value value={ 2.4444 } maxDecimals={ 1 } minDecimals={ 0 } />
+        <Value value={ -4.5678 } maxDecimals={ 1 } minDecimals={ 0 } />
       </span>
       <span style={{marginRight: '2rem'}} title="With prefix and prefixSeparator">
         <Value prefix="Value:" prefixSeparator=" " value={ 2.4444 } />

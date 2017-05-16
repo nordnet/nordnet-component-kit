@@ -45,8 +45,8 @@ describe('<Development />', () => {
     expect(component.prop('prefix').children).to.equals(undefined);
   });
 
-  it('should display minus prefix when value is < 0', () => {
-    const expected = { dangerouslySetInnerHTML: { __html: '&minus; ' } };
+  it('should display ndash prefix when value is < 0', () => {
+    const expected = { dangerouslySetInnerHTML: { __html: '&ndash; ' }, 'aria-label': '−' };
     const component = shallow(<Development value={-1} />);
     expect(component.prop('prefix').props).to.deep.equal(expected);
   });
