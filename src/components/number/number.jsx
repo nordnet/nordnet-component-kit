@@ -56,7 +56,7 @@ function Number({
   const maximumFractionDigits = getFractionDigits(tickDecimals, valueMaxDecimals, valueDecimals);
   const formattedNumber = formatNumber(value, { minimumFractionDigits, maximumFractionDigits });
   const absFormattedNumber = formatNumber(Math.abs(value), { minimumFractionDigits, maximumFractionDigits });
-  const ariaSign = (value < 0) ? 'minus ' : '';
+  const ariaSign = (value < 0) ? '−' : '';
   const sign = (value < 0) ? (<span dangerouslySetInnerHTML={{ __html: '&ndash; ' }} />) : null;
 
   return (
