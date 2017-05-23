@@ -9,7 +9,7 @@ function renderSign(direction) {
     case 'positive':
       return (<span dangerouslySetInnerHTML={{ __html: '&plus; ' }} />);
     case 'negative':
-      return (<span dangerouslySetInnerHTML={{ __html: '&minus; ' }} />);
+      return (<span aria-label="&minus;" dangerouslySetInnerHTML={{ __html: '&ndash; ' }} />);
     default:
       return (<span />);
   }
