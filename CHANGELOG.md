@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.6
+Development - Changed `&minus;` to `&ndash;`.
+Number - Now using `&ndash;` instead of real minus signs for design purposes.
+Number - A11y fixes regarding not using a real minus sign anymore.
+
 ## 0.2.5
 
 * Utils - exported a utiliy function for calculating price development. Usage:
