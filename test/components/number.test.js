@@ -248,4 +248,29 @@ describe('<Number />', () => {
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} suffix="(" suffixSeparator=":" />);
     expect(component.find(Addon).children().text()).to.deep.equal(':(');
   });
+
+  describe('a11y', () => {
+    let component;
+    beforeEach(() => {
+      component = shallow(<Number.WrappedComponent intl={intl} valueClass="value" value={-1} />);
+    });
+    it('should have an aria-label that matches the value', () => {
+      component = shallow(<Number.WrappedComponent intl={intl} valueClass="value" value={1} />);
+      const label = component.find('.value').prop('aria-label');
+      const value = component.find('.value').text();
+      expect(label).to.equal(value);
+    });
+    it('should always have a positive value', () => {
+      const value = component.find('.value').text();
+      expect(value).to.equal('1.00');
+    });
+    it('should have an aria-label with a negative value', () => {
+      const label = component.find('.value').prop('aria-label');
+      expect(label).to.contain('−');
+    });
+    it('should render a separate span with a minus for negative values', () => {
+      // eslint-disable-next-line
+      expect(component.find('.value > span').prop('dangerouslySetInnerHTML').__html).to.equal('&ndash; ');
+    });
+  });
 });
