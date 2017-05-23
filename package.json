@@ -113,7 +113,7 @@
     "sass-loader": "^6.0.3",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.9.0",
-    "style-loader": "^0.17.0",
+    "style-loader": "^0.18.0",
     "webpack": "^2.3.3",
     "webpack-bundle-analyzer": "^2.3.0"
   }
