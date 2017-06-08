@@ -10,6 +10,7 @@ const IconRow = ({
   bottomRight,
   minHeight,
   style,
+  infoStyles,
   rowStyles,
   iconStyles }) => {
   const divStyles = Object.assign({
@@ -20,6 +21,11 @@ const IconRow = ({
     display: 'flex',
     minHeight,
   }, style);
+  const infoStyle = Object.assign({
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center'
+  }, infoStyles);
   const listRowStyles = Object.assign({
     display: 'flex',
     justifyContent: 'space-between',
@@ -42,7 +48,7 @@ const IconRow = ({
       <div style={iconPlacementStyles}>
         { icon }
       </div>
-      <span style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
+      <span style={infoStyle}>
         <span style={listRowStyles}>
           <RowInfo
             leftItem={topLeft}
@@ -68,6 +74,7 @@ IconRow.propTypes = {
   bottomRight: PropTypes.node,
   minHeight: PropTypes.string,
   style: PropTypes.object,
+  infoStyles: PropTypes.object,
   rowStyles: PropTypes.object,
   iconStyles: PropTypes.object,
 };
