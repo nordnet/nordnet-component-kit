@@ -34,7 +34,6 @@ const IconRow = ({
     paddingLeft: '0.6rem',
     paddingRight: '0.6rem',
     margin: 0,
-    height: '40px',
   }, rowStyles);
   const iconPlacementStyles = Object.assign({
     display: 'flex',
