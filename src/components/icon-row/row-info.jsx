@@ -4,8 +4,6 @@ const RowInfo = ({ leftItem, rightItem, alignBaseline }) => {
   const styles = {
     display: 'flex',
     justifyContent: 'space-between',
-    paddingTop: '0.25rem',
-    paddingBottom: '0.25rem',
     alignItems: (alignBaseline ? null : 'baseline'),
   };
 

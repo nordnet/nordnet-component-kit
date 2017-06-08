@@ -28,6 +28,7 @@ const IconRow = ({
     paddingLeft: '0.6rem',
     paddingRight: '0.6rem',
     margin: 0,
+    height: '40px',
   }, rowStyles);
   const iconPlacementStyles = Object.assign({
     display: 'flex',
@@ -41,17 +42,19 @@ const IconRow = ({
       <div style={iconPlacementStyles}>
         { icon }
       </div>
-      <div style={listRowStyles}>
-        <RowInfo
-          leftItem={topLeft}
-          rightItem={topRight}
-        />
-        <RowInfo
-          alignBaseline
-          leftItem={bottomLeft}
-          rightItem={bottomRight}
-        />
-      </div>
+      <span style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
+        <span style={listRowStyles}>
+          <RowInfo
+            leftItem={topLeft}
+            rightItem={topRight}
+          />
+          <RowInfo
+            alignBaseline
+            leftItem={bottomLeft}
+            rightItem={bottomRight}
+          />
+        </span>
+      </span>
     </Tag>
   );
 };
