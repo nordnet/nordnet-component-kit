@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.7
+IconRow - Update styling.
+
 ## 0.2.6
 Development - Changed `&minus;` to `&ndash;`.
 Number - Now using `&ndash;` instead of real minus signs for design purposes.
