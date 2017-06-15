@@ -46,7 +46,7 @@ Currency.defaultProps = {
 };
 
 Currency.propTypes = {
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired, // eslint-disable-line
   /**
     Syntactic sugar for `suffix` (either one can be used)
   */

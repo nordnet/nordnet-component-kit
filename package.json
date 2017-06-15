@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "dev": "run-s start",
     "start": "run-s docs:watch",
     "analyze": "ANALYZE=true run-s webpack",
     "clean:docs": "rimraf docs",
@@ -117,5 +118,8 @@
     "style-loader": "^0.18.0",
     "webpack": "^2.3.3",
     "webpack-bundle-analyzer": "^2.3.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10"
   }
 }

@@ -30,7 +30,7 @@ Value.defaultProps = {
 };
 
 Value.propTypes = {
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired, // eslint-disable-line
   decimals: PropTypes.number,
   maxDecimals: PropTypes.number,
   minDecimals: PropTypes.number,

@@ -72,7 +72,7 @@ export default function Development({
 
 Development.propTypes = {
   className: PropTypes.string,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired, // eslint-disable-line
   decimals: PropTypes.number,
   type: PropTypes.oneOf(['number', 'currency', 'percentage']),
   direction: PropTypes.oneOf(['positive', 'negative', 'neutral']),
