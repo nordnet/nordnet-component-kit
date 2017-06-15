@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Icon, variables, Tooltip } from 'nordnet-ui-kit';
 import TooltipTimestamp from './tooltip-timestamp';
 import TooltipDelay from './tooltip-delay';

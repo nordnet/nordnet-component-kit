@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from 'react-intl';
 import classNames from 'classnames';
 import Addon from '../addon/addon';
@@ -77,7 +78,7 @@ function Number({
 Number.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
-  value: PropTypes.any.isRequired, // eslint-disable-line
+  value: PropTypes.any.isRequired,
   valueClass: PropTypes.string,
   valueDecimals: PropTypes.number,
   valueMaxDecimals: PropTypes.number,

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Number from '../number/number';
 import variables from '../../variables';
 
@@ -45,7 +46,7 @@ Currency.defaultProps = {
 };
 
 Currency.propTypes = {
-  value: PropTypes.any.isRequired, // eslint-disable-line
+  value: PropTypes.any.isRequired,
   /**
     Syntactic sugar for `suffix` (either one can be used)
   */

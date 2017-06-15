@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Number from '../number/number';
 
 /**
@@ -33,7 +34,7 @@ Percent.defaultProps = {
 };
 
 Percent.propTypes = {
-  value: PropTypes.any.isRequired, // eslint-disable-line
+  value: PropTypes.any.isRequired,
   decimals: PropTypes.number,
   /**
     Default is an empty string (`''`)

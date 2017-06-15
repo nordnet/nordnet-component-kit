@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import onClickOutside from '../../src/hocs/on-click-outside/on-click-outside';
 
 class Dummy extends React.Component {

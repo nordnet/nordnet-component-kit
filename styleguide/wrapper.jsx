@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import { Input } from 'nordnet-ui-kit';
 
@@ -71,7 +72,7 @@ class Wrapper extends React.Component {
 }
 
 Wrapper.propTypes = {
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Wrapper;

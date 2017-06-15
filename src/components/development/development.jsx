@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import NumberComponent from '../number/number';
 import CurrencyComponent from '../currency/currency';
@@ -71,7 +72,7 @@ export default function Development({
 
 Development.propTypes = {
   className: PropTypes.string,
-  value: PropTypes.any.isRequired, // eslint-disable-line
+  value: PropTypes.any.isRequired,
   decimals: PropTypes.number,
   type: PropTypes.oneOf(['number', 'currency', 'percentage']),
   direction: PropTypes.oneOf(['positive', 'negative', 'neutral']),
