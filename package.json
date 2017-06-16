@@ -62,7 +62,7 @@
   "license": "MIT",
   "peerDependencies": {
     "classnames": "2.x",
-    "nordnet-ui-kit": ">=0.0.54",
+    "nordnet-ui-kit": ">=1.4.3",
     "react": "15.x",
     "react-dom": "15.x",
     "react-intl": "2.x"
