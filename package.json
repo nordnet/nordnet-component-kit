@@ -92,7 +92,7 @@
     "eslint-plugin-react": "^7.0.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "git-directory-deploy": "^1.5.1",
-    "husky": "^0.13.3",
+    "husky": "^0.14.0",
     "in-publish": "^2.0.0",
     "intl": "^1.2.5",
     "jsdom": "^9.12.0",
