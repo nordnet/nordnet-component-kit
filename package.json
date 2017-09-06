@@ -114,7 +114,7 @@
     "sinon": "^3.0.0",
     "sinon-chai": "^2.9.0",
     "style-loader": "^0.18.0",
-    "webpack": "^2.3.3",
+    "webpack": "^3.5.6",
     "webpack-bundle-analyzer": "^2.3.0"
   }
 }
