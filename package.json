@@ -105,7 +105,7 @@
     "postcss-loader": "^2.0.5",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react-dom": "^16.0.0",
     "react-intl": "^2.2.3",
     "react-styleguidist": "^5.0.6",
     "react-test-renderer": "^15.5.4",
