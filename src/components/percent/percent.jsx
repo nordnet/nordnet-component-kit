@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Number from '../number/number';
 
 /**
@@ -33,12 +33,12 @@ Percent.defaultProps = {
 };
 
 Percent.propTypes = {
-  value: React.PropTypes.any.isRequired,
-  decimals: React.PropTypes.number,
+  value: PropTypes.any.isRequired, // eslint-disable-line
+  decimals: PropTypes.number,
   /**
     Default is an empty string (`''`)
   */
-  suffixSeparator: React.PropTypes.string,
-  maxDecimals: React.PropTypes.number,
-  minDecimals: React.PropTypes.number,
+  suffixSeparator: PropTypes.string,
+  maxDecimals: PropTypes.number,
+  minDecimals: PropTypes.number,
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { injectIntl, intlShape } from 'react-intl';
 import classNames from 'classnames';
 import Addon from '../addon/addon';
@@ -75,29 +75,29 @@ function Number({
 }
 
 Number.propTypes = {
-  className: React.PropTypes.string,
-  style: React.PropTypes.object,
-  value: React.PropTypes.any.isRequired,
-  valueClass: React.PropTypes.string,
-  valueDecimals: React.PropTypes.number,
-  valueMaxDecimals: React.PropTypes.number,
-  valueMinDecimals: React.PropTypes.number,
-  valueStyle: React.PropTypes.object,
-  prefix: React.PropTypes.node,
-  prefixClass: React.PropTypes.string,
-  prefixSeparator: React.PropTypes.string,
-  prefixStyle: React.PropTypes.object,
-  suffix: React.PropTypes.node,
-  suffixClass: React.PropTypes.string,
-  suffixSeparator: React.PropTypes.string,
-  suffixStyle: React.PropTypes.object,
-  ticks: React.PropTypes.arrayOf(React.PropTypes.shape({
-    decimals: React.PropTypes.number,
-    to_price: React.PropTypes.number,
-    from_price: React.PropTypes.number,
-    tick: React.PropTypes.number,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  value: PropTypes.any.isRequired, // eslint-disable-line
+  valueClass: PropTypes.string,
+  valueDecimals: PropTypes.number,
+  valueMaxDecimals: PropTypes.number,
+  valueMinDecimals: PropTypes.number,
+  valueStyle: PropTypes.object,
+  prefix: PropTypes.node,
+  prefixClass: PropTypes.string,
+  prefixSeparator: PropTypes.string,
+  prefixStyle: PropTypes.object,
+  suffix: PropTypes.node,
+  suffixClass: PropTypes.string,
+  suffixSeparator: PropTypes.string,
+  suffixStyle: PropTypes.object,
+  ticks: PropTypes.arrayOf(PropTypes.shape({
+    decimals: PropTypes.number,
+    to_price: PropTypes.number,
+    from_price: PropTypes.number,
+    tick: PropTypes.number,
   })),
-  intl: intlShape.isRequired,
+  intl: intlShape.isRequired, // eslint-disable-line react/no-typos
 };
 
 Number.defaultProps = {

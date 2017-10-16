@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 /**
@@ -23,6 +23,6 @@ Addon.defaultProps = {
 };
 
 Addon.propTypes = {
-  className: React.PropTypes.string,
-  children: React.PropTypes.node.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };

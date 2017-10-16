@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { FormattedDate, FormattedTime, FormattedRelative } from 'react-intl';
 import DateTimeIso from '../date-time-iso/date-time-iso';
 import formats from './date-time-formats';
@@ -40,19 +40,19 @@ DateTime.defaultProps = {
 };
 
 DateTime.propTypes = {
-  format: React.PropTypes.oneOf(['numeric', 'human']),
+  format: PropTypes.oneOf(['numeric', 'human']),
   /**
     Only applicable for dates, indicates that the date should follow [ISO 8601](https://sv.wikipedia.org/wiki/ISO_8601)
   */
-  iso: React.PropTypes.bool,
+  iso: PropTypes.bool,
   /**
     A timestamp.
   */
-  value: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.instanceOf(Date),
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.instanceOf(Date),
   ]).isRequired,
-  type: React.PropTypes.oneOf(['date', 'time', 'relative']),
+  type: PropTypes.oneOf(['date', 'time', 'relative']),
 };
 
 export default DateTime;
