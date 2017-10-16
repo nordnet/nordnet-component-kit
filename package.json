@@ -87,7 +87,6 @@
     "enzyme": "^2.8.0",
     "eslint": "^4.1.0",
     "eslint-config-airbnb": "^16.0.0",
-    "eslint-config-nordnet": "^1.1.1",
     "eslint-config-prettier": "^2.6.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.0",
