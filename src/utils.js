@@ -1,5 +1,5 @@
 export function numberIsFinite(value) {
-  return typeof value === 'number' && isFinite(value);
+  return typeof value === 'number' && Number.isFinite(value);
 }
 
 export function getTickDecimals(value, ticks) {
