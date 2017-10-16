@@ -1,6 +1,6 @@
 import React from 'react';
 
-const checkIfWideViewport = (breakpoint, win) => {
+export const checkIfWideViewport = (breakpoint, win) => {
   if (!win || !breakpoint) {
     return false;
   }

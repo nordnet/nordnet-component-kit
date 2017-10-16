@@ -4,13 +4,18 @@ import { mount } from 'enzyme';
 import sinon from 'sinon';
 
 import { Component as DummyComponent } from './is-wide-viewport-dummy-component';
-import isWideViewport from '../../src/hocs/is-wide-viewport/is-wide-viewport';
+import isWideViewport, { checkIfWideViewport } from '../../src/hocs/is-wide-viewport/is-wide-viewport';
 
 const sandbox = sinon.sandbox.create();
 
 describe('isWideViewport HOC', () => {
   afterEach(() => {
     sandbox.restore();
+  });
+
+  describe('checkIfWideViewport()', () => {
+    it('should return false when win not set', () => expect(checkIfWideViewport(900, false)).to.be.false());
+    it('should return false when breakpoint not set', () => expect(checkIfWideViewport(undefined, {})).to.be.false());
   });
 
   it('should have correct name', () => {
