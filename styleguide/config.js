@@ -4,6 +4,10 @@ const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('../webpack.config.babel');
 
+function getComponentPaths(components) {
+  return components.map(componentPath => `${path.resolve(__dirname)}/${componentPath}`);
+}
+
 const numberComponentPaths = getComponentPaths([
   '../src/components/value/value.jsx',
   '../src/components/currency/currency.jsx',
@@ -16,10 +20,6 @@ const otherComponentPaths = getComponentPaths([
   '../src/components/freshness-indicator/freshness-indicator.jsx',
   '../src/components/icon-row/icon-row.jsx',
 ]);
-
-function getComponentPaths(components) {
-  return components.map(componentPath => `${path.resolve(__dirname)}/${componentPath}`);
-}
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
