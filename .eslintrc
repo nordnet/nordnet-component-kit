@@ -1,15 +1,29 @@
 {
-  "extends": "eslint-config-nordnet",
-  "rules": {
-    "comma-dangle": 0,
-    "no-param-reassign": [2, { "props": false }],
-    "react/forbid-prop-types": 0,
-    "react/no-unused-prop-types": [ 2, { "skipShapeProps": true }],
-    "react/require-default-props": 0
-  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "parser": "babel-eslint",
   "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
+      "impliedStrict": true,
+      "jsx": true
     }
+  },
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": 0,
+    "react/forbid-prop-types": [2, { "forbid": ["any", "array"] }],
+    "react/require-default-props": 0
   }
 }
