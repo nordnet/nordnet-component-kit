@@ -47,7 +47,7 @@ describe('isWideViewport HOC', () => {
     let resizeCallback;
     const mockedWindow = {
       matchMedia: () => ({ matches: false }),
-      addEventListener: (name, cb) => (resizeCallback = cb),
+      addEventListener: (name, cb) => {resizeCallback = cb},
     };
     const WrappingComponent = isWideViewport(10, mockedWindow)(DummyComponent);
     const component = mount(<WrappingComponent />);
@@ -63,7 +63,7 @@ describe('isWideViewport HOC', () => {
     let resizeCallback;
     const mockedWindow = {
       matchMedia: () => ({ matches: true }),
-      addEventListener: (name, cb) => (resizeCallback = cb),
+      addEventListener: (name, cb) => {resizeCallback = cb},
     };
     const WrappingComponent = isWideViewport(10, mockedWindow)(DummyComponent);
     const component = mount(<WrappingComponent />);
