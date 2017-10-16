@@ -15,7 +15,7 @@ const checkIfWideViewport = (breakpoint, win) => {
  */
 
 export default function isWideViewport(breakpoint, win = window) {
-  return function (WrappedComponent) {
+  return function isWideViewPortWrapper (WrappedComponent) {
     class IsWideViewport extends React.Component {
       constructor(props) {
         super(props);
