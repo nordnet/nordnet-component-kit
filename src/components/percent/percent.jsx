@@ -33,7 +33,7 @@ Percent.defaultProps = {
 };
 
 Percent.propTypes = {
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired, // eslint-disable-line
   decimals: PropTypes.number,
   /**
     Default is an empty string (`''`)

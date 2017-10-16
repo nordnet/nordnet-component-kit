@@ -77,7 +77,7 @@ function Number({
 Number.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired, // eslint-disable-line
   valueClass: PropTypes.string,
   valueDecimals: PropTypes.number,
   valueMaxDecimals: PropTypes.number,
