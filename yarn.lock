@@ -2156,10 +2156,6 @@ eslint-config-airbnb@^16.0.0:
   dependencies:
     eslint-config-airbnb-base "^12.0.2"
 
-eslint-config-nordnet@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-nordnet/-/eslint-config-nordnet-1.1.1.tgz#f66e5f57e394d0d6b49eb206a18b726d209480d2"
-
 eslint-config-prettier@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.6.0.tgz#f21db0ebb438ad678fb98946097c4bb198befccc"
