@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import NumberComponent from '../number/number';
 import CurrencyComponent from '../currency/currency';
@@ -70,13 +70,13 @@ export default function Development({
 }
 
 Development.propTypes = {
-  className: React.PropTypes.string,
-  value: React.PropTypes.any.isRequired,
-  decimals: React.PropTypes.number,
-  type: React.PropTypes.oneOf(['number', 'currency', 'percentage']),
-  direction: React.PropTypes.oneOf(['positive', 'negative', 'neutral']),
-  maxDecimals: React.PropTypes.number,
-  minDecimals: React.PropTypes.number,
+  className: PropTypes.string,
+  value: PropTypes.any.isRequired,
+  decimals: PropTypes.number,
+  type: PropTypes.oneOf(['number', 'currency', 'percentage']),
+  direction: PropTypes.oneOf(['positive', 'negative', 'neutral']),
+  maxDecimals: PropTypes.number,
+  minDecimals: PropTypes.number,
 };
 
 Development.defaultProps = {

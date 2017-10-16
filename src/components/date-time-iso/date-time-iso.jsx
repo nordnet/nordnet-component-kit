@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import isoDate from './iso-date';
 
 /**
@@ -38,20 +38,20 @@ DateTimeIso.defaultProps = {
 };
 
 DateTimeIso.propTypes = {
-  value: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.instanceOf(Date),
+  value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.instanceOf(Date),
   ]).isRequired,
-  hour: React.PropTypes.oneOfType([
-    React.PropTypes.bool,
-    React.PropTypes.string,
+  hour: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
   ]),
-  minute: React.PropTypes.oneOfType([
-    React.PropTypes.bool,
-    React.PropTypes.string,
+  minute: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
   ]),
-  second: React.PropTypes.oneOfType([
-    React.PropTypes.bool,
-    React.PropTypes.string,
+  second: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
   ]),
 };

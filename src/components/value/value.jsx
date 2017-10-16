@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Number from '../number/number';
 
 /**
@@ -29,8 +29,8 @@ Value.defaultProps = {
 };
 
 Value.propTypes = {
-  value: React.PropTypes.any.isRequired,
-  decimals: React.PropTypes.number,
-  maxDecimals: React.PropTypes.number,
-  minDecimals: React.PropTypes.number,
+  value: PropTypes.any.isRequired,
+  decimals: PropTypes.number,
+  maxDecimals: PropTypes.number,
+  minDecimals: PropTypes.number,
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Number from '../number/number';
 import variables from '../../variables';
 
@@ -45,17 +45,17 @@ Currency.defaultProps = {
 };
 
 Currency.propTypes = {
-  value: React.PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
   /**
     Syntactic sugar for `suffix` (either one can be used)
   */
-  currency: React.PropTypes.string,
+  currency: PropTypes.string,
   /**
     Default is a space (`' '`)
   */
-  suffixSeparator: React.PropTypes.string,
-  suffixSize: React.PropTypes.oneOf(['normal', 'small']),
-  decimals: React.PropTypes.number,
-  maxDecimals: React.PropTypes.number,
-  minDecimals: React.PropTypes.number,
+  suffixSeparator: PropTypes.string,
+  suffixSize: PropTypes.oneOf(['normal', 'small']),
+  decimals: PropTypes.number,
+  maxDecimals: PropTypes.number,
+  minDecimals: PropTypes.number,
 };
