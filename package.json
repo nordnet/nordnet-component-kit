@@ -83,7 +83,7 @@
     "cheerio": "^0.22.0",
     "coveralls": "^2.13.0",
     "css-loader": "^0.28.0",
-    "dirty-chai": "^1.2.2",
+    "dirty-chai": "^2.0.1",
     "enzyme": "^2.8.0",
     "eslint": "^4.1.0",
     "eslint-config-airbnb": "^16.0.0",
