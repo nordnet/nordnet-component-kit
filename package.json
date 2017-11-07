@@ -112,7 +112,7 @@
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
-    "sinon": "^3.0.0",
+    "sinon": "^4.1.2",
     "sinon-chai": "^2.9.0",
     "style-loader": "^0.18.0",
     "webpack": "^2.3.3",
