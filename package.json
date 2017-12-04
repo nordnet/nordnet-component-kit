@@ -1,6 +1,6 @@
 {
   "name": "nordnet-component-kit",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Custom react components used by Nordnet",
   "main": "lib/nordnet-component-kit.js",
   "directories": {
