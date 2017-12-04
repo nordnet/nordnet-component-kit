@@ -1,3 +1,5 @@
+/* eslint-disable import/first */
+import './intl';
 import 'babel-polyfill';
 import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
