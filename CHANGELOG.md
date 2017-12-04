@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.8
+IconRow - Update styling for iconPlacement.
+
 ## 0.2.7
 IconRow - Update styling.
 
