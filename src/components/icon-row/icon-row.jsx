@@ -40,6 +40,7 @@ const IconRow = ({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: '1rem',
+    flexShrink: 0,
   }, iconStyles);
 
   return (
