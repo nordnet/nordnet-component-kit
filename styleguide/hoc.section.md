@@ -75,3 +75,39 @@ export default onClickOutside(Example);
     const OnClickOutsideDemo = onClickOutside(Example);
 
     <OnClickOutsideDemo />
+
+# isWideViewport
+Sets the wrapped component's property `wideViewport` to `true` when viewport size is greater than, or equal to, given breakpoint. Otherwise the property is false
+
+Example usage:
+```jsx
+import { isWideViewport } from 'nordnet-component-kit';
+
+class Example extends React.Component {
+  render() {
+    const greeting = `Hello ${this.props.wideViewport ? 'Wide' : 'Narrow'}!`;
+    return (<div>{greeting}</div>);
+  }
+}
+
+export default isWideViewport(640)(Example);
+```
+
+    const React = require('react');
+    const { isWideViewPort } = require('../src');
+    const width = 900;
+
+    class Example extends React.Component {
+      render() {
+        const message = `Viewport is ${this.props.wideViewport ? 'wider' : 'narrower'} than ${width}px`;
+        return (
+          <div>
+            {message}
+          </div>
+        );
+      }
+    }
+
+    const IsWideViewPortDemo = isWideViewPort(width)(Example);
+
+    <IsWideViewPortDemo />

@@ -5,6 +5,7 @@ import Development from './components/development/development';
 import DateTime from './components/date-time/date-time';
 import FreshnessIndicator from './components/freshness-indicator/freshness-indicator';
 import onClickOutside from './hocs/on-click-outside/on-click-outside';
+import isWideViewPort from './hocs/is-wide-viewport/is-wide-viewport';
 import IconRow from './components/icon-row/icon-row';
 
 import { getTickDecimals, getDevelopmentPercentage } from './utils';
@@ -28,6 +29,7 @@ export {
 
   // HOCs
   onClickOutside,
+  isWideViewPort,
 
   // utils
   utils,
