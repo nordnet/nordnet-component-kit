@@ -15,9 +15,9 @@ function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) 
   return (
     <Addon className={classes} style={addonStyle}>
       <span>
-        { position === 'right' ? addonSeparator : null }
-        { addon }
-        { position === 'left' ? addonSeparator : null }
+        {position === 'right' ? addonSeparator : null}
+        {addon}
+        {position === 'left' ? addonSeparator : null}
       </span>
     </Addon>
   );
@@ -48,29 +48,30 @@ function Number({
   ...rest
 }) {
   const classes = classNames('number', className);
-  const styles = Object.assign({}, {
-    whiteSpace: 'nowrap',
-  }, style);
+  const styles = Object.assign(
+    {},
+    {
+      whiteSpace: 'nowrap',
+    },
+    style,
+  );
 
   const tickDecimals = getTickDecimals(value, ticks);
   const minimumFractionDigits = getFractionDigits(tickDecimals, valueMinDecimals, valueDecimals);
   const maximumFractionDigits = getFractionDigits(tickDecimals, valueMaxDecimals, valueDecimals);
   const formattedNumber = formatNumber(value, { minimumFractionDigits, maximumFractionDigits });
   const absFormattedNumber = formatNumber(Math.abs(value), { minimumFractionDigits, maximumFractionDigits });
-  const ariaSign = (value < 0) ? '−' : '';
-  const sign = (value < 0) ? (<span dangerouslySetInnerHTML={{ __html: '&ndash; ' }} />) : null;
+  const ariaSign = value < 0 ? '−' : '';
+  const sign = value < 0 ? <span dangerouslySetInnerHTML={{ __html: '&ndash; ' }} /> : null;
 
   return (
     <span title={formattedNumber} {...rest} className={classes} style={styles}>
-      { renderAddon(prefix, prefixClass, prefixSeparator, prefixStyle, 'left') }
-      <span
-        className={valueClass}
-        style={valueStyle}
-        aria-label={`${ariaSign}${absFormattedNumber}`}
-      >
-        {sign}{absFormattedNumber}
+      {renderAddon(prefix, prefixClass, prefixSeparator, prefixStyle, 'left')}
+      <span className={valueClass} style={valueStyle} aria-label={`${ariaSign}${absFormattedNumber}`}>
+        {sign}
+        {absFormattedNumber}
       </span>
-      { renderAddon(suffix, suffixClass, suffixSeparator, suffixStyle, 'right') }
+      {renderAddon(suffix, suffixClass, suffixSeparator, suffixStyle, 'right')}
     </span>
   );
 }
@@ -92,12 +93,14 @@ Number.propTypes = {
   suffixClass: PropTypes.string,
   suffixSeparator: PropTypes.string,
   suffixStyle: PropTypes.object,
-  ticks: PropTypes.arrayOf(PropTypes.shape({
-    decimals: PropTypes.number,
-    to_price: PropTypes.number,
-    from_price: PropTypes.number,
-    tick: PropTypes.number,
-  })),
+  ticks: PropTypes.arrayOf(
+    PropTypes.shape({
+      decimals: PropTypes.number,
+      to_price: PropTypes.number,
+      from_price: PropTypes.number,
+      tick: PropTypes.number,
+    }),
+  ),
   intl: intlShape.isRequired, // eslint-disable-line react/no-typos
 };
 

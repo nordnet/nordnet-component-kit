@@ -12,11 +12,7 @@ describe('<Currency />', () => {
     const defaultCurrency = 'SEK';
 
     beforeEach(() => {
-      component = shallow(
-        <Currency
-          value={defaultValue}
-          currency={defaultCurrency}
-        />);
+      component = shallow(<Currency value={defaultValue} currency={defaultCurrency} />);
     });
 
     it('should default to 2 for valueDecimals', () => {
@@ -41,71 +37,40 @@ describe('<Currency />', () => {
   });
 
   it('should use currency as "suffix" if it is defined', () => {
-    const component = shallow(
-      <Currency
-        value={0}
-        currency="ANY"
-      />);
+    const component = shallow(<Currency value={0} currency="ANY" />);
     expect(component.prop('suffix')).to.equal('ANY');
   });
 
   it('should use suffix as "suffix" if it is defined', () => {
-    const component = shallow(
-      <Currency
-        value={0}
-        suffix="ANY"
-      />);
+    const component = shallow(<Currency value={0} suffix="ANY" />);
     expect(component.prop('suffix')).to.equal('ANY');
   });
 
   it('currency should take precedence before suffix if both are defined', () => {
-    const component = shallow(
-      <Currency
-        value={0}
-        currency="ANY"
-        suffix="OTHER"
-      />);
+    const component = shallow(<Currency value={0} currency="ANY" suffix="OTHER" />);
     expect(component.prop('suffix')).to.equal('ANY');
   });
 
   it('should set font-size of suffix to 75%', () => {
-    const component = shallow(
-      <Currency
-        value={0}
-        suffix="ANY"
-        suffixSize="small"
-      />);
+    const component = shallow(<Currency value={0} suffix="ANY" suffixSize="small" />);
     expect(component.prop('suffixStyle').fontSize).to.equal('75%');
   });
 
   it('should pass suffixSeparator through to its child', () => {
-    const component = shallow(
-      <Currency
-        value={0}
-        suffix="ANY"
-        suffixSeparator="-_-"
-      />);
+    const component = shallow(<Currency value={0} suffix="ANY" suffixSeparator="-_-" />);
     expect(component.prop('suffixSeparator')).to.equal('-_-');
   });
 
   it('should pass max decimals to Number', () => {
     const maxDecimals = 3;
-    const component = shallow(
-      <Currency
-        value={0}
-        maxDecimals={maxDecimals}
-      />);
+    const component = shallow(<Currency value={0} maxDecimals={maxDecimals} />);
     const passedMaxDecimals = component.find(Number).prop('valueMaxDecimals');
     expect(passedMaxDecimals).to.equal(maxDecimals);
   });
 
   it('should pass min decimals to Number', () => {
     const minDecimals = 3;
-    const component = shallow(
-      <Currency
-        value={0}
-        minDecimals={minDecimals}
-      />);
+    const component = shallow(<Currency value={0} minDecimals={minDecimals} />);
     const passedMinDecimals = component.find(Number).prop('valueMinDecimals');
     expect(passedMinDecimals).to.equal(minDecimals);
   });

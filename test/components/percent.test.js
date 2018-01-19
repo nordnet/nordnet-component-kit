@@ -11,10 +11,7 @@ describe('<Percent />', () => {
     const defaultValue = 2.5432;
 
     beforeEach(() => {
-      component = shallow(
-        <Percent
-          value={defaultValue}
-        />);
+      component = shallow(<Percent value={defaultValue} />);
     });
 
     it('should default to 2 for valueDecimals', () => {
@@ -35,33 +32,19 @@ describe('<Percent />', () => {
   });
 
   it('should not be possible to override suffix ("%")', () => {
-    const component = shallow(
-      <Percent
-        value={0}
-        suffix="ANY"
-      />);
+    const component = shallow(<Percent value={0} suffix="ANY" />);
     expect(component.prop('suffix')).to.equal('%');
   });
 
   it('should pass suffixSeparator through to its child', () => {
-    const component = shallow(
-      <Percent
-        value={0}
-        suffix="ANY"
-        suffixSeparator="-_-"
-      />);
+    const component = shallow(<Percent value={0} suffix="ANY" suffixSeparator="-_-" />);
     expect(component.prop('suffixSeparator')).to.equal('-_-');
   });
 
   it('should pass max and min decimals to Number', () => {
     const maxDecimals = 3;
     const minDecimals = 1;
-    const component = shallow(
-      <Percent
-        value={0}
-        maxDecimals={maxDecimals}
-        minDecimals={minDecimals}
-      />);
+    const component = shallow(<Percent value={0} maxDecimals={maxDecimals} minDecimals={minDecimals} />);
     const passedMaxDecimals = component.find(Number).prop('valueMaxDecimals');
     const passedMinDecimals = component.find(Number).prop('valueMinDecimals');
     expect(passedMaxDecimals).to.equal(maxDecimals);

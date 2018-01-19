@@ -5,7 +5,7 @@ const RowInfo = ({ leftItem, rightItem, alignBaseline }) => {
   const styles = {
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: (alignBaseline ? null : 'baseline'),
+    alignItems: alignBaseline ? null : 'baseline',
   };
 
   return (

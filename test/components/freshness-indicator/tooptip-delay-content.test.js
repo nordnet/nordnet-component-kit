@@ -23,7 +23,7 @@ describe('<TooltipDelayContent />', () => {
   });
 
   it('should render 4 formatted messages if the delay is 60 * 61 + 1 sec', () => {
-    expect(getComponent((60 * 61) + 1).find('FormattedMessage')).to.have.length(4);
+    expect(getComponent(60 * 61 + 1).find('FormattedMessage')).to.have.length(4);
   });
 
   it('should render DELAY message if delay is larger than 1 and notActive is false', () => {
@@ -32,11 +32,11 @@ describe('<TooltipDelayContent />', () => {
 
   describe('delayToHHMMSS function', () => {
     it('should return 2 on hour value if delay is 3600 * 2 + 1234', () => {
-      expect(delayToHHMMSS((3600 * 2) + 1234).hours).to.equal(2);
+      expect(delayToHHMMSS(3600 * 2 + 1234).hours).to.equal(2);
     });
 
     it('should return 3 on minute value if delay is 60 * 3 + 13', () => {
-      expect(delayToHHMMSS((60 * 3) + 13).minutes).to.equal(3);
+      expect(delayToHHMMSS(60 * 3 + 13).minutes).to.equal(3);
     });
 
     it('should return 52 on second value if delay is 52', () => {

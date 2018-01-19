@@ -17,10 +17,7 @@ describe('onClickOutside HOC', () => {
     clickedOutsideSpy = sandbox.spy();
     addEventSpy = sandbox.spy(document, 'addEventListener');
     removeEventSpy = sandbox.spy(document, 'removeEventListener');
-    component = mount(
-      <OnClickOutsideDummyComponent clickedOutsideSpy={clickedOutsideSpy} />,
-      { attachTo: document.getElementById('app') },
-    );
+    component = mount(<OnClickOutsideDummyComponent clickedOutsideSpy={clickedOutsideSpy} />, { attachTo: document.getElementById('app') });
   });
 
   afterEach(() => {

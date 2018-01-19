@@ -13,11 +13,7 @@ describe('<Development />', () => {
     const defaultValue = 2.5432;
 
     beforeEach(() => {
-      component = shallow(
-        <Development
-          value={defaultValue}
-        />
-      );
+      component = shallow(<Development value={defaultValue} />);
     });
 
     it('should pass value through to its child', () => {
@@ -76,13 +72,7 @@ describe('<Development />', () => {
     it('should pass max and min decimals to component when type is Number', () => {
       const maxDecimals = 3;
       const minDecimals = 1;
-      const component = shallow(
-        <Development
-          value={0}
-          type="number"
-          maxDecimals={maxDecimals}
-          minDecimals={minDecimals}
-        />);
+      const component = shallow(<Development value={0} type="number" maxDecimals={maxDecimals} minDecimals={minDecimals} />);
       const passedMaxDecimals = component.find(Number).prop('valueMaxDecimals');
       const passedMinDecimals = component.find(Number).prop('valueMinDecimals');
       expect(passedMaxDecimals).to.equal(maxDecimals);
@@ -92,13 +82,7 @@ describe('<Development />', () => {
     it('should pass max and min decimals to component when type is percentage', () => {
       const maxDecimals = 3;
       const minDecimals = 1;
-      const component = shallow(
-        <Development
-          value={0}
-          type="percentage"
-          maxDecimals={maxDecimals}
-          minDecimals={minDecimals}
-        />);
+      const component = shallow(<Development value={0} type="percentage" maxDecimals={maxDecimals} minDecimals={minDecimals} />);
       const passedMaxDecimals = component.find(Percent).prop('maxDecimals');
       const passedMinDecimals = component.find(Percent).prop('minDecimals');
       expect(passedMaxDecimals).to.equal(maxDecimals);
@@ -108,13 +92,7 @@ describe('<Development />', () => {
     it('should pass max and min decimals to component when type is currency', () => {
       const maxDecimals = 3;
       const minDecimals = 1;
-      const component = shallow(
-        <Development
-          value={0}
-          type="currency"
-          maxDecimals={maxDecimals}
-          minDecimals={minDecimals}
-        />);
+      const component = shallow(<Development value={0} type="currency" maxDecimals={maxDecimals} minDecimals={minDecimals} />);
       const passedMaxDecimals = component.find(Currency).prop('maxDecimals');
       const passedMinDecimals = component.find(Currency).prop('minDecimals');
       expect(passedMaxDecimals).to.equal(maxDecimals);
