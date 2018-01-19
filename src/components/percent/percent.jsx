@@ -1,17 +1,11 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Number from '../number/number';
 
 /**
   This is the `<Percent /> component`
 */
-export default function Percent({
-  value,
-  decimals,
-  minDecimals,
-  maxDecimals,
-  suffixSeparator,
-  ...rest
-}) {
+export default function Percent({ value, decimals, minDecimals, maxDecimals, suffixSeparator, ...rest }) {
   return (
     <Number
       {...rest}

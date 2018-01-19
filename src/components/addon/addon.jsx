@@ -1,19 +1,16 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 
 /**
   This component is not intended for public use
 */
-export default function Addon({
-  className,
-  children,
-  ...rest
-}) {
+export default function Addon({ className, children, ...rest }) {
   const classes = classNames('addon', className);
 
   return (
     <span {...rest} className={classes}>
-      { children }
+      {children}
     </span>
   );
 }

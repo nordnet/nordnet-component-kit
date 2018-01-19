@@ -16,12 +16,7 @@ describe('<Number />', () => {
     const defaultValue = 2.5432;
 
     beforeEach(() => {
-      component = shallow(
-        <Number.WrappedComponent
-          value={defaultValue}
-          valueClass="test"
-          intl={intl}
-        />);
+      component = shallow(<Number.WrappedComponent value={defaultValue} valueClass="test" intl={intl} />);
     });
 
     it('minimumFractionDigits should be 2 and maximumFractionDigits to 2', () => {
@@ -92,13 +87,9 @@ describe('<Number />', () => {
 
     it('should default to valueDecimals when there is no matching tick', () => {
       const decimals = 1;
-      const component = shallow(<Number.WrappedComponent
-        intl={intl}
-        valueClass="test"
-        value={444}
-        ticks={ticks}
-        valueDecimals={decimals}
-      />);
+      const component = shallow(
+        <Number.WrappedComponent intl={intl} valueClass="test" value={444} ticks={ticks} valueDecimals={decimals} />,
+      );
       expect(component.find('.test').text()).to.equal('444.0');
     });
 
@@ -110,26 +101,30 @@ describe('<Number />', () => {
     it('should respect maximum number of decimals when no ticks given', () => {
       const valueMaxDecimals = 3;
       const valueDecimals = 2;
-      const component = shallow(<Number.WrappedComponent
-        intl={intl}
-        valueClass="test"
-        value={99.12345}
-        valueDecimals={valueDecimals}
-        valueMaxDecimals={valueMaxDecimals}
-      />);
+      const component = shallow(
+        <Number.WrappedComponent
+          intl={intl}
+          valueClass="test"
+          value={99.12345}
+          valueDecimals={valueDecimals}
+          valueMaxDecimals={valueMaxDecimals}
+        />,
+      );
       expect(component.find('.test').text()).to.equal('99.123');
     });
 
     it('should respect minimum number of decimals when no ticks given', () => {
       const valueMinDecimals = 4;
       const valueDecimals = 5;
-      const component = shallow(<Number.WrappedComponent
-        intl={intl}
-        valueClass="test"
-        value={99.1}
-        valueDecimals={valueDecimals}
-        valueMinDecimals={valueMinDecimals}
-      />);
+      const component = shallow(
+        <Number.WrappedComponent
+          intl={intl}
+          valueClass="test"
+          value={99.1}
+          valueDecimals={valueDecimals}
+          valueMinDecimals={valueMinDecimals}
+        />,
+      );
       expect(component.find('.test').text()).to.equal('99.1000');
     });
 
@@ -138,27 +133,25 @@ describe('<Number />', () => {
       const valueMaxDecimals = tick.decimals + 1;
       const valueMinDecimals = tick.decimals - 1;
       const value = tick.from_price + tick.tick;
-      const component = shallow(<Number.WrappedComponent
-        intl={intl}
-        valueClass="test"
-        value={value}
-        valueMinDecimals={valueMinDecimals}
-        valueMaxDecimals={valueMaxDecimals}
-        ticks={[tick]}
-      />);
+      const component = shallow(
+        <Number.WrappedComponent
+          intl={intl}
+          valueClass="test"
+          value={value}
+          valueMinDecimals={valueMinDecimals}
+          valueMaxDecimals={valueMaxDecimals}
+          ticks={[tick]}
+        />,
+      );
       expect(component.find('.test').text()).to.equal('0.0001');
     });
 
     it('should default to decimals when no ticks nor max num decimals', () => {
       const decimals = 3;
       const value = 3.1415;
-      const component = shallow(<Number.WrappedComponent
-        intl={intl}
-        valueClass="test"
-        value={value}
-        ticks={[]}
-        valueDecimals={decimals}
-      />);
+      const component = shallow(
+        <Number.WrappedComponent intl={intl} valueClass="test" value={value} ticks={[]} valueDecimals={decimals} />,
+      );
       expect(component.find('.test').text()).to.equal('3.142');
     });
   });
@@ -176,13 +169,23 @@ describe('<Number />', () => {
   it('should be possible to add a prefix', () => {
     const prefix = '123456789';
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} prefix={prefix} />);
-    expect(component.find(Addon).children().text()).to.equal(prefix);
+    expect(
+      component
+        .find(Addon)
+        .children()
+        .text(),
+    ).to.equal(prefix);
   });
 
   it('should be possible to add a suffix', () => {
     const suffix = '987654321';
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} suffix={suffix} />);
-    expect(component.find(Addon).children().text()).to.equal(suffix);
+    expect(
+      component
+        .find(Addon)
+        .children()
+        .text(),
+    ).to.equal(suffix);
   });
 
   it('should be possible to add a prefix and a suffix', () => {
@@ -241,12 +244,22 @@ describe('<Number />', () => {
 
   it('should be able to add custom prefixSeparator', () => {
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} prefix=":" prefixSeparator=")" />);
-    expect(component.find(Addon).children().text()).to.equal(':)');
+    expect(
+      component
+        .find(Addon)
+        .children()
+        .text(),
+    ).to.equal(':)');
   });
 
   it('should be able to add custom suffixSeparator', () => {
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} suffix="(" suffixSeparator=":" />);
-    expect(component.find(Addon).children().text()).to.deep.equal(':(');
+    expect(
+      component
+        .find(Addon)
+        .children()
+        .text(),
+    ).to.deep.equal(':(');
   });
 
   describe('a11y', () => {

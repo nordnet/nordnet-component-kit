@@ -1,8 +1,26 @@
 language: node_js
 node_js:
-  - "6"
+  - 8
+
+branches:
+  only:
+    - "master"
+
 cache:
+  yarn: true
   directories:
   - node_modules
+
 after_script:
   - npm run coveralls
+
+jobs:
+  include:
+    - stage: release
+      install: echo "hello"
+      script: echo "nothing to see here, move along"
+      after_script:
+        - git config --global user.email "nordnet-release@localhost"
+        - git config --global user.name "nordnet-release"
+        - if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm install; fi
+        - if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then TRAVIS_JOB_NUMBER=WORKAROUND.1 npm run semantic-release; fi

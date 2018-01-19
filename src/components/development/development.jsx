@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import NumberComponent from '../number/number';
 import CurrencyComponent from '../currency/currency';
@@ -7,11 +8,11 @@ import PercentComponent from '../percent/percent';
 function renderSign(direction) {
   switch (direction) {
     case 'positive':
-      return (<span dangerouslySetInnerHTML={{ __html: '&plus; ' }} />);
+      return <span dangerouslySetInnerHTML={{ __html: '&plus; ' }} />;
     case 'negative':
-      return (<span aria-label="&minus;" dangerouslySetInnerHTML={{ __html: '&ndash; ' }} />);
+      return <span aria-label="&minus;" dangerouslySetInnerHTML={{ __html: '&ndash; ' }} />;
     default:
-      return (<span />);
+      return <span />;
   }
 }
 
@@ -36,16 +37,7 @@ function getDecimalProps(type, decimals, maxDecimals, minDecimals) {
 /**
   This is the `<Development /> component`
 */
-export default function Development({
-  value,
-  decimals,
-  type,
-  direction,
-  className,
-  maxDecimals,
-  minDecimals,
-  ...rest
-}) {
+export default function Development({ value, decimals, type, direction, className, maxDecimals, minDecimals, ...rest }) {
   const components = {
     currency: CurrencyComponent,
     percentage: PercentComponent,
