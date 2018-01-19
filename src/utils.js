@@ -7,7 +7,7 @@ export function getTickDecimals(value, ticks) {
     return undefined;
   }
 
-  const tick = ticks.find(t => value >= t.from_price && value < (t.to_price + (t.tick || 0)));
+  const tick = ticks.find(t => value >= t.from_price && value < t.to_price + (t.tick || 0));
 
   return tick ? tick.decimals : undefined;
 }
@@ -20,5 +20,5 @@ export const getDevelopmentPercentage = (previous, current) => {
   if (!numberIsFinite(current) || !numberIsFinite(previous)) {
     return 0;
   }
-  return ((current / previous) - 1) * 100;
+  return (current / previous - 1) * 100;
 };

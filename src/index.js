@@ -19,14 +19,11 @@ export {
   Development,
   Percent,
   Value,
-
   // Other components
   DateTime,
   IconRow,
-
   // HOCs
   onClickOutside,
-
   // utils
   utils,
 };
