@@ -6,7 +6,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "dev": "run-s start",
-    "start": "styleguidist server --verbose --colors",
+    "start": "styleguidist server --colors",
     "clean": "rimraf dist",
     "clean:docs": "rimraf docs",
     "build": "run-s clean babel",
@@ -113,5 +113,9 @@
     "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.2",
     "sinon": "^4.1.6"
+  },
+  "resolutions": {
+    "react": "16.2.0",
+    "react-dom": "16.2.0"
   }
 }

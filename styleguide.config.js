@@ -18,14 +18,13 @@ const numberComponentPaths = [
 
 const otherComponentPaths = [
   `${dir}/components/date-time/date-time.jsx`,
-  `${dir}/components/freshness-indicator/freshness-indicator.jsx`,
   `${dir}/components/icon-row/icon-row.jsx`
 ];
 
 module.exports = {
   serverPort: 6061, // To not conflict with nordnet-ui-kit
   title: "Nordnet Component Kit",
-  // styleguideDir: path.join(__dirname, "documentation/dist"),
+  styleguideDir: path.join(__dirname, "documentation/dist"),
   template: path.resolve(__dirname, "./documentation/template.html"),
   sections: [
     {
@@ -42,12 +41,12 @@ module.exports = {
   getExampleFilename(componentpath) {
     return componentpath.replace(/\.jsx?$/, ".md");
   },
-  // getComponentPathLine(componentPath) {
-  //   const fileName = path.basename(componentPath, ".jsx");
-  //   const componentName = capitalize(camelCase(fileName));
+  getComponentPathLine(componentPath) {
+    const fileName = path.basename(componentPath, ".jsx");
+    const componentName = capitalize(camelCase(fileName));
 
-  //   return `import { ${componentName} } from 'nordnet-component-kit';`;
-  // },
+    return `import { ${componentName} } from 'nordnet-component-kit';`;
+  },
   styleguideComponents: {
     Wrapper: path.join(__dirname, "documentation", "wrapper.jsx")
   },
