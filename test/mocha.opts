@@ -1,7 +1,6 @@
 --require babel-register
---require test/static-assets-noop.js
+--require test/enzyme.setup.js
 --require test/setup.jsdom.js
---require test/setup.mocha.js
 --colors
 
 --recursive

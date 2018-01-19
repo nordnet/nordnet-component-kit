@@ -20,7 +20,7 @@ describe('<Currency />', () => {
     });
 
     it('should not set any suffixStyle', () => {
-      expect(component.prop('suffixStyle')).to.be.empty();
+      expect(Object.keys(component.prop('suffixStyle')).length).to.equal(0);
     });
 
     it('should pass value through to its child', () => {

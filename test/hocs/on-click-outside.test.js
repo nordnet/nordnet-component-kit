@@ -25,27 +25,27 @@ describe('onClickOutside HOC', () => {
   });
 
   it('should subscribe to click and keyUp event on mount', () => {
-    expect(addEventSpy).to.have.been.calledTwice();
+    expect(addEventSpy.calledTwice).to.equal(true);
   });
 
   it('should unsubscribe from click and keyUp events on unmount', () => {
     component.unmount();
-    expect(removeEventSpy).to.have.been.callCount(4);
+    expect(removeEventSpy.callCount).to.equal(4);
   });
 
   it('should call handleClickOutside if click is made outside chosen element', () => {
     document.getElementById('top').click();
-    expect(clickedOutsideSpy).to.have.been.calledOnce();
+    expect(clickedOutsideSpy.calledOnce).to.equal(true);
   });
 
   it('should not call handleClickOutside if click is made on chosen element', () => {
     document.getElementById('mid').click();
-    expect(clickedOutsideSpy).to.not.have.been.called();
+    expect(clickedOutsideSpy.called).to.equal(false);
   });
 
   it('should not call handleClickOutside if click is made inside chosen element', () => {
     document.getElementById('bot').click();
-    expect(clickedOutsideSpy).to.not.have.been.called();
+    expect(clickedOutsideSpy.called).to.equal(false);
   });
 
   it('should not call handleClickOutside if keyUp is sent via keyCode', () => {
@@ -53,7 +53,7 @@ describe('onClickOutside HOC', () => {
     event.keyCode = 27;
     event.initEvent('keyup', true, true);
     document.dispatchEvent(event);
-    expect(clickedOutsideSpy).to.have.been.calledOnce();
+    expect(clickedOutsideSpy.calledOnce).to.equal(true);
   });
 
   it('should not call handleClickOutside if keyUp is sent via key', () => {
@@ -61,6 +61,6 @@ describe('onClickOutside HOC', () => {
     event.key = 'Escape';
     event.initEvent('keyup', true, true);
     document.dispatchEvent(event);
-    expect(clickedOutsideSpy).to.have.been.calledOnce();
+    expect(clickedOutsideSpy.calledOnce).to.equal(true);
   });
 });

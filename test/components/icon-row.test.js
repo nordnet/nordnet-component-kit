@@ -17,10 +17,10 @@ describe('<IconRow />', () => {
   });
 
   it('should render mounted components', () => {
-    expect(component).to.contain(icon);
-    expect(component).to.contain(span1);
-    expect(component).to.contain(span2);
-    expect(component).to.contain(span3);
-    expect(component).to.contain(span4);
+    expect(component.contains(icon)).to.equal(true);
+    expect(component.contains(span1)).to.equal(true);
+    expect(component.contains(span2)).to.equal(true);
+    expect(component.contains(span3)).to.equal(true);
+    expect(component.contains(span4)).to.equal(true);
   });
 });

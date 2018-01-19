@@ -12,8 +12,8 @@
     "build": "run-s clean babel",
     "watch": "npm run babel -- --watch",
     "babel": "babel src -d dist --copy-files --ignore .md",
-    "test": "NODE_ENV=test mocha --opts test/mocha.opts",
-    "test:tdd": "run-s test -- --watch --watch-extensions js,jsx",
+    "test": "mocha --opts test/mocha.opts",
+    "tdd": "mocha --opts test/mocha.opts --watch --watch-extensions js,jsx",
     "coverage": "cross-env NODE_ENV=coverage nyc npm test",
     "precoveralls": "run-s coverage",
     "coveralls": "coveralls < coverage/lcov.info",
@@ -33,37 +33,17 @@
     "postpublish": "run-s docs:publish && git push --follow-tags --no-verify",
     "format": "prettier --write --single-quote --print-width 140 --trailing-comma all"
   },
-  "keywords": [
-    "nordnet",
-    "component",
-    "kit",
-    "format",
-    "react",
-    "intl"
-  ],
-  "files": [
-    "dist",
-    "src"
-  ],
+  "keywords": ["nordnet", "component", "kit", "format", "react", "intl"],
+  "files": ["dist", "src"],
   "lint-staged": {
-    "*.{js,jsx}": [
-      "npm run format",
-      "git add"
-    ]
+    "*.{js,jsx}": ["npm run format", "git add"]
   },
   "nyc": {
-    "extension": [
-      ".js",
-      ".jsx"
-    ],
+    "extension": [".js", ".jsx"],
     "all": true,
     "instrument": false,
     "sourceMap": false,
-    "reporter": [
-      "lcov",
-      "text-summary",
-      "text"
-    ]
+    "reporter": ["lcov", "text-summary", "text"]
   },
   "author": "Andreas Broström <andreas.brostrom@nordnet.se>",
   "repository": "nordnet/nordnet-component-kit",
@@ -95,6 +75,7 @@
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.15.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
