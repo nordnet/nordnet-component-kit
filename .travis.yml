@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-  - 6
   - 8
 
 branches:
@@ -8,8 +7,10 @@ branches:
     - "master"
 
 cache:
+  yarn: true
   directories:
   - node_modules
+
 after_script:
   - npm run coveralls
 
