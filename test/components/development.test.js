@@ -68,6 +68,11 @@ describe('<Development />', () => {
     expect(component.prop('prefix').children).to.equal(undefined);
   });
 
+  it('should default to number when type is invalid', () => {
+    const component = shallow(<Development type="invalid" value={1} direction="neutral" />);
+    expect(component.is(Number)).to.equal(true);
+  });
+
   describe('Max and min decimals', () => {
     it('should pass max and min decimals to component when type is Number', () => {
       const maxDecimals = 3;
