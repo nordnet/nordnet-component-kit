@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { FormattedMessage, defineMessages } from 'react-intl';
 import DateTime from '../date-time/date-time';
 import { numberIsFinite } from '../../utils';

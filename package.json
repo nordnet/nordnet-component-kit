@@ -6,7 +6,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "dev": "run-s start",
-    "start": "styleguidist server --colors",
+    "start": "styleguidist server --verbose --colors",
     "clean": "rimraf dist",
     "clean:docs": "rimraf docs",
     "build": "run-s clean babel",
@@ -81,6 +81,8 @@
     "react-intl": "^2.4.0"
   },
   "devDependencies": {
+    "@webpack-blocks/babel6": "^0.4.1",
+    "@webpack-blocks/webpack2": "^0.4.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
@@ -110,7 +112,6 @@
     "react-styleguidist": "^6.1.0",
     "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.2",
-    "sinon": "^4.1.6",
-    "webpack": "^3.10.0"
+    "sinon": "^4.1.6"
   }
 }
