@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { FormattedDate, FormattedTime, FormattedRelative } from 'react-intl';
 import DateTimeIso from '../date-time-iso/date-time-iso';
 import formats from './date-time-formats';
@@ -6,13 +7,7 @@ import formats from './date-time-formats';
 /**
   This is the `<DateTime /> component`
 */
-function DateTime({
-  value,
-  format,
-  type,
-  iso,
-  ...rest
-}) {
+function DateTime({ value, format, type, iso, ...rest }) {
   if (iso) {
     return <DateTimeIso value={value} {...rest} />;
   }
@@ -24,13 +19,7 @@ function DateTime({
   };
   const Component = components[type];
 
-  return (
-    <Component
-      {...rest}
-      {...formats[type][format]}
-      value={value}
-    />
-  );
+  return <Component {...rest} {...formats[type][format]} value={value} />;
 }
 
 DateTime.defaultProps = {
@@ -48,10 +37,7 @@ DateTime.propTypes = {
   /**
     A timestamp.
   */
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.instanceOf(Date),
-  ]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.instanceOf(Date)]).isRequired,
   type: PropTypes.oneOf(['date', 'time', 'relative']),
 };
 

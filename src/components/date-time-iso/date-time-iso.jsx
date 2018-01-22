@@ -1,16 +1,11 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import isoDate from './iso-date';
 
 /**
   This component is not intended for public use
 */
-export default function DateTimeIso({
-  value,
-  hour,
-  minute,
-  second,
-  ...rest
-}) {
+export default function DateTimeIso({ value, hour, minute, second, ...rest }) {
   const iso = isoDate(value);
   let dateString;
 
@@ -24,11 +19,7 @@ export default function DateTimeIso({
     dateString = `${iso.get('date')}`;
   }
 
-  return (
-    <span {...rest}>
-      { dateString }
-    </span>
-  );
+  return <span {...rest}>{dateString}</span>;
 }
 
 DateTimeIso.defaultProps = {
@@ -38,20 +29,8 @@ DateTimeIso.defaultProps = {
 };
 
 DateTimeIso.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.instanceOf(Date),
-  ]).isRequired,
-  hour: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
-  minute: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
-  second: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.instanceOf(Date)]).isRequired,
+  hour: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  minute: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  second: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
