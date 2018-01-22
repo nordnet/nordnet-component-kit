@@ -6,13 +6,13 @@ import Addon from '../../src/components/addon/addon';
 
 describe('<Addon />', () => {
   let component;
-  const child = (<div>test</div>);
+  const child = <div>test</div>;
 
   beforeEach(() => {
     component = shallow(
       <Addon className="propagatedClass" propagatedProp>
-        { child }
-      </Addon>
+        {child}
+      </Addon>,
     );
   });
 

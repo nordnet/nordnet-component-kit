@@ -26,12 +26,7 @@ describe('<Value />', () => {
   it('should pass max and min decimals to Number', () => {
     const maxDecimals = 5;
     const minDecimals = 3;
-    const component = shallow(
-      <Value
-        value={0}
-        maxDecimals={maxDecimals}
-        minDecimals={minDecimals}
-      />);
+    const component = shallow(<Value value={0} maxDecimals={maxDecimals} minDecimals={minDecimals} />);
     const passedMaxDecimals = component.find(Number).prop('valueMaxDecimals');
     const passedMinDecimals = component.find(Number).prop('valueMinDecimals');
     expect(passedMaxDecimals).to.equal(maxDecimals);
