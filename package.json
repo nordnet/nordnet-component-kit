@@ -1,6 +1,6 @@
 {
   "name": "nordnet-component-kit",
-  "version": "0.2.8",
+  "version": "1.0.0-rc.1",
   "description": "Custom react components used by Nordnet",
   "main": "dist",
   "scripts": {
@@ -29,10 +29,24 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "format": "prettier --write '{e2e-test,src}/**/*.{js,jsx}'"
   },
-  "keywords": ["nordnet", "component", "kit", "format", "react", "intl"],
-  "files": ["dist", "src"],
+  "keywords": [
+    "nordnet",
+    "component",
+    "kit",
+    "format",
+    "react",
+    "intl"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
   "lint-staged": {
-    "*.{js,jsx}": ["prettier --write", "eslint", "git add"]
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
   },
   "config": {
     "commitizen": {
@@ -40,13 +54,24 @@
     }
   },
   "nyc": {
-    "require": ["babel-register"],
-    "include": ["src/*"],
-    "extension": [".js", ".jsx"],
+    "require": [
+      "babel-register"
+    ],
+    "include": [
+      "src/*"
+    ],
+    "extension": [
+      ".js",
+      ".jsx"
+    ],
     "all": true,
     "instrument": false,
     "sourceMap": false,
-    "reporter": ["lcov", "text-summary", "text"]
+    "reporter": [
+      "lcov",
+      "text-summary",
+      "text"
+    ]
   },
   "author": "Andreas Broström <andreas.brostrom@nordnet.se>",
   "repository": {
