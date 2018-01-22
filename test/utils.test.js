@@ -92,6 +92,15 @@ describe('utils', () => {
     it('should return 4 when value is between 0 and 0.5', () => {
       expect(getTickDecimals(0.4, ticks)).to.equal(4);
     });
+
+    it('should work even though `tick` is not defined', () => {
+      const modifiedTicks = [...ticks].map(t => ({
+        decimals: t.decimals,
+        to_price: t.to_price,
+        from_price: t.from_price,
+      }));
+      expect(getTickDecimals(1.4, modifiedTicks)).to.equal(3);
+    });
   });
 
   describe('getFractionDigits', () => {
