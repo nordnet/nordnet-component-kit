@@ -56,8 +56,12 @@ export default function onClickOutside(WrappedComponent) {
       return (
         <WrappedComponent
           {...this.props}
-          ref={(wrapped) => { this.wrapped = wrapped; }}
-          topDOMElement={(element) => { this.element = element; }}
+          ref={wrapped => {
+            this.wrapped = wrapped;
+          }}
+          topDOMElement={element => {
+            this.element = element;
+          }}
         />
       );
     }

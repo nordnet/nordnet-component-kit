@@ -1,25 +1,12 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Number from '../number/number';
 
 /**
   This is the `<Value /> component`
 */
-export default function Value({
-  value,
-  decimals,
-  maxDecimals,
-  minDecimals,
-  ...rest
-}) {
-  return (
-    <Number
-      {...rest}
-      value={value}
-      valueDecimals={decimals}
-      valueMaxDecimals={maxDecimals}
-      valueMinDecimals={minDecimals}
-    />
-  );
+export default function Value({ value, decimals, maxDecimals, minDecimals, ...rest }) {
+  return <Number {...rest} value={value} valueDecimals={decimals} valueMaxDecimals={maxDecimals} valueMinDecimals={minDecimals} />;
 }
 
 Value.defaultProps = {

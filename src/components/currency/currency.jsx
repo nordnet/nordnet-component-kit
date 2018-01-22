@@ -1,25 +1,22 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Number from '../number/number';
 import variables from '../../variables';
 
 /**
   This is the `<Currency /> component`
 */
-export default function Currency({
-  value,
-  currency,
-  decimals,
-  maxDecimals,
-  minDecimals,
-  suffixSize,
-  suffixSeparator,
-  ...rest
-}) {
-  const suffixStyle = Object.assign({},
-    suffixSize === 'small' ? {
-      fontSize: variables.relativeSizeSm,
-      fontWeight: 'bolder',
-    } : {}, rest.suffixStyle);
+export default function Currency({ value, currency, decimals, maxDecimals, minDecimals, suffixSize, suffixSeparator, ...rest }) {
+  const suffixStyle = Object.assign(
+    {},
+    suffixSize === 'small'
+      ? {
+          fontSize: variables.relativeSizeSm,
+          fontWeight: 'bolder',
+        }
+      : {},
+    rest.suffixStyle,
+  );
 
   return (
     <Number
