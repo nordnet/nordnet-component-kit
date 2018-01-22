@@ -1,5 +1,10 @@
 # Changelog
 
+## Upcoming
+* Rewrite project to build with babel instead of webpack.
+* Prepare for React 16.
+* 
+
 ## 0.2.8
 IconRow - Update styling for iconPlacement.
 

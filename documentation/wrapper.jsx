@@ -1,14 +1,12 @@
 /* eslint-disable import/first */
 import './intl';
 import 'babel-polyfill';
+
+import PropTypes from 'prop-types';
 import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
-import { Input } from 'nordnet-ui-kit';
-
-// Add some nice styles to the documentation
-import 'nordnet-ui-kit/documentation/documentation.scss';
-import 'nordnet-ui-kit/dist/input/input.css';
-import 'nordnet-ui-kit/dist/tooltip/tooltip.css';
+import { ThemeProvider } from 'react-jss';
+import { Input, theme } from 'nordnet-ui-kit';
 
 import en from 'react-intl/locale-data/en';
 import sv from 'react-intl/locale-data/sv';
@@ -53,27 +51,28 @@ class Wrapper extends React.Component {
 
   render() {
     return (
-      <div>
-        <div style={wrapperStyle}>
-          <Input
-            type="select"
-            label="Locale"
-            placeholder="Pick a locale"
-            onChange={this.change}
-            value={this.state.locale}
-            options={this.state.options}
-          />
+      <ThemeProvider theme={theme}>
+        <div>
+          <div style={wrapperStyle}>
+            <Input
+              type="select"
+              label="Locale"
+              variant="secondary"
+              placeholder="Pick a locale"
+              onChange={this.change}
+              value={this.state.locale}
+              options={this.state.options}
+            />
+          </div>
+          <IntlProvider locale={this.state.locale}>{this.props.children}</IntlProvider>
         </div>
-        <IntlProvider locale={this.state.locale}>
-          { this.props.children }
-        </IntlProvider>
-      </div>
+      </ThemeProvider>
     );
   }
 }
 
 Wrapper.propTypes = {
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Wrapper;

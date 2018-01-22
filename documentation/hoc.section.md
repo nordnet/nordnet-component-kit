@@ -1,22 +1,22 @@
 # onClickOutside
 
 HOC that invokes method
-```javascript
+```js static
 handleClickOutside(event)
 ```
 in wrapped component if a click is made outside the dom node provided in the topDOMElement callback.
 
 Example of implementing callback:
-```jsx
+```html static
 <div className="my-top-node" ref={this.props.topDOMElement}>
-  ...
+  { /* ... */ }
 </div>
 ```
 
 **Note** that topDOMElement can't be a React component.
 
 Example usage:
-```jsx
+```jsx static
 import { onClickOutside } from 'nordnet-component-kit';
 
 class Example extends React.Component {
