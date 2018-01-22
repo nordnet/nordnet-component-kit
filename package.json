@@ -26,7 +26,8 @@
     "docs-publish": "gh-pages -d documentation/dist --repo https://$GH_TOKEN@github.com/nordnet/nordnet-component-kit.git --silent",
     "prepublish": "in-publish && run-s validate build || not-in-publish",
     "postpublish": "run-s clean && run-s docs-publish",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once",
     "format": "prettier --write '{e2e-test,src}/**/*.{js,jsx}'"
   },
   "keywords": ["nordnet", "component", "kit", "format", "react", "intl"],
@@ -106,7 +107,8 @@
     "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.2",
     "semantic-release": "^12.2.2",
-    "sinon": "^4.1.6"
+    "sinon": "^4.1.6",
+    "travis-deploy-once": "^4.3.2"
   },
   "dependencies": {
     "classnames": "^2.2.5"

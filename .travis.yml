@@ -25,7 +25,7 @@ jobs:
       after_script:
         - git config user.email "nordnet-release@localhost"
         - git config user.name "nordnet-release"
-        - TRAVIS_JOB_NUMBER=WORKAROUND.1 npm run semantic-release
+        - TRAVIS_JOB_NUMBER=WORKAROUND.1 npm run travis-deploy-once "npm run semantic-release"
       if: (NOT type IN (pull_request)) AND (branch = master)
 
 stages:
