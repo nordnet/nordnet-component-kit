@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
-npm-debug.log
-lib
-docs
+*.log
+dist
 .nyc_output
+coverage
+documentation/dist

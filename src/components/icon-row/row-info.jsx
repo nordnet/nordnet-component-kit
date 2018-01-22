@@ -1,10 +1,11 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const RowInfo = ({ leftItem, rightItem, alignBaseline }) => {
   const styles = {
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: (alignBaseline ? null : 'baseline'),
+    alignItems: alignBaseline ? null : 'baseline',
   };
 
   return (
