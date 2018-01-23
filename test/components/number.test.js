@@ -169,53 +169,33 @@ describe('<Number />', () => {
   it('should be possible to add a prefix', () => {
     const prefix = '123456789';
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} prefix={prefix} />);
-    expect(
-      component
-        .find(Addon)
-        .children()
-        .text(),
-    ).to.equal(prefix);
+    expect(component.find('Addon[position="left"]').prop('addon')).to.equal(prefix);
   });
 
   it('should be possible to add a suffix', () => {
     const suffix = '987654321';
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} suffix={suffix} />);
-    expect(
-      component
-        .find(Addon)
-        .children()
-        .text(),
-    ).to.equal(suffix);
+    expect(component.find('Addon[position="right"]').prop('addon')).to.equal(suffix);
   });
 
   it('should be possible to add a prefix and a suffix', () => {
     const data = ['123456789', '987654321'];
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} prefix={data[0]} suffix={data[1]} />);
     component.find(Addon).forEach((node, index) => {
-      expect(node.children().text(), data[index]);
+      expect(node.prop('addon'), data[index]);
     });
-  });
-
-  it('should add default class addon--left to prefix', () => {
-    const component = shallow(<Number.WrappedComponent intl={intl} value={1} prefix="." />);
-    expect(component.find(Addon).hasClass('addon--left')).to.equal(true);
-  });
-
-  it('should add default class addon--right to suffix', () => {
-    const component = shallow(<Number.WrappedComponent intl={intl} value={1} suffix="." />);
-    expect(component.find(Addon).hasClass('addon--right')).to.equal(true);
   });
 
   it('should be able to add custom classes to prefix', () => {
     const prefixClass = 'custom-class';
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} prefix="." prefixClass={prefixClass} />);
-    expect(component.find(Addon).hasClass(prefixClass)).to.equal(true);
+    expect(component.find('Addon[position="left"]').prop('className')).to.equal(prefixClass);
   });
 
   it('should be able to add custom classes to suffix', () => {
     const suffixClass = 'custom-class';
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} suffix="." suffixClass={suffixClass} />);
-    expect(component.find(Addon).hasClass(suffixClass)).to.equal(true);
+    expect(component.find('Addon[position="right"]').prop('className')).to.equal(suffixClass);
   });
 
   it('should be able to add custom classes to value', () => {
@@ -227,13 +207,13 @@ describe('<Number />', () => {
   it('should be able to add custom styles to prefix', () => {
     const prefixStyle = { color: 'custom' };
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} prefix="." prefixStyle={prefixStyle} />);
-    expect(component.find(Addon).prop('style')).to.deep.equal(prefixStyle);
+    expect(component.find('Addon[position="left"]').prop('style')).to.deep.equal(prefixStyle);
   });
 
   it('should be able to add custom styles to suffix', () => {
     const suffixStyle = { color: 'custom' };
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} suffix="." suffixStyle={suffixStyle} />);
-    expect(component.find(Addon).prop('style')).to.deep.equal(suffixStyle);
+    expect(component.find('Addon[position="right"]').prop('style')).to.deep.equal(suffixStyle);
   });
 
   it('should be able to add custom styles to value', () => {
@@ -244,22 +224,12 @@ describe('<Number />', () => {
 
   it('should be able to add custom prefixSeparator', () => {
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} prefix=":" prefixSeparator=")" />);
-    expect(
-      component
-        .find(Addon)
-        .children()
-        .text(),
-    ).to.equal(':)');
+    expect(component.find('Addon[position="left"]').prop('separator')).to.equal(')');
   });
 
   it('should be able to add custom suffixSeparator', () => {
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} suffix="(" suffixSeparator=":" />);
-    expect(
-      component
-        .find(Addon)
-        .children()
-        .text(),
-    ).to.deep.equal(':(');
+    expect(component.find('Addon[position="right"]').prop('separator')).to.deep.equal(':');
   });
 
   describe('a11y', () => {
