@@ -48,7 +48,7 @@ describe('onClickOutside HOC', () => {
     expect(clickedOutsideSpy.called).to.equal(false);
   });
 
-  it('should not call handleClickOutside if keyUp is sent via keyCode', () => {
+  it('should call handleClickOutside if keyUp is sent via keyCode', () => {
     const event = document.createEvent('Event');
     event.keyCode = 27;
     event.initEvent('keyup', true, true);
@@ -56,11 +56,35 @@ describe('onClickOutside HOC', () => {
     expect(clickedOutsideSpy.calledOnce).to.equal(true);
   });
 
-  it('should not call handleClickOutside if keyUp is sent via key', () => {
+  it('should call handleClickOutside if keyUp is sent via charCode', () => {
+    const event = document.createEvent('Event');
+    event.charCode = 27;
+    event.initEvent('keyup', true, true);
+    document.dispatchEvent(event);
+    expect(clickedOutsideSpy.calledOnce).to.equal(true);
+  });
+
+  it('should call handleClickOutside if keyUp is sent via which', () => {
+    const event = document.createEvent('Event');
+    event.which = 27;
+    event.initEvent('keyup', true, true);
+    document.dispatchEvent(event);
+    expect(clickedOutsideSpy.calledOnce).to.equal(true);
+  });
+
+  it('should call handleClickOutside if keyUp is sent via key', () => {
     const event = document.createEvent('Event');
     event.key = 'Escape';
     event.initEvent('keyup', true, true);
     document.dispatchEvent(event);
     expect(clickedOutsideSpy.calledOnce).to.equal(true);
+  });
+
+  it('should not call handleClickOutside if keyUp is not escape', () => {
+    const event = document.createEvent('Event');
+    event.key = 'Enter';
+    event.initEvent('keyup', true, true);
+    document.dispatchEvent(event);
+    expect(clickedOutsideSpy.callCount).to.equal(0);
   });
 });
