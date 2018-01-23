@@ -127,7 +127,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-intl": "^2.4.0",
-    "react-styleguidist": "^6.1.0",
+    "react-styleguidist": "^6.2.0",
     "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.2",
     "semantic-release": "^12.2.2",
@@ -140,5 +140,10 @@
     "prop-types": ">=15",
     "react": ">=15",
     "react-intl": ">=2"
+  },
+  "resolutions": {
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "uglify-es": "3.3.7"
   }
 }
