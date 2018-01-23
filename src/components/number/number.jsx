@@ -5,24 +5,6 @@ import classNames from 'classnames';
 import Addon from '../addon/addon';
 import { getTickDecimals, getFractionDigits } from '../../utils';
 
-function renderAddon(addon, addonClasses, addonSeparator, addonStyle, position) {
-  if (!addon) {
-    return null;
-  }
-
-  const classes = classNames(`addon--${position}`, addonClasses);
-
-  return (
-    <Addon className={classes} style={addonStyle}>
-      <span>
-        {position === 'right' ? addonSeparator : null}
-        {addon}
-        {position === 'left' ? addonSeparator : null}
-      </span>
-    </Addon>
-  );
-}
-
 /**
   This component is not intended for public use
 */
@@ -66,12 +48,12 @@ function Number({
 
   return (
     <span title={formattedNumber} {...rest} className={classes} style={styles}>
-      {renderAddon(prefix, prefixClass, prefixSeparator, prefixStyle, 'left')}
+      <Addon addon={prefix} className={prefixClass} position="left" separator={prefixSeparator} style={prefixStyle} />
       <span className={valueClass} style={valueStyle} aria-label={`${ariaSign}${absFormattedNumber}`}>
         {sign}
         {absFormattedNumber}
       </span>
-      {renderAddon(suffix, suffixClass, suffixSeparator, suffixStyle, 'right')}
+      <Addon addon={suffix} className={suffixClass} position="right" separator={suffixSeparator} style={suffixStyle} />
     </span>
   );
 }
