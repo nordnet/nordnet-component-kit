@@ -1,9 +1,24 @@
 # Changelog
 
-## Upcoming
-* Rewrite project to build with babel instead of webpack.
-* Prepare for React 16.
-* 
+## 1.0.0  (2018-01-22)
+
+#### Features
+
+* Bump deps and change build target ([555e2c3](https://github.com/nordnet/nordnet-component-kit/commit/555e2c3)), closes [#613](https://github.com/nordnet/nordnet-component-kit/issues/613))
+
+#### Bug Fixes
+
+* Fix support for React 16 ([e0970fe](https://github.com/nordnet/nordnet-component-kit/commit/e0970fe)), closes [#606](https://github.com/nordnet/nordnet-component-kit/issues/606), [#629](https://github.com/nordnet/nordnet-component-kit/issues/629)
+
+#### Breaking Changes
+
+* Upgrade to React 16, introduce prop-types, change babel from es2015 to babel-env
+
+ ([555e2c3](https://github.com/nordnet/nordnet-component-kit/commit/555e2c3))
+
+ #### Other information
+ 
+ * Now uses [semantic-release](https://github.com/semantic-release/semantic-release)
 
 ## 0.2.8
 IconRow - Update styling for iconPlacement.
