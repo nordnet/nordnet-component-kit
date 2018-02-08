@@ -25,7 +25,6 @@
     "predocs-publish": "run-s build:docs",
     "docs-publish": "gh-pages -d documentation/dist --repo https://$GH_TOKEN@github.com/nordnet/nordnet-component-kit.git --silent",
     "prepublish": "in-publish && run-s validate build || not-in-publish",
-    "postpublish": "run-s clean && run-s docs-publish",
     "semantic-release": "semantic-release",
     "format": "prettier --write '{e2e-test,src}/**/*.{js,jsx}'"
   },
@@ -127,6 +126,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-intl": "^2.4.0",
+    "react-jss": "^7.2.0",
     "react-styleguidist": "^6.2.0",
     "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.2",
