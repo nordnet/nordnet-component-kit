@@ -21,11 +21,12 @@ jobs:
   include:
     - stage: release
       node_js: 8
-      script: skip
-      after_script:
+      script:
         - git config user.email "nordnet-release@localhost"
         - git config user.name "nordnet-release"
         - TRAVIS_JOB_NUMBER=WORKAROUND.1 npm run semantic-release
+      after_script:
+        - npm run docs-publish
       if: (NOT type IN (pull_request)) AND (branch = master)
 
 stages:
