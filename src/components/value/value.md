@@ -1,8 +1,26 @@
 Simple examples:
 
+    initialState = { updateable: 27 };
+
     <div>
+      <style
+        dangerouslySetInnerHTML={{ __html: `
+          .update {
+            animation: wink 0.5s ease;
+          }
+
+          @keyframes wink {
+            from { color: rgba(0, 0, 0, 1); }
+            40% { color: rgba(0, 0, 0, 0.5); }
+            50% { color: rgba(0, 0, 0, 0.7); }
+            60% { color: rgba(0, 0, 0, 0.9); }
+            to { color: rgba(0, 0, 0, 1); }
+          }
+        `}}
+      />
+      <button onClick={() => setInterval(() => setState({ updateable: Math.random() }), 2000)}>Test Update Classes</button><br/><br/>
       <span style={{marginRight: '2rem'}} title="Only value supplied">
-        <Value value={ -1.4444 } />
+        <Value value={ state.updateable } updateable />
       </span>
       <span style={{marginRight: '2rem'}} title="Custom amount of decimals, set with decimals">
         <Value value={ 2.4444 } decimals={ 3 } />

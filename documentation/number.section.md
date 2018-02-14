@@ -21,5 +21,7 @@ This means that all components in this section can also take these additional pr
 | suffixSeparator | string         | A separator between the suffix and the value |
 | suffixStyle     | object         | The style(s) that should apply to the suffix part of the component |
 | ticks           | array          | An array of tick sizes. This will overwrite the decimals and max/min number of digits prop. A tick size object contains must contain the following three properties: `decimals`, `from_price`, `to_price`, `ticks`. This will tell the component how many decimals to display when `value >= from_price && value < to_price + tick` |
+| updateable | boolean         | Allows the values to be updated via the `updateableClasses` prop |
+| updateableClasses | object         | Takes a object of positive, negative or neutral keys that allow you to append a custom class name to the value |
 
 **Note:** *A simple wrapper for the `<Number />` component is the `<Value />` component below.*
