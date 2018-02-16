@@ -134,7 +134,8 @@
     "sinon": "^4.1.6"
   },
   "dependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "lodash.throttle": "^4.1.1"
   },
   "peerDependencies": {
     "prop-types": ">=15",
