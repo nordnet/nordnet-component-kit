@@ -14,6 +14,7 @@ const numberComponentPaths = [
   `${dir}/components/currency/currency.jsx`,
   `${dir}/components/percent/percent.jsx`,
   `${dir}/components/development/development.jsx`,
+  `${dir}/components/updateable/updateable.jsx`,
 ];
 
 const otherComponentPaths = [`${dir}/components/date-time/date-time.jsx`, `${dir}/components/icon-row/icon-row.jsx`];
