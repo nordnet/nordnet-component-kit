@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import throttle from 'lodash.throttle';
+import { throttle } from 'lodash';
 import classNames from 'classnames';
 import Number from '../number/number';
 
@@ -61,7 +61,7 @@ export default class Updateable extends React.Component {
 Updateable.defaultProps = {
   positiveClass: 'updateable--positive',
   negativeClass: 'updateable--negative',
-  animationTime: 500,
+  animationTime: 300,
   maxUpdateFrequency: 1000,
 };
 Updateable.propTypes = {

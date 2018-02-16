@@ -1,6 +1,7 @@
 import Value from './components/value/value';
 import Currency from './components/currency/currency';
 import Percent from './components/percent/percent';
+import Updateable from './components/updateable/updateable';
 import Development from './components/development/development';
 import DateTime from './components/date-time/date-time';
 import onClickOutside from './hocs/on-click-outside/on-click-outside';
@@ -18,6 +19,7 @@ export {
   Currency,
   Development,
   Percent,
+  Updateable,
   Value,
   // Other components
   DateTime,
