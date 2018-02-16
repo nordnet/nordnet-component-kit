@@ -1,5 +1,5 @@
 const path = require('path');
-const camelCase = require('lodash.camelcase');
+const { camelCase } = require('lodash');
 const { createConfig } = require('@webpack-blocks/webpack2');
 const babel = require('@webpack-blocks/babel6');
 
