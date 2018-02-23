@@ -37,6 +37,7 @@ export default class Updateable extends React.Component {
 
     this.setState(
       {
+        diff, // eslint-disable-line
         updateableClass: diff < 0 ? this.props.negativeClass : this.props.positiveClass,
         value: newValue,
       },
@@ -53,9 +54,8 @@ export default class Updateable extends React.Component {
   }
 
   render() {
-    const { className, positiveClass, negativeClass, animationTime, maxUpdateFrequency, ...rest } = this.props;
-    const { updateableClass, value: stateValue } = this.state;
-    return <Number {...rest} className={classNames(className, updateableClass)} value={stateValue} />;
+    const { props, state } = this;
+    return this.props.render(props, state);
   }
 }
 Updateable.defaultProps = {
@@ -63,7 +63,13 @@ Updateable.defaultProps = {
   negativeClass: 'updateable--negative',
   animationTime: 300,
   maxUpdateFrequency: 1000,
+  // eslint-disable-next-line
+  render: (
+    { className, positiveClass, negativeClass, animationTime, maxUpdateFrequency, ...rest }, // eslint-disable-line
+    { updateableClass, value: stateValue },
+  ) => <Number {...rest} className={classNames(className, updateableClass)} value={stateValue} />,
 };
+
 Updateable.propTypes = {
   value: PropTypes.any.isRequired, // eslint-disable-line
   positiveClass: PropTypes.string,
@@ -72,5 +78,7 @@ Updateable.propTypes = {
   animationTime: PropTypes.number,
   /** Time in ms how long between each visual update. This should be larger than `animationTime` */
   maxUpdateFrequency: PropTypes.number,
-  className: PropTypes.string,
+  className: PropTypes.string, // eslint-disable-line
+  /** `(props, {diff, updateableClass, value}=state) => <Component />` */
+  render: PropTypes.func,
 };
