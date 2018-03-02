@@ -32,7 +32,7 @@
       Send updates every: <input style={{ width: 30 }} value={state.interval} onChange={(e) => setState({ interval: +e.target.value })} /> ms
       <button onClick={() => setInterval(() => setState({ updateable: +Math.random().toFixed(2) }), state.interval)}>Test Update</button><br/><br/>
       <span style={{marginRight: '2rem'}}>
-        <Updateable value={ state.updateable }  />
+        <Updateable value={ state.updateable } decimals={4} />
         <br />
         <Updateable value={ state.updateable } render={(props, state) => (
           <span className={props.className + ' ' + state.updateableClass}>

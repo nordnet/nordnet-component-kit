@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { throttle } from 'lodash';
+import { throttle, omit } from 'lodash';
 import classNames from 'classnames';
-import Number from '../number/number';
+import Value from '../value/value';
 
 /**
   This is the `<Updateable /> component`
@@ -67,7 +67,7 @@ Updateable.defaultProps = {
   render: (
     { className, positiveClass, negativeClass, animationTime, maxUpdateFrequency, ...rest }, // eslint-disable-line
     { updateableClass, value: stateValue },
-  ) => <Number {...rest} className={classNames(className, updateableClass)} value={stateValue} />,
+  ) => <Value {...omit(rest, 'render')} className={classNames(className, updateableClass)} value={stateValue} />,
 };
 
 Updateable.propTypes = {
