@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import Number from '../../src/components/number/number';
+import Value from '../../src/components/value/value';
 import Updateable from '../../src/components/updateable/updateable';
 
 describe('<Updateable />', () => {
@@ -20,8 +20,8 @@ describe('<Updateable />', () => {
     clock.restore();
   });
 
-  it('should wrap a Number component', () => {
-    expect(component.find(Number)).to.have.length(1);
+  it('should wrap a Value component', () => {
+    expect(component.find(Value)).to.have.length(1);
   });
 
   it('should add positive class if updated value is greater', () => {
@@ -58,10 +58,10 @@ describe('<Updateable />', () => {
     clock.tick(maxUpdateFrequency / 2);
     component.update();
     component.setProps({ value: 25.3 });
-    expect(component.find(Number).prop('value')).to.equal(-10.225);
+    expect(component.find(Value).prop('value')).to.equal(-10.225);
 
     clock.tick(maxUpdateFrequency);
     component.update();
-    expect(component.find(Number).prop('value')).to.equal(25.3);
+    expect(component.find(Value).prop('value')).to.equal(25.3);
   });
 });
