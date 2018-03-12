@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 import PropTypes from 'prop-types';
 import React from 'react';
 import { throttle, omit } from 'lodash';
@@ -14,6 +15,7 @@ export default class Updateable extends React.Component {
     this.state = {
       updateableClass: '',
       value: props.value,
+      diff: 0,
     };
 
     this.updateClass = throttle(this.updateClass.bind(this), this.props.maxUpdateFrequency);
@@ -27,17 +29,13 @@ export default class Updateable extends React.Component {
     this.updateClass(this.props.value, nextProps.value);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.value !== nextState.value || this.state.updateableClass !== nextState.updateableClass;
-  }
-
   updateClass(oldValue, newValue) {
     const diff = newValue - oldValue;
     if (diff === 0) return;
 
     this.setState(
       {
-        diff, // eslint-disable-line
+        diff,
         updateableClass: diff < 0 ? this.props.negativeClass : this.props.positiveClass,
         value: newValue,
       },
@@ -63,7 +61,6 @@ Updateable.defaultProps = {
   negativeClass: 'updateable--negative',
   animationTime: 300,
   maxUpdateFrequency: 1000,
-  // eslint-disable-next-line
   render: (
     { className, positiveClass, negativeClass, animationTime, maxUpdateFrequency, ...rest }, // eslint-disable-line
     { updateableClass, value: stateValue },
