@@ -12,6 +12,8 @@ export default function onClickOutside(WrappedComponent) {
       super(props);
       this.handleClick = this.handleClick.bind(this);
       this.handleKeyUp = this.handleKeyUp.bind(this);
+      this.wrappedRef = this.wrappedRef.bind(this);
+      this.topDOMRef = this.topDOMRef.bind(this);
     }
 
     componentDidMount() {
@@ -52,18 +54,16 @@ export default function onClickOutside(WrappedComponent) {
       }
     }
 
+    wrappedRef(wrapped) {
+      this.wrapped = wrapped;
+    }
+
+    topDOMRef(element) {
+      this.element = element;
+    }
+
     render() {
-      return (
-        <WrappedComponent
-          {...this.props}
-          ref={wrapped => {
-            this.wrapped = wrapped;
-          }}
-          topDOMElement={element => {
-            this.element = element;
-          }}
-        />
-      );
+      return <WrappedComponent {...this.props} ref={this.wrappedRef} topDOMElement={this.topDOMRef} />;
     }
   }
 
