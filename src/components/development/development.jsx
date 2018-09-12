@@ -25,6 +25,10 @@ function getDirection(value) {
   return 'neutral';
 }
 
+function getDirectionColor(direction, colors) {
+  return colors[direction];
+}
+
 function getDecimalProps(type, decimals, maxDecimals, minDecimals) {
   const isNumber = type === 'number';
   return {
@@ -37,7 +41,19 @@ function getDecimalProps(type, decimals, maxDecimals, minDecimals) {
 /**
   This is the `<Development /> component`
 */
-export default function Development({ value, decimals, type, direction, className, maxDecimals, minDecimals, ...rest }) {
+export default function Development({
+  positiveColor: positive,
+  negativeColor: negative,
+  neutralColor: neutral,
+  value,
+  decimals,
+  type,
+  direction,
+  className,
+  maxDecimals,
+  minDecimals,
+  ...rest
+}) {
   const components = {
     currency: CurrencyComponent,
     percentage: PercentComponent,
@@ -46,6 +62,14 @@ export default function Development({ value, decimals, type, direction, classNam
   const developmentDirection = direction || getDirection(value);
   const Component = components[type] || components.number;
   const classes = classNames(`number--${developmentDirection}`, className);
+  const style = {
+    ...rest.style,
+    color: getDirectionColor(developmentDirection, {
+      positive,
+      negative,
+      neutral,
+    }),
+  };
 
   const decimalProps = getDecimalProps(type, decimals, maxDecimals, minDecimals);
 
@@ -53,6 +77,7 @@ export default function Development({ value, decimals, type, direction, classNam
     <Component
       {...rest}
       {...decimalProps}
+      style={style}
       className={classes}
       value={Math.abs(parseFloat(value))}
       prefix={renderSign(developmentDirection)}
@@ -69,8 +94,14 @@ Development.propTypes = {
   direction: PropTypes.oneOf(['positive', 'negative', 'neutral']),
   maxDecimals: PropTypes.number,
   minDecimals: PropTypes.number,
+  positiveColor: PropTypes.string,
+  neutralColor: PropTypes.string,
+  negativeColor: PropTypes.string,
 };
 
 Development.defaultProps = {
   type: 'number',
+  positiveColor: 'inherit',
+  neutralColor: 'inherit',
+  negativeColor: 'inherit',
 };
