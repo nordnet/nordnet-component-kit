@@ -60,3 +60,20 @@ Advanced examples:
         <Development value={ 42.3444 } direction="neutral"/>
       </span>
     </div>
+
+Override colors examples:
+
+    const customColors = {
+      positiveColor: 'cornflowerblue',
+      negativeColor: 'tomato',
+      neutralColor: 'rebeccapurple',
+    };
+
+    <div>
+      <span style={{marginRight: '2rem'}}>
+        <Development value={ 9.2 } {...customColors} />
+      </span>
+      <span style={{marginRight: '2rem'}}>
+        <Development value={ -11.4 } {...customColors} />
+      </span>
+    </div>
