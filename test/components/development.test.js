@@ -104,4 +104,33 @@ describe('<Development />', () => {
       expect(passedMinDecimals).to.equal(minDecimals);
     });
   });
+
+  describe('Custom colors', () => {
+    it('should default to color: "inherit"', () => {
+      const component = shallow(<Development value={0} type="number" />);
+      const { color } = component.find(Number).prop('style');
+      expect(color).to.equal('inherit');
+    });
+
+    it('should be possible to override positive color', () => {
+      const customColor = 'green';
+      const component = shallow(<Development value={1} type="number" positiveColor={customColor} />);
+      const { color } = component.find(Number).prop('style');
+      expect(color).to.equal(customColor);
+    });
+
+    it('should be possible to override negative color', () => {
+      const customColor = 'red';
+      const component = shallow(<Development value={-1} type="number" negativeColor={customColor} />);
+      const { color } = component.find(Number).prop('style');
+      expect(color).to.equal(customColor);
+    });
+
+    it('should be possible to override neutral color', () => {
+      const customColor = 'orange';
+      const component = shallow(<Development value={0} type="number" neutralColor={customColor} />);
+      const { color } = component.find(Number).prop('style');
+      expect(color).to.equal(customColor);
+    });
+  });
 });
