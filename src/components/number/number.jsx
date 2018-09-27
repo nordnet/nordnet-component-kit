@@ -8,8 +8,9 @@ import { getTickDecimals, getFractionDigits } from '../../utils';
 /**
   This component is not intended for public use
 */
-function Number({
+function NumberComponent({
   className,
+  nonNumberAsDash,
   style,
   value,
   valueClass,
@@ -38,6 +39,14 @@ function Number({
     style,
   );
 
+  if (!Number.isFinite(value)) {
+    return (
+      <span {...rest} className={classes} style={styles} aria-hidden>
+        {'–'}
+      </span>
+    );
+  }
+
   const tickDecimals = getTickDecimals(value, ticks);
   const minimumFractionDigits = getFractionDigits(tickDecimals, valueMinDecimals, valueDecimals);
   const maximumFractionDigits = getFractionDigits(tickDecimals, valueMaxDecimals, valueDecimals);
@@ -58,9 +67,10 @@ function Number({
   );
 }
 
-Number.propTypes = {
+NumberComponent.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
+  nonNumberAsDash: PropTypes.bool,
   value: PropTypes.any.isRequired, // eslint-disable-line
   valueClass: PropTypes.string,
   valueDecimals: PropTypes.number,
@@ -86,10 +96,11 @@ Number.propTypes = {
   intl: intlShape.isRequired, // eslint-disable-line react/no-typos
 };
 
-Number.defaultProps = {
+NumberComponent.defaultProps = {
   valueDecimals: 2,
   prefixSeparator: '',
   suffixSeparator: '',
+  nonNumberAsDash: false,
 };
 
-export default injectIntl(Number);
+export default injectIntl(NumberComponent);

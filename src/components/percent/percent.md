@@ -13,4 +13,8 @@ Basic examples:
       <span style={{marginRight: '2rem'}} title="Another with suffixSeparator">
         <Percent value={ 1134.2334 } decimals={ 2 } suffixSeparator="____" />
       </span>
+      <span style={{marginRight: '2rem'}} title="Undefined value with handling">
+        <Percent nonNumberAsDash value={ undefined } />
+      </span>
+
     </div>

@@ -21,5 +21,6 @@ This means that all components in this section can also take these additional pr
 | suffixSeparator | string         | A separator between the suffix and the value |
 | suffixStyle     | object         | The style(s) that should apply to the suffix part of the component |
 | ticks           | array          | An array of tick sizes. This will overwrite the decimals and max/min number of digits prop. A tick size object contains must contain the following three properties: `decimals`, `from_price`, `to_price`, `ticks`. This will tell the component how many decimals to display when `value >= from_price && value < to_price + tick` |
+| nonNumberAsDash | bool           | Allows the component to display null, undefined etc as '-' |
 
 **Note:** *A simple wrapper for the `<Number />` component is the `<Value />` component below.*

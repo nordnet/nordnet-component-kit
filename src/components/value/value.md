@@ -16,6 +16,9 @@ Simple examples:
       <span style={{marginRight: '2rem'}} title="With prefix and prefixSeparator">
         <Value prefix="Value:" prefixSeparator=" " value={ 2.4444 } />
       </span>
+      <span style={{marginRight: '2rem'}} title="Undefined value with handling">
+        <Value nonNumberAsDash value={ undefined } />
+      </span>
     </div>
 
 Examples with ticks:
