@@ -10,7 +10,7 @@ import { getTickDecimals, getFractionDigits } from '../../utils';
 */
 function NumberComponent({
   className,
-  nonNumberAsDash,
+  useDashForInvalidValues,
   style,
   value,
   valueClass,
@@ -39,10 +39,10 @@ function NumberComponent({
     style,
   );
 
-  if (!Number.isFinite(value)) {
+  if (useDashForInvalidValues && !Number.isFinite(value)) {
     return (
-      <span {...rest} className={classes} style={styles} aria-hidden>
-        {'–'}
+      <span {...rest} className={classes} style={styles} aria-hidden="true">
+        –
       </span>
     );
   }
@@ -70,7 +70,7 @@ function NumberComponent({
 NumberComponent.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
-  nonNumberAsDash: PropTypes.bool,
+  useDashForInvalidValues: PropTypes.bool,
   value: PropTypes.any.isRequired, // eslint-disable-line
   valueClass: PropTypes.string,
   valueDecimals: PropTypes.number,
@@ -100,7 +100,7 @@ NumberComponent.defaultProps = {
   valueDecimals: 2,
   prefixSeparator: '',
   suffixSeparator: '',
-  nonNumberAsDash: false,
+  useDashForInvalidValues: false,
 };
 
 export default injectIntl(NumberComponent);

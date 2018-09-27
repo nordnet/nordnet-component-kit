@@ -10,8 +10,8 @@ Basic examples:
       <span style={{marginRight: '2rem'}} title="Neutral with 3 decimals">
         <Development value={ 0 } decimals={ 3 } />
       </span>
-      <span style={{marginRight: '2rem'}} title="Undefined value with handling">
-        <Development nonNumberAsDash value={ undefined } />
+      <span style={{marginRight: '2rem'}} title="Invalid value with handling">
+        <Development useDashForInvalidValues value={ Number.POSITIVE_INFINITY } />
       </span>
     </div>
 

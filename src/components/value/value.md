@@ -16,8 +16,8 @@ Simple examples:
       <span style={{marginRight: '2rem'}} title="With prefix and prefixSeparator">
         <Value prefix="Value:" prefixSeparator=" " value={ 2.4444 } />
       </span>
-      <span style={{marginRight: '2rem'}} title="Undefined value with handling">
-        <Value nonNumberAsDash value={ undefined } />
+      <span style={{marginRight: '2rem'}} title="Invalid value with handling">
+        <Value useDashForInvalidValues value={ Number.NEGATIVE_INFINITY } />
       </span>
     </div>
 
