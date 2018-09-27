@@ -232,6 +232,35 @@ describe('<Number />', () => {
     expect(component.find('Addon[position="right"]').prop('separator')).to.deep.equal(':');
   });
 
+  it('should be able to handle null value as dash', () => {
+    const component = shallow(<Number.WrappedComponent valueClass="test" intl={intl} value={null} useDashForInvalidValues />);
+    expect(component.find('span').text()).to.equal('–');
+  });
+
+  it('should be able to handle undefined value as dash', () => {
+    const component = shallow(<Number.WrappedComponent valueClass="test" intl={intl} value={undefined} useDashForInvalidValues />);
+    expect(component.find('span').text()).to.equal('–');
+  });
+
+  it('should be able to handle NaN value as dash', () => {
+    const component = shallow(<Number.WrappedComponent valueClass="test" intl={intl} value={1 / 0} useDashForInvalidValues />);
+    expect(component.find('span').text()).to.equal('–');
+  });
+
+  it('should be able to handle infinity value as dash', () => {
+    const component = shallow(
+      <Number.WrappedComponent valueClass="test" intl={intl} value={Number.POSITIVE_INFINITY} useDashForInvalidValues />,
+    );
+    expect(component.find('span').text()).to.equal('–');
+  });
+
+  it('should be able to handle negative infinity value as dash', () => {
+    const component = shallow(
+      <Number.WrappedComponent valueClass="test" intl={intl} value={Number.NEGATIVE_INFINITY} useDashForInvalidValues />,
+    );
+    expect(component.find('span').text()).to.equal('–');
+  });
+
   describe('a11y', () => {
     let component;
     beforeEach(() => {

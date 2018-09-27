@@ -4,6 +4,9 @@ Basic examples:
       <span style={{marginRight: '2rem'}} title="Only value & currency supplied">
         <Currency value={ 9.2333 } currency="EUR" />
       </span>
+      <span style={{marginRight: '2rem'}} title="Undefined value with handling">
+        <Currency useDashForInvalidValues value={ Number.POSITIVE_INFINITY } currency="EUR" />
+      </span>
       <span style={{marginRight: '2rem'}} title="Normal suffixSize">
         <Currency
           value={ 9.2333 }
