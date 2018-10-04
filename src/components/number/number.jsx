@@ -65,7 +65,13 @@ function NumberComponent({
   const ariaSign = value < 0 ? '−' : '';
   const sign = value < 0 ? <span dangerouslySetInnerHTML={{ __html: '&ndash; ' }} /> : null;
 
-  const suffix = (rawSuffix || abbreviation) && `${abbreviationSuffix}${rawSuffix || ''}`;
+  const suffix = (rawSuffix || abbreviation) && (
+    <React.Fragment>
+      {abbreviationSuffix}
+      {rawSuffix || ''}
+    </React.Fragment>
+  );
+
   return (
     <span title={formattedNumber} {...rest} className={classes} style={styles}>
       <Addon addon={prefix} className={prefixClass} position="left" separator={prefixSeparator} style={prefixStyle} />

@@ -32,7 +32,7 @@ Basic examples:
         />
       </span>
       <span style={{marginRight: '2rem'}} title="Million abbreviation for large values">
-        <Currency value={9200000} currency="EUR" abbreviation="million"/>
+        <Currency value={9200000} currency="SEK" abbreviation="million"/>
       </span>
     </div>
 
