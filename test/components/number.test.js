@@ -175,7 +175,12 @@ describe('<Number />', () => {
   it('should be possible to add a suffix', () => {
     const suffix = '987654321';
     const component = shallow(<Number.WrappedComponent intl={intl} value={1} suffix={suffix} />);
-    expect(component.find('Addon[position="right"]').prop('addon')).to.equal(suffix);
+    expect(
+      component
+        .find('Addon[position="right"]')
+        .render()
+        .text(),
+    ).to.equal(suffix);
   });
 
   it('should be possible to add a prefix and a suffix', () => {
@@ -265,7 +270,12 @@ describe('<Number />', () => {
     it('should add M abbreviation suffix for million', () => {
       const suffix = 'SEK';
       const component = shallow(<Number.WrappedComponent intl={intl} value={9} suffix={suffix} abbreviation="million" />);
-      expect(component.find('Addon[position="right"]').prop('addon')).to.equal(`M${suffix}`);
+      expect(
+        component
+          .find('Addon[position="right"]')
+          .render()
+          .text(),
+      ).to.equal(`M${suffix}`);
     });
 
     it('should transform 10,000,000 to 10 M', () => {
