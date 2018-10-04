@@ -19,6 +19,9 @@ Simple examples:
       <span style={{marginRight: '2rem'}} title="Invalid value with handling">
         <Value useDashForInvalidValues value={ Number.NEGATIVE_INFINITY } />
       </span>
+      <span style={{marginRight: '2rem'}} title="Abbreviations">
+        <Value value={ -1.4444 } abbreviation="million"/>
+      </span>
     </div>
 
 Examples with ticks:

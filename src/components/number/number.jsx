@@ -12,7 +12,7 @@ function NumberComponent({
   className,
   useDashForInvalidValues,
   style,
-  value,
+  value: rawValue,
   valueClass,
   valueDecimals,
   valueMaxDecimals,
@@ -22,11 +22,12 @@ function NumberComponent({
   prefixClass,
   prefixSeparator,
   prefixStyle,
-  suffix,
+  suffix: rawSuffix,
   suffixClass,
   suffixSeparator,
   suffixStyle,
   ticks,
+  abbreviation,
   intl: { formatNumber },
   ...rest
 }) {
@@ -39,12 +40,21 @@ function NumberComponent({
     style,
   );
 
-  if (useDashForInvalidValues && !Number.isFinite(value)) {
+  if (useDashForInvalidValues && !Number.isFinite(rawValue)) {
     return (
       <span {...rest} className={classes} style={styles} aria-hidden="true">
         –
       </span>
     );
+  }
+
+  let value = rawValue;
+  let abbreviationSuffix = '';
+  if (abbreviation === 'million') {
+    // For the future, if we add "thousand", etc.
+    // eslint-disable-next-line operator-assignment
+    value = value / 1e6;
+    abbreviationSuffix = 'M';
   }
 
   const tickDecimals = getTickDecimals(value, ticks);
@@ -55,6 +65,7 @@ function NumberComponent({
   const ariaSign = value < 0 ? '−' : '';
   const sign = value < 0 ? <span dangerouslySetInnerHTML={{ __html: '&ndash; ' }} /> : null;
 
+  const suffix = (rawSuffix || abbreviation) && `${abbreviationSuffix}${rawSuffix || ''}`;
   return (
     <span title={formattedNumber} {...rest} className={classes} style={styles}>
       <Addon addon={prefix} className={prefixClass} position="left" separator={prefixSeparator} style={prefixStyle} />
@@ -77,6 +88,7 @@ NumberComponent.propTypes = {
   valueMaxDecimals: PropTypes.number,
   valueMinDecimals: PropTypes.number,
   valueStyle: PropTypes.object,
+  abbreviation: PropTypes.oneOf(['million']),
   prefix: PropTypes.node,
   prefixClass: PropTypes.string,
   prefixSeparator: PropTypes.string,
@@ -101,6 +113,7 @@ NumberComponent.defaultProps = {
   prefixSeparator: '',
   suffixSeparator: '',
   useDashForInvalidValues: false,
+  abbreviation: null,
 };
 
 export default injectIntl(NumberComponent);

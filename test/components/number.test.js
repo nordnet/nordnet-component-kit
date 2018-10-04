@@ -261,6 +261,30 @@ describe('<Number />', () => {
     expect(component.find('span').text()).to.equal('–');
   });
 
+  describe('abbreviation', () => {
+    it('should add M abbreviation suffix for million', () => {
+      const suffix = 'SEK';
+      const component = shallow(<Number.WrappedComponent intl={intl} value={9} suffix={suffix} abbreviation="million" />);
+      expect(component.find('Addon[position="right"]').prop('addon')).to.equal(`M${suffix}`);
+    });
+
+    it('should transform 10,000,000 to 10 M', () => {
+      const component = shallow(
+        <Number.WrappedComponent intl={intl} value={10000000} valueClass="test" abbreviation="million" valueDecimals={0} />,
+      );
+
+      expect(component.find('.test').text()).to.equal('10');
+    });
+
+    it('should work together with decimals', () => {
+      const component = shallow(
+        <Number.WrappedComponent intl={intl} value={9600000} valueClass="test" abbreviation="million" valueDecimals={1} />,
+      );
+
+      expect(component.find('.test').text()).to.equal('9.6');
+    });
+  });
+
   describe('a11y', () => {
     let component;
     beforeEach(() => {
