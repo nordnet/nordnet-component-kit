@@ -31,6 +31,9 @@ Basic examples:
           suffixSeparator=" • "
         />
       </span>
+      <span style={{marginRight: '2rem'}} title="Million abbreviation for large values">
+        <Currency value={9200000} currency="EUR" abbreviation="million"/>
+      </span>
     </div>
 
 Examples with ticks:
