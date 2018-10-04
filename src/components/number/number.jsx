@@ -12,7 +12,7 @@ function NumberComponent({
   className,
   useDashForInvalidValues,
   style,
-  value,
+  value: rawValue,
   valueClass,
   valueDecimals,
   valueMaxDecimals,
@@ -27,6 +27,7 @@ function NumberComponent({
   suffixSeparator,
   suffixStyle,
   ticks,
+  abbreviation,
   intl: { formatNumber },
   ...rest
 }) {
@@ -39,12 +40,21 @@ function NumberComponent({
     style,
   );
 
-  if (useDashForInvalidValues && !Number.isFinite(value)) {
+  if (useDashForInvalidValues && !Number.isFinite(rawValue)) {
     return (
       <span {...rest} className={classes} style={styles} aria-hidden="true">
         –
       </span>
     );
+  }
+
+  let value = rawValue;
+  let abbreviationSuffix = '';
+  if (abbreviation === 'million') {
+    // For the future, if we add "thousand", etc.
+    // eslint-disable-next-line operator-assignment
+    value = value / 1e6;
+    abbreviationSuffix = 'M';
   }
 
   const tickDecimals = getTickDecimals(value, ticks);
@@ -62,7 +72,13 @@ function NumberComponent({
         {sign}
         {absFormattedNumber}
       </span>
-      <Addon addon={suffix} className={suffixClass} position="right" separator={suffixSeparator} style={suffixStyle} />
+      <Addon
+        addon={`${abbreviationSuffix}${suffix}`}
+        className={suffixClass}
+        position="right"
+        separator={suffixSeparator}
+        style={suffixStyle}
+      />
     </span>
   );
 }
@@ -77,6 +93,7 @@ NumberComponent.propTypes = {
   valueMaxDecimals: PropTypes.number,
   valueMinDecimals: PropTypes.number,
   valueStyle: PropTypes.object,
+  abbreviation: PropTypes.oneOf(['million']),
   prefix: PropTypes.node,
   prefixClass: PropTypes.string,
   prefixSeparator: PropTypes.string,
