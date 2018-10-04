@@ -57,8 +57,6 @@ function NumberComponent({
     abbreviationSuffix = 'M';
   }
 
-  // if ()
-
   const tickDecimals = getTickDecimals(value, ticks);
   const minimumFractionDigits = getFractionDigits(tickDecimals, valueMinDecimals, valueDecimals);
   const maximumFractionDigits = getFractionDigits(tickDecimals, valueMaxDecimals, valueDecimals);
