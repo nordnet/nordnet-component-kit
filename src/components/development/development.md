@@ -80,3 +80,32 @@ Override colors examples:
         <Development value={ -11.4 } {...customColors} />
       </span>
     </div>
+
+
+Override colors with classes examples:
+
+    <div>
+      <style>{`
+      .gold {
+        color: gold;
+      }
+
+      .silver {
+        color: silver;
+      }
+
+      .brown {
+        color: brown;
+      }
+
+      `}</style>
+      <span style={{marginRight: '2rem'}}>
+        <Development className="gold" value={ 9.2 } />
+      </span>
+      <span style={{marginRight: '2rem'}}>
+        <Development className="silver" value={ -11.4 } />
+      </span>
+      <span style={{marginRight: '2rem'}}>
+        <Development className="brown" value={ 100.0 } />
+      </span>
+    </div>

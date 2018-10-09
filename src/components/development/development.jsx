@@ -101,7 +101,4 @@ Development.propTypes = {
 
 Development.defaultProps = {
   type: 'number',
-  positiveColor: 'inherit',
-  neutralColor: 'inherit',
-  negativeColor: 'inherit',
 };
