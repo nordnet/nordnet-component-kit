@@ -106,10 +106,10 @@ describe('<Development />', () => {
   });
 
   describe('Custom colors', () => {
-    it('should default to color: "inherit"', () => {
+    it('should default to undefined', () => {
       const component = shallow(<Development value={0} type="number" />);
       const { color } = component.find(Number).prop('style');
-      expect(color).to.equal('inherit');
+      expect(color).to.equal(undefined);
     });
 
     it('should be possible to override positive color', () => {
