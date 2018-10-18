@@ -3,7 +3,7 @@ import React from 'react';
 import { injectIntl, intlShape } from 'react-intl';
 import classNames from 'classnames';
 import Addon from '../addon/addon';
-import { getTickDecimals, getFractionDigits } from '../../utils';
+import { getTickDecimals, getFractionDigits, valuePropType } from '../../utils';
 
 /**
   This component is not intended for public use
@@ -88,7 +88,7 @@ NumberComponent.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   useDashForInvalidValues: PropTypes.bool,
-  value: PropTypes.any.isRequired, // eslint-disable-line
+  value: valuePropType,
   valueClass: PropTypes.string,
   valueDecimals: PropTypes.number,
   valueMaxDecimals: PropTypes.number,

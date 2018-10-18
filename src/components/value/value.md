@@ -17,7 +17,7 @@ Simple examples:
         <Value prefix="Value:" prefixSeparator=" " value={ 2.4444 } />
       </span>
       <span style={{marginRight: '2rem'}} title="Invalid value with handling">
-        <Value useDashForInvalidValues value={ Number.NEGATIVE_INFINITY } />
+        <Value useDashForInvalidValues />
       </span>
       <span style={{marginRight: '2rem'}} title="Abbreviations">
         <Value value={ 1420000 } abbreviation="million"/>

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export function numberIsFinite(value) {
   return typeof value === 'number' && isFinite(value); // eslint-disable-line
 }
@@ -21,4 +23,22 @@ export const getDevelopmentPercentage = (previous, current) => {
     return 0;
   }
   return (current / previous - 1) * 100;
+};
+
+const propTypeValue = {
+  value: PropTypes.any,
+};
+
+const propTypeValueRequired = {
+  value: PropTypes.any.isRequired,
+};
+
+export const valuePropType = (props, propName, componentName) => {
+  const { useDashForInvalidValues } = props;
+
+  if (useDashForInvalidValues) {
+    return PropTypes.checkPropTypes(propTypeValue, props, propName, componentName);
+  }
+
+  return PropTypes.checkPropTypes(propTypeValueRequired, props, propName, componentName);
 };

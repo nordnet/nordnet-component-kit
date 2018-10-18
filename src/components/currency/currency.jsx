@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Number from '../number/number';
 import variables from '../../variables';
+import { valuePropType } from '../../utils';
 
 /**
   This is the `<Currency /> component`
@@ -42,7 +43,7 @@ Currency.defaultProps = {
 };
 
 Currency.propTypes = {
-  value: PropTypes.any.isRequired, // eslint-disable-line
+  value: valuePropType,
   /**
     Syntactic sugar for `suffix` (either one can be used)
   */
