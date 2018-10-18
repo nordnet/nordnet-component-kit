@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import NumberComponent from '../number/number';
 import CurrencyComponent from '../currency/currency';
 import PercentComponent from '../percent/percent';
+import { valuePropType } from '../../utils';
 
 function renderSign(direction) {
   switch (direction) {
@@ -88,7 +89,7 @@ export default function Development({
 
 Development.propTypes = {
   className: PropTypes.string,
-  value: PropTypes.any.isRequired, // eslint-disable-line
+  value: valuePropType,
   decimals: PropTypes.number,
   type: PropTypes.oneOf(['number', 'currency', 'percentage']),
   direction: PropTypes.oneOf(['positive', 'negative', 'neutral']),

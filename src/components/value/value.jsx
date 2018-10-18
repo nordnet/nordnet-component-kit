@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Number from '../number/number';
+import { valuePropType } from '../../utils';
 
 /**
   This is the `<Value /> component`
@@ -16,7 +17,7 @@ Value.defaultProps = {
 };
 
 Value.propTypes = {
-  value: PropTypes.any.isRequired, // eslint-disable-line
+  value: valuePropType,
   decimals: PropTypes.number,
   maxDecimals: PropTypes.number,
   minDecimals: PropTypes.number,
