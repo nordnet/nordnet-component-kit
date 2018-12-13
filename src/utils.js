@@ -18,6 +18,13 @@ export function getFractionDigits(...args) {
   return args.find(numberIsFinite);
 }
 
+export function round(value, decimals) {
+  if (!numberIsFinite(decimals)) return value;
+  const exp1 = Math.round(`${value}e${decimals}`);
+  const exp2 = `e-${decimals}`;
+  return Number(`${exp1}${exp2}`);
+}
+
 export const getDevelopmentPercentage = (previous, current) => {
   if (!numberIsFinite(current) || !numberIsFinite(previous)) {
     return 0;

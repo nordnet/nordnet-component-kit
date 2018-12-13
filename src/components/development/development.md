@@ -44,6 +44,14 @@ Example with other types:
       </span>
     </div>
 
+Example with neutral values:
+
+    <div>
+      <span style={{marignRight: '2rem'}} title="Neutral value with negligible positive development">
+        <Development value={0.01} decimals={1} />
+      </span>
+    </div>
+
 Advanced examples:
 
     <div>
@@ -80,7 +88,6 @@ Override colors examples:
         <Development value={ -11.4 } {...customColors} />
       </span>
     </div>
-
 
 Override colors with classes examples:
 
