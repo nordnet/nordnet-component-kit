@@ -105,6 +105,19 @@ describe('<Development />', () => {
     });
   });
 
+  describe('Negligible values', () => {
+    it('should render neutral when the change is negligible', () => {
+      const component = shallow(<Development value={0.01} type="percentage" decimals={1} />);
+      expect(component.find('.number--neutral')).to.have.length(1);
+    });
+    it('should render neutral when the change is negligible based on maxDecimals', () => {
+      const maxDecimals = 3;
+      const minDecimals = 1;
+      const component = shallow(<Development value={0.0001} type="percentage" maxDecimals={maxDecimals} minDecimals={minDecimals} />);
+      expect(component.find('.number--neutral')).to.have.length(1);
+    });
+  });
+
   describe('Custom colors', () => {
     it('should default to undefined', () => {
       const component = shallow(<Development value={0} type="number" />);

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { numberIsFinite, getTickDecimals, getFractionDigits, getDevelopmentPercentage } from '../src/utils';
+import { numberIsFinite, getTickDecimals, getFractionDigits, round, getDevelopmentPercentage } from '../src/utils';
 
 describe('utils', () => {
   describe('numberIsFinite', () => {
@@ -121,6 +121,24 @@ describe('utils', () => {
     it('should return second argument when first argument is not a number', () => {
       const args = [null, 2];
       expect(getFractionDigits(...args)).to.equal(args[1]);
+    });
+  });
+
+  describe('round', () => {
+    it('should be a function', () => {
+      expect(round).to.be.a('function');
+    });
+    it('should return value if decimals is not a number', () => {
+      expect(round(1.01)).to.equal(1.01);
+      expect(round(1.01, '')).to.equal(1.01);
+      expect(round(1.01, '1')).to.equal(1.01);
+    });
+    it('should correctly round to `decimals` number of decimals', () => {
+      expect(round(1.01)).to.equal(1.01);
+      expect(round(1.01, 2)).to.equal(1.01);
+      expect(round(1.01, 1)).to.equal(1.0);
+      expect(round(1.09, 1)).to.equal(1.1);
+      expect(round(1.005, 2)).to.equal(1.01);
     });
   });
 

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import NumberComponent from '../number/number';
 import CurrencyComponent from '../currency/currency';
 import PercentComponent from '../percent/percent';
-import { valuePropType } from '../../utils';
+import { valuePropType, round } from '../../utils';
 
 function renderSign(direction) {
   switch (direction) {
@@ -17,10 +17,12 @@ function renderSign(direction) {
   }
 }
 
-function getDirection(value) {
-  if (value > 0) {
+function getDirection(value, maxDecimals, decimals) {
+  const dec = maxDecimals || decimals;
+  const fixedValue = round(value, dec);
+  if (fixedValue > 0) {
     return 'positive';
-  } else if (value < 0) {
+  } else if (fixedValue < 0) {
     return 'negative';
   }
   return 'neutral';
@@ -60,7 +62,7 @@ export default function Development({
     percentage: PercentComponent,
     number: NumberComponent,
   };
-  const developmentDirection = direction || getDirection(value);
+  const developmentDirection = direction || getDirection(value, maxDecimals, decimals);
   const Component = components[type] || components.number;
   const classes = classNames(`number--${developmentDirection}`, className);
   const style = {
