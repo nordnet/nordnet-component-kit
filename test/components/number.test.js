@@ -316,7 +316,7 @@ describe('<Number />', () => {
     });
     it('should render a separate span with a minus for negative values', () => {
       // eslint-disable-next-line
-      expect(component.find('.value > span').prop('dangerouslySetInnerHTML').__html).to.equal('&ndash; ');
+      expect(component.find('.value > span').prop('dangerouslySetInnerHTML').__html).to.equal('&minus;&nbsp;');
     });
   });
 });
