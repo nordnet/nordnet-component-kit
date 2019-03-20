@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { injectIntl, intlShape } from 'react-intl';
 import classNames from 'classnames';
+import VisuallyHidden from '../visually-hidden/visually-hidden';
 import Addon from '../addon/addon';
 import { getTickDecimals, getFractionDigits, valuePropType } from '../../utils';
 
@@ -22,6 +23,7 @@ function NumberComponent({
   prefixClass,
   prefixSeparator,
   prefixStyle,
+  ariaPrefix,
   suffix: rawSuffix,
   suffixClass,
   suffixSeparator,
@@ -60,10 +62,14 @@ function NumberComponent({
   const tickDecimals = getTickDecimals(value, ticks);
   const minimumFractionDigits = getFractionDigits(tickDecimals, valueMinDecimals, valueDecimals);
   const maximumFractionDigits = getFractionDigits(tickDecimals, valueMaxDecimals, valueDecimals);
-  const formattedNumber = formatNumber(value, { minimumFractionDigits, maximumFractionDigits });
   const absFormattedNumber = formatNumber(Math.abs(value), { minimumFractionDigits, maximumFractionDigits });
-  const ariaSign = value < 0 ? '−' : '';
   const sign = value < 0 ? <span dangerouslySetInnerHTML={{ __html: '&minus;&nbsp;' }} /> : null;
+  const formatAriaNumber = n => {
+    const afterDecimalSeparator = n.toString().split('.')[1];
+    const decimals = afterDecimalSeparator ? afterDecimalSeparator.length : 0;
+    if (decimals <= maximumFractionDigits) return n;
+    return Number.parseFloat(n).toFixed(maximumFractionDigits);
+  };
 
   const suffix = (rawSuffix || abbreviation) && (
     <React.Fragment>
@@ -73,9 +79,12 @@ function NumberComponent({
   );
 
   return (
-    <span title={formattedNumber} {...rest} className={classes} style={styles}>
+    <span {...rest} className={classes} style={styles}>
       <Addon addon={prefix} className={prefixClass} position="left" separator={prefixSeparator} style={prefixStyle} />
-      <span className={valueClass} style={valueStyle} aria-label={`${ariaSign}${absFormattedNumber}`}>
+      <VisuallyHidden>
+        {ariaPrefix || prefix} {formatAriaNumber(value)} {suffix}
+      </VisuallyHidden>
+      <span className={valueClass} style={valueStyle} aria-hidden>
         {sign}
         {absFormattedNumber}
       </span>
@@ -96,6 +105,7 @@ NumberComponent.propTypes = {
   valueStyle: PropTypes.object,
   abbreviation: PropTypes.oneOf(['million']),
   prefix: PropTypes.node,
+  ariaPrefix: PropTypes.string,
   prefixClass: PropTypes.string,
   prefixSeparator: PropTypes.string,
   prefixStyle: PropTypes.object,
@@ -116,6 +126,7 @@ NumberComponent.propTypes = {
 
 NumberComponent.defaultProps = {
   valueDecimals: 2,
+  ariaPrefix: '',
   prefixSeparator: '',
   suffixSeparator: '',
   useDashForInvalidValues: false,

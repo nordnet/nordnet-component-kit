@@ -6,6 +6,7 @@ import { shallow } from 'enzyme';
 import Number from '../../src/components/number/number';
 import { getFractionDigits } from '../../src/utils';
 import Addon from '../../src/components/addon/addon';
+import VisuallyHidden from '../../src/components/visually-hidden/visually-hidden';
 
 const intlProvider = new IntlProvider({ locale: 'en' }, {});
 const { intl } = intlProvider.getChildContext();
@@ -29,10 +30,6 @@ describe('<Number />', () => {
 
     it('should have value placed in the inner span', () => {
       expect(component.find('.test').text()).to.equal('2.54');
-    });
-
-    it('should have value as title', () => {
-      expect(component.find('.number').prop('title')).to.equal('2.54');
     });
   });
 
@@ -295,28 +292,29 @@ describe('<Number />', () => {
     });
   });
 
-  describe('a11y', () => {
-    let component;
-    beforeEach(() => {
-      component = shallow(<Number.WrappedComponent intl={intl} valueClass="value" value={-1} />);
+  describe.only('a11y', () => {
+    const render = props => shallow(<Number.WrappedComponent intl={intl} valueClass="value" {...props} />);
+    const findA11ySpan = component => component.find(VisuallyHidden).dive();
+    it('should render a a11y-friendly number', () => {
+      const a11ySpan = findA11ySpan(render({ value: 1.0 }));
+      expect(a11ySpan.children().contains(1.0)).to.equal(true);
     });
-    it('should have an aria-label that matches the value', () => {
-      component = shallow(<Number.WrappedComponent intl={intl} valueClass="value" value={1} />);
-      const label = component.find('.value').prop('aria-label');
-      const value = component.find('.value').text();
-      expect(label).to.equal(value);
+    it('should render a a11y-friendly negative number', () => {
+      const a11ySpan = findA11ySpan(render({ value: -1 }));
+      expect(a11ySpan.children().contains(-1)).to.equal(true);
     });
-    it('should always have a positive value', () => {
-      const value = component.find('.value').text();
-      expect(value).to.equal('1.00');
+    it('should have the right amount of decimals', () => {
+      const a11ySpan = findA11ySpan(render({ value: 1.777, valueMaxDecimals: 2 }));
+      expect(a11ySpan.children().contains('1.78')).to.equal(true);
     });
-    it('should have an aria-label with a negative value', () => {
-      const label = component.find('.value').prop('aria-label');
-      expect(label).to.contain('−');
+    it('should not round off', () => {
+      const a11ySpan = findA11ySpan(render({ value: 1.777, valueMaxDecimals: 5 }));
+      expect(a11ySpan.children().contains(1.777)).to.equal(true);
     });
-    it('should render a separate span with a minus for negative values', () => {
-      // eslint-disable-next-line
-      expect(component.find('.value > span').prop('dangerouslySetInnerHTML').__html).to.equal('&minus;&nbsp;');
+    it('should prefer the ariaPrefix', () => {
+      const a11ySpan = findA11ySpan(render({ value: 1, ariaPrefix: '-', prefix: <span /> }));
+      expect(a11ySpan.children().contains('-')).to.equal(true);
+      expect(a11ySpan.children().contains(1)).to.equal(true);
     });
   });
 });

@@ -84,6 +84,8 @@ export default function Development({
       className={classes}
       value={Math.abs(parseFloat(value))}
       prefix={renderSign(developmentDirection)}
+      // eslint-disable-next-line no-nested-ternary
+      ariaPrefix={developmentDirection === 'positive' ? '+' : developmentDirection === 'negative' ? '-' : ''}
       prefixStyle={rest.prefixStyle}
     />
   );

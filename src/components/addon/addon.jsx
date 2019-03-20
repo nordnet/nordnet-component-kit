@@ -13,7 +13,7 @@ export default function Addon({ addon, className, position, separator, ...rest }
   const classes = classNames('addon', `addon--${position}`, className);
 
   return (
-    <span {...rest} className={classes}>
+    <span {...rest} className={classes} aria-hidden>
       {position === 'right' ? separator : null}
       {addon}
       {position === 'left' ? separator : null}
