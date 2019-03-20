@@ -292,7 +292,7 @@ describe('<Number />', () => {
     });
   });
 
-  describe.only('a11y', () => {
+  describe('a11y', () => {
     const render = props => shallow(<Number.WrappedComponent intl={intl} valueClass="value" {...props} />);
     const findA11ySpan = component => component.find(VisuallyHidden).dive();
     it('should render a a11y-friendly number', () => {
