@@ -8,7 +8,7 @@ const IconRow = ({ Tag, icon, topLeft, bottomLeft, topRight, bottomRight, minHei
       paddingTop: '1rem',
       paddingBottom: '1rem',
       width: '100%',
-      color: '#373640',
+      color: '#282823',
       display: 'flex',
       minHeight,
     },
