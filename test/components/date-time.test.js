@@ -88,4 +88,24 @@ describe('<DateTime />', () => {
       });
     });
   });
+
+  describe('with useDashForInvalidValues', () => {
+    it('should render dash for invalid date values', () => {
+      const invalidDates = [undefined, null, 'foo'];
+      invalidDates.forEach(invalidDate => {
+        component = shallow(<DateTime value={invalidDate} useDashForInvalidValues />);
+        expect(component.type()).to.equal('span');
+        expect(component.text()).to.equal('–');
+      });
+    });
+
+    it('should not render dash for valid date values', () => {
+      const validDates = [defaultTimestamp, 0, new Date(), '2019-02-14'];
+      validDates.forEach(validDate => {
+        component = shallow(<DateTime value={validDate} useDashForInvalidValues />);
+        expect(component.type().name).to.equal('FormattedDate');
+        expect(component.text()).to.not.equal('–');
+      });
+    });
+  });
 });
