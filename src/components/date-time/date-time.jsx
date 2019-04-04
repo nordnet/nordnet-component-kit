@@ -3,11 +3,23 @@ import React from 'react';
 import { FormattedDate, FormattedTime, FormattedRelative } from 'react-intl';
 import DateTimeIso from '../date-time-iso/date-time-iso';
 import formats from './date-time-formats';
+import { valuePropType } from '../../utils';
+
+const isInvalid = value =>
+  typeof value === 'undefined' || value === null || String(value) === 'Invalid Date' || String(new Date(value)) === 'Invalid Date';
 
 /**
   This is the `<DateTime /> component`
 */
-function DateTime({ value, format, type, iso, ...rest }) {
+function DateTime({ value, format, type, iso, useDashForInvalidValues, ...rest }) {
+  if (useDashForInvalidValues && isInvalid(value)) {
+    return (
+      <span {...rest} aria-hidden="true">
+        –
+      </span>
+    );
+  }
+
   if (iso) {
     return <DateTimeIso value={value} {...rest} />;
   }
@@ -26,6 +38,7 @@ DateTime.defaultProps = {
   format: 'numeric',
   iso: false,
   type: 'date',
+  useDashForInvalidValues: false,
 };
 
 DateTime.propTypes = {
@@ -37,8 +50,9 @@ DateTime.propTypes = {
   /**
     A timestamp.
   */
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.instanceOf(Date)]).isRequired,
+  value: valuePropType,
   type: PropTypes.oneOf(['date', 'time', 'relative']),
+  useDashForInvalidValues: PropTypes.bool,
 };
 
 export default DateTime;
