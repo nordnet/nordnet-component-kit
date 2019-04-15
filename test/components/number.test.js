@@ -244,9 +244,14 @@ describe('<Number />', () => {
     expect(component.find('span').text()).to.equal('–');
   });
 
-  it('should be able to handle NaN value as dash', () => {
+  it('should be able to handle NaN value as dash if useDashForInvalidValues', () => {
     const component = shallow(<Number.WrappedComponent valueClass="test" intl={intl} value={1 / 0} useDashForInvalidValues />);
     expect(component.find('span').text()).to.equal('–');
+  });
+
+  it('should be able to handle NaN value as empty span if not useDashForInvalidValues', () => {
+    const component = shallow(<Number.WrappedComponent valueClass="test" intl={intl} value={1 / 0} />);
+    expect(component.find('span').text()).to.equal('');
   });
 
   it('should be able to handle infinity value as dash', () => {

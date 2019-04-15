@@ -42,12 +42,15 @@ function NumberComponent({
     style,
   );
 
-  if (useDashForInvalidValues && !Number.isFinite(rawValue)) {
-    return (
-      <span {...rest} className={classes} style={styles} aria-hidden="true">
-        –
-      </span>
-    );
+  if (!Number.isFinite(rawValue)) {
+    if (useDashForInvalidValues) {
+      return (
+        <span {...rest} className={classes} style={styles} aria-hidden="true">
+          –
+        </span>
+      );
+    }
+    return <span />;
   }
 
   let value = rawValue;
@@ -65,7 +68,7 @@ function NumberComponent({
   const absFormattedNumber = formatNumber(Math.abs(value), { minimumFractionDigits, maximumFractionDigits });
   const sign = value < 0 ? <span dangerouslySetInnerHTML={{ __html: '&minus;&nbsp;' }} /> : null;
   const formatAriaNumber = n => {
-    const afterDecimalSeparator = n.toString().split('.')[1];
+    const afterDecimalSeparator = typeof n === 'undefined' ? 0 : n.toString().split('.')[1];
     const decimals = afterDecimalSeparator ? afterDecimalSeparator.length : 0;
     if (decimals <= maximumFractionDigits) return n;
     return Number.parseFloat(n).toFixed(maximumFractionDigits);
