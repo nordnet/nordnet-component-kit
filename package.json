@@ -28,10 +28,24 @@
     "semantic-release": "semantic-release",
     "format": "prettier --write '{e2e-test,src}/**/*.{js,jsx}'"
   },
-  "keywords": ["nordnet", "component", "kit", "format", "react", "intl"],
-  "files": ["dist", "src"],
+  "keywords": [
+    "nordnet",
+    "component",
+    "kit",
+    "format",
+    "react",
+    "intl"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
   "lint-staged": {
-    "*.{js,jsx}": ["prettier --write", "eslint", "git add"]
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
   },
   "config": {
     "commitizen": {
@@ -39,13 +53,24 @@
     }
   },
   "nyc": {
-    "require": ["babel-register"],
-    "include": ["src/*"],
-    "extension": [".js", ".jsx"],
+    "require": [
+      "babel-register"
+    ],
+    "include": [
+      "src/*"
+    ],
+    "extension": [
+      ".js",
+      ".jsx"
+    ],
     "all": true,
     "instrument": false,
     "sourceMap": false,
-    "reporter": ["lcov", "text-summary", "text"]
+    "reporter": [
+      "lcov",
+      "text-summary",
+      "text"
+    ]
   },
   "author": "Andreas Broström <andreas.brostrom@nordnet.se>",
   "repository": {
@@ -60,6 +85,11 @@
   "devDependencies": {
     "@commitlint/cli": "4.3.0",
     "@commitlint/config-angular": "4.3.0",
+    "@formatjs/intl-getcanonicallocales": "^1.2.6",
+    "@formatjs/intl-locale": "^2.1.6",
+    "@formatjs/intl-numberformat": "^4.2.6",
+    "@formatjs/intl-pluralrules": "^2.2.6",
+    "@formatjs/intl-relativetimeformat": "^5.2.6",
     "@nordnet/cz-conventional-changelog": "^1.1.0",
     "@nordnet/prettier-config": "^1.0.0",
     "@webpack-blocks/babel6": "^0.4.1",
@@ -77,8 +107,8 @@
     "commitizen": "^2.9.6",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.3",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^4.15.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -88,7 +118,6 @@
     "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
     "in-publish": "^2.0.0",
-    "intl": "^1.2.5",
     "jsdom": "^11.5.1",
     "lint-staged": "^6.0.0",
     "mocha": "^5.0.0",
@@ -97,28 +126,29 @@
     "nyc": "^11.4.1",
     "prettier": "^1.10.2",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-intl": "^2.4.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-intl": "^4.6.9",
     "react-jss": "^7.2.0",
     "react-styleguidist": "^6.2.0",
-    "react-test-renderer": "^16.2.0",
+    "react-test-renderer": "^16.13.0",
     "rimraf": "^2.6.2",
     "semantic-release": "^12.2.2",
     "sinon": "^4.1.6"
   },
   "dependencies": {
+    "@formatjs/intl-utils": "^3.3.1",
     "classnames": "^2.2.5",
     "lodash": "^4.17.5"
   },
   "peerDependencies": {
     "prop-types": ">=15",
     "react": ">=15",
-    "react-intl": ">=2"
+    "react-intl": ">=4"
   },
   "resolutions": {
-    "react": "16.2.0",
-    "react-dom": "16.2.0",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
     "uglify-es": "3.3.7"
   }
 }

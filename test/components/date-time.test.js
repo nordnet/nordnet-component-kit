@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import { FormattedDate, FormattedRelativeTime, FormattedTime } from 'react-intl';
 
 import DateTime from '../../src/components/date-time/date-time';
 
@@ -15,7 +16,7 @@ describe('<DateTime />', () => {
       });
 
       it('should wrap a FormattedDate', () => {
-        expect(component.type().name).to.equal('FormattedDate');
+        expect(component.type()).to.equal(FormattedDate);
       });
 
       it('should set year, month and day to "numeric"', () => {
@@ -47,18 +48,18 @@ describe('<DateTime />', () => {
       });
 
       it('should wrap a FormattedRelative', () => {
-        expect(component.type().name).to.equal('FormattedRelative');
+        expect(component.type()).to.equal(FormattedRelativeTime);
       });
 
-      it('should set style to "numeric" by default', () => {
-        expect(component.prop('style')).to.equal('numeric');
+      it('should set numeric to "always" by default', () => {
+        expect(component.prop('numeric')).to.equal('always');
       });
     });
 
     describe('and format="human"', () => {
-      it('should set style to "best fit" by if format="human"', () => {
+      it('should set numeric to "auto" if format="human"', () => {
         component = shallow(<DateTime value={defaultTimestamp} type="relative" format="human" />);
-        expect(component.prop('style')).to.equal('best fit');
+        expect(component.prop('numeric')).to.equal('auto');
       });
     });
   });
@@ -70,7 +71,7 @@ describe('<DateTime />', () => {
       });
 
       it('should wrap a FormattedTime', () => {
-        expect(component.type().name).to.equal('FormattedTime');
+        expect(component.type()).to.equal(FormattedTime);
       });
 
       it('should set hour, minute and second to "numeric"', () => {
@@ -103,7 +104,7 @@ describe('<DateTime />', () => {
       const validDates = [defaultTimestamp, 0, new Date(), '2019-02-14'];
       validDates.forEach(validDate => {
         component = shallow(<DateTime value={validDate} useDashForInvalidValues />);
-        expect(component.type().name).to.equal('FormattedDate');
+        expect(component.type()).to.equal(FormattedDate);
         expect(component.text()).to.not.equal('–');
       });
     });

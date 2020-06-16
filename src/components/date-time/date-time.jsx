@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { FormattedDate, FormattedTime, FormattedRelative } from 'react-intl';
+import { FormattedDate, FormattedTime, FormattedRelativeTime } from 'react-intl';
+import { selectUnit } from '@formatjs/intl-utils';
 import DateTimeIso from '../date-time-iso/date-time-iso';
 import formats from './date-time-formats';
 import { valuePropType } from '../../utils';
@@ -26,10 +27,14 @@ function DateTime({ value, format, type, iso, useDashForInvalidValues, ...rest }
 
   const components = {
     date: FormattedDate,
-    relative: FormattedRelative,
+    relative: FormattedRelativeTime,
     time: FormattedTime,
   };
   const Component = components[type];
+  if (type === 'relative') {
+    const { value: relativeValue, unit } = selectUnit(value);
+    return <Component value={relativeValue} unit={unit} {...rest} numeric={format === 'human' ? 'auto' : 'always'} />;
+  }
 
   return <Component {...rest} {...formats[type][format]} value={value} />;
 }
