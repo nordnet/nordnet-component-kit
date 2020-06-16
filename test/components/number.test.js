@@ -1,5 +1,5 @@
 import React from 'react';
-import { IntlProvider } from 'react-intl';
+import { createIntl, createIntlCache } from 'react-intl';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
@@ -8,8 +8,15 @@ import { getFractionDigits } from '../../src/utils';
 import Addon from '../../src/components/addon/addon';
 import VisuallyHidden from '../../src/components/visually-hidden/visually-hidden';
 
-const intlProvider = new IntlProvider({ locale: 'en' }, {});
-const { intl } = intlProvider.getChildContext();
+const cache = createIntlCache();
+
+const intl = createIntl(
+  {
+    locale: 'en',
+    messages: {},
+  },
+  cache,
+);
 
 describe('<Number />', () => {
   describe('with default parameter set (value)', () => {

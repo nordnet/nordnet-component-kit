@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import VisuallyHidden from '../visually-hidden/visually-hidden';
 import Addon from '../addon/addon';
@@ -124,7 +124,9 @@ NumberComponent.propTypes = {
       tick: PropTypes.number,
     }),
   ),
-  intl: intlShape.isRequired, // eslint-disable-line react/no-typos
+  intl: PropTypes.shape({
+    formatNumber: PropTypes.func.isRequired,
+  }).isRequired, // eslint-disable-line react/no-typos
 };
 
 NumberComponent.defaultProps = {

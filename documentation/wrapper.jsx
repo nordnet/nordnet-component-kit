@@ -4,17 +4,9 @@ import 'babel-polyfill';
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { addLocaleData, IntlProvider } from 'react-intl';
+import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'react-jss';
 import { Input, theme } from 'nordnet-ui-kit';
-
-import en from 'react-intl/locale-data/en';
-import sv from 'react-intl/locale-data/sv';
-import fi from 'react-intl/locale-data/fi';
-import nb from 'react-intl/locale-data/nb';
-import da from 'react-intl/locale-data/da';
-
-addLocaleData([...en, ...sv, ...fi, ...nb, ...da]);
 
 const options = [
   { label: 'English', value: 'en' },

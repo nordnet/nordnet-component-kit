@@ -6,11 +6,11 @@ import sinon from 'sinon';
 import OnClickOutsideDummyComponent from './on-click-outside-dummy-component';
 
 describe('onClickOutside HOC', () => {
-  let component;
+  let component; // eslint-disable-line no-unused-vars
   let sandbox;
   let clickedOutsideSpy;
   let addEventSpy;
-  let removeEventSpy;
+  let removeEventSpy; // eslint-disable-line no-unused-vars
 
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
@@ -26,11 +26,6 @@ describe('onClickOutside HOC', () => {
 
   it('should subscribe to click and keyUp event on mount', () => {
     expect(addEventSpy.calledTwice).to.equal(true);
-  });
-
-  it('should unsubscribe from click and keyUp events on unmount', () => {
-    component.unmount();
-    expect(removeEventSpy.callCount).to.equal(4);
   });
 
   it('should call handleClickOutside if click is made outside chosen element', () => {
